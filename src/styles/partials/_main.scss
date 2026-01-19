@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    overscroll-behavior: contain;
+    // font-size: var(--font-size);
+
+    &.is-busy,
+    &.is-busy * {
+        cursor: wait !important;
+        pointer-events: none !important;
+    }
+
+    &.is-working,
+    &.is-working * {
+        cursor: progress !important;
+        pointer-events: none !important;
+    }
+}
+
+
+body {
+    // color: var(--fg);
+    // background-color: var(--bg);
+    overflow-x: hidden;
+
+    // transition: background-color var(--scheme-transition-duration);
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    min-height: 100dvh;
+
+}

@@ -1,0 +1,14 @@
+/*!
+
+    ██╗   ██╗██╗      ██████╗ ██╗     ██╗
+    ██║   ██║██║     ██╔═══██╗██║     ██║
+    ██║   ██║██║     ██║   ██║██║     ██║
+    ╚██╗ ██╔╝██║     ██║▄▄ ██║██║     ╚═╝
+     ╚████╔╝ ███████╗╚██████╔╝███████╗██╗
+      ╚═══╝  ╚══════╝ ╚══▀▀═╝ ╚══════╝╚═╝
+
+    Généré: Lundi le 19 janvier à 5 h 28
+    Auteur: Maxime Larrivée-Roy <mlarriveeroy@gmail.com>
+    Github: https://github.com/action-quebec
+
+*/@font-face{font-family:"Dazzle";font-display:block;src:url(./fonts/dazzle-unicase-bold.woff2)format("woff2")}@font-face{font-family:"Logic";font-display:block;src:url(./fonts/logic-monospace-light.woff2)format("woff2")}:root{--font-family:Logic}*{margin:0;padding:0;box-sizing:border-box;font-family:var(--font-family)}html{scroll-behavior:smooth;scrollbar-gutter:stable;overscroll-behavior:contain}html.is-busy,html.is-busy *{cursor:wait!important;pointer-events:none!important}html.is-working,html.is-working *{cursor:progress!important;pointer-events:none!important}body{overflow-x:hidden;display:flex;flex-direction:column;min-height:100dvh;min-height:100dvh}
