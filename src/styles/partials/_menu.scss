@@ -1,0 +1,110 @@
+:root{
+  --logo-w: 60vmin;
+
+  --header-h: 20rem;   /* hauteur courante (pilotée par body.scrollTop) */
+//   --header-max: 160px; /* calculée au load/resize */
+//   --header-min: 80px;
+}
+
+// html{
+//   height: 100%;
+//   overflow: hidden; /* IMPORTANT: pas de scroll sur html */
+// }
+
+// body{
+//   height: 100%;
+//   margin: 0;
+
+//   overflow-y: auto; /* IMPORTANT: c’est le BODY qui scroll */
+//   padding-top: var(--header-max); /* FIXE (sinon tu brises le 1:1) */
+// }
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	// height: var(--header-h);
+	z-index: 2147483647;
+
+	background: var(--color-bg-2);
+	// border-bottom: 1px solid rgba(0, 0, 0, .08);
+	overflow: hidden;
+
+	/* PAS de transition si tu veux un 1:1 strict */
+}
+
+.site-header__inner {
+	// background-color: green;
+	height: 100%;
+	display: flex;
+	align-items: top;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem 1rem;
+}
+
+.brand {
+	flex-shrink: 0;
+	width: 12.40em;
+	// background-color: red;
+	color: var(--color-blue);
+	height: 100%;
+	display: flex;
+	align-items: left;
+	min-width: 0;
+	flex-direction: column;
+	text-decoration: none;
+	font-size: 1.5rem;
+	font-family: var(--font-logo);
+	background-image: url(../images/logo.svg);
+	background-repeat: no-repeat;
+	background-position: center right;
+	height: 4em;
+
+	& > div {
+		// background-color: purple;
+		font-family: inherit;
+		letter-spacing: 0.025em;
+		// background-color: purple;
+	}
+
+	& > div:nth-child(2) {
+		font-size: 1.39em;
+		margin-top: -0.13em;
+	}
+
+	& > div:nth-child(3) {
+		font-size: 0.745em;
+		margin-top: -0.13em;
+	}
+
+}
+
+// .brand img {
+// 	width: var(--logo-w);
+// 	height: auto;
+// 	max-height: 100%;
+// 	display: block;
+// }
+
+.menu {
+	// background-color: green;
+	display: flex;
+	gap: 16px;
+	white-space: nowrap;
+	flex-wrap: nowrap;
+	// font-family: var(--font-logo);
+	// font-family: Arial;
+	a {
+font-family: var(--font-logo);
+	}
+	
+}
+
+/* IMPORTANT: offset effectif du contenu = header-h (sans layout shift) */
+// .page {
+// 	transform: translateY(calc(var(--header-h) - var(--header-max)));
+// 	will-change: transform;
+// }
