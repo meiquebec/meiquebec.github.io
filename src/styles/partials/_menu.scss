@@ -30,7 +30,7 @@ header {
 
 	background: var(--color-bg-2);
 	// border-bottom: 1px solid rgba(0, 0, 0, .08);
-	overflow: hidden;
+	// overflow: hidden;
 
 	/* PAS de transition si tu veux un 1:1 strict */
 }
@@ -46,6 +46,7 @@ header {
 	gap: 1rem;
 	padding: 1rem 1rem;
 	align-items: stretch;
+	// overflow: visible;
 }
 
 .brand {
@@ -136,7 +137,7 @@ header {
 		color: var(--color-blue);
 		// background-color: purple;
 		& > div {
-			width: 1.3rem;
+			width: 1.3em;
 			aspect-ratio: 1/1;
 			background-size: contain;
 			background-position: center center;
@@ -153,8 +154,17 @@ header:has(.burger.open) {
 		display: flex;
 		position: absolute;
 		flex-direction: column;
-		top: 0;
+		top: 100%;
 		right: 0;
+		background-color: var(--color-bg-2);
+		font-size: 2.5rem;
+		width: 100%;
+		align-items: center;
+		padding: 0.5em 0;
+		a {
+			align-self: auto;
+			margin-bottom: 0.2em;
+		}
 	}
 }
 
