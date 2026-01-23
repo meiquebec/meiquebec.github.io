@@ -35,6 +35,8 @@ header {
 	/* PAS de transition si tu veux un 1:1 strict */
 }
 
+
+
 .site-header__inner {
 	// background-color: green;
 	height: 100%;
@@ -43,6 +45,7 @@ header {
 	justify-content: space-between;
 	gap: 1rem;
 	padding: 1rem 1rem;
+	align-items: stretch;
 }
 
 .brand {
@@ -58,7 +61,7 @@ header {
 	text-decoration: none;
 	font-size: 1.5rem;
 	font-family: var(--font-logo);
-	background-image: url(../images/logo.svg);
+	background-image: var(--icon-logo);
 	background-repeat: no-repeat;
 	background-position: center right;
 	height: 4em;
@@ -92,15 +95,95 @@ header {
 .menu {
 	// background-color: green;
 	display: flex;
-	gap: 16px;
+	gap: 0.5rem;
 	white-space: nowrap;
 	flex-wrap: nowrap;
+	align-items: stretch;
 	// font-family: var(--font-logo);
 	// font-family: Arial;
+
+
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
+
+
+
+
+	&__social-medias {
+		display: flex;
+		gap: 0.5rem;
+		white-space: nowrap;
+		flex-wrap: nowrap;
+
+
+
+		&__instagram {
+			background-image: var(--icon-instagram);
+		}
+
+		&__youtube {
+			background-image: var(--icon-youtube);
+		}
+
+	}
+
 	a {
-font-family: var(--font-logo);
+		height: auto;
+		align-self: flex-start;
+		font-family: var(--font-logo);
+		color: var(--color-blue);
+		// background-color: purple;
+		& > div {
+			width: 1.3rem;
+			aspect-ratio: 1/1;
+			background-size: contain;
+			background-position: center center;
+			background-repeat: no-repeat;
+			// background-color: red;
+		}
 	}
 	
+}
+
+
+header:has(.burger.open) {
+	.menu {
+		display: flex;
+		position: absolute;
+		flex-direction: column;
+		top: 0;
+		right: 0;
+	}
+}
+
+
+.burger {
+	display: none;
+	width: 3rem;
+	aspect-ratio: 1/1;
+	align-self: flex-start;
+	background-image: var(--icon-burger);
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	outline: none;
+	border: 0;
+	transition-property: transform;
+	transition-duration: 100ms;
+	cursor: pointer;
+	
+	&.open {
+		transform: rotate(-90deg);
+	}
+
+
+	@media (max-width: 1024px) {
+		display: block;
+	}
+
+
 }
 
 /* IMPORTANT: offset effectif du contenu = header-h (sans layout shift) */

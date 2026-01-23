@@ -1,1 +1,2 @@
-console.log("MÉI");
+import './includes/menu';
+
