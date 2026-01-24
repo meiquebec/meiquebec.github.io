@@ -61,6 +61,7 @@ footer {
     margin-bottom: 2rem;
     opacity: 0.6;
     user-select: none;
+    letter-spacing: var(--font-spacing);
 
     &::before {
         content: '';
@@ -138,6 +139,13 @@ section {
         }
     }
     
+    &.notre-equipe {
+        & > div > div {
+            margin-top: 1rem;
+            background-color: red;
+        
+        }
+    }
 
     & > div {
         width: 85%;
@@ -175,6 +183,7 @@ section {
 
     p {
         margin-top: 1rem;
+        letter-spacing: var(--font-spacing);
     }
 
     ol {
@@ -182,5 +191,6 @@ section {
     }
     li {
          margin-top: 1rem;
+         letter-spacing: var(--font-spacing);
     }
 }
