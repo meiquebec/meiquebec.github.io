@@ -31,7 +31,7 @@ body {
     background-color: var(--color-bg-1);
     overflow-x: hidden;
 
-    padding-top: 14rem;
+    padding-top: 12rem;
 
     // transition: background-color var(--scheme-transition-duration);
 
@@ -48,6 +48,32 @@ main {
     align-items: center;
     flex: 1;
     font-weight: bold;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    // font-weight: 400;
+    height: 5rem;
+    margin-bottom: 2rem;
+    opacity: 0.6;
+    user-select: none;
+
+    &::before {
+        content: '';
+        // width: 1.7em;
+        height: 2.3rem;
+        aspect-ratio: 136/75;
+        background-image: var(--icon-logo);
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+        margin-right: 0.5em;
+        filter: grayscale(100);
+    }
 }
 
 section {
@@ -72,8 +98,8 @@ section {
 
             & > video {
                 width: 100%;
-                padding: 0;
-                margin: 0;
+                // padding: 0;
+                // margin: 0;
             }
 
             & > div {

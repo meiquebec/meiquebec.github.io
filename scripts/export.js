@@ -92,7 +92,7 @@ async function walkAndCopy(dir, ig, stats) {
 				const lower = abs.toLowerCase();
 				if (lower.endsWith('.js')) await fs.writeFile(copied, "/*!\n\n" + bannerContent + "\n\n*/" + (await fs.readFile(copied, 'utf8')), "utf8");
 				else if (lower.endsWith('.css')) await fs.writeFile(copied, "/*!\n\n" + bannerContent + "\n\n*/" + (await fs.readFile(copied, 'utf8')), "utf8");
-				else if (lower.endsWith('.html')) await fs.writeFile(copied, "<!--\n\n" + bannerContent + "\n\n\-->\n" + (await fs.readFile(copied, 'utf8')), "utf8");
+				else if (lower.endsWith('.html')) await fs.writeFile(copied, "<!--\n\n" + bannerContent + "\n\n\-->\n" + (await fs.readFile(copied, 'utf8')).replaceAll(/###YEAR###/g, (new Date).getFullYear()), "utf8");
 				stats.copied++;
 			}
 			else stats.skipped++;
