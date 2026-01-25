@@ -9,9 +9,7 @@
 
 html {
     scroll-behavior: smooth;
-    scrollbar-gutter: stable;
     scroll-padding-top: var(--scroll-top);
-    overscroll-behavior: contain;
     font-size: var(--font-size);
 }
 
@@ -32,7 +30,7 @@ main {
     flex-direction: column;
     align-items: center;
     flex: 1;
-    font-weight: bold;
+    hyphens: auto;
 }
 
 
@@ -63,14 +61,15 @@ footer {
 section {
     position: relative;
     width: 100%;
-    max-width: var(--font-size-break);
+    max-width: calc(var(--font-size-break) - 16px);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 6rem;
    
     & > div {
-        width: 85%;
+        position: relative;
+        width: 88%;
         background-color: var(--color-green);
         border-radius: 2rem;
         padding: 2rem;
@@ -79,8 +78,8 @@ section {
         &::after {
             content: "";
             position: absolute;
-            right: 1.0rem;
-            top: -1.6rem;
+            right: -2rem;
+            top: -2rem;
             width: 4rem;
             aspect-ratio: 1/1;
             background-image: var(--icon-etoile);
@@ -133,12 +132,12 @@ section {
 section.intro-video {
     & > div {
         padding: 0;
-        overflow: hidden;
         line-height: 0;
         aspect-ratio: 16/9;
 
         & > video {
             width: 100%;
+            border-radius: 2rem;
         }
 
         & > div {

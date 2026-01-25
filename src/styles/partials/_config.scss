@@ -2,13 +2,13 @@
 
 $font-family:  Logic;
 $font-logo:    Dazzle;
-$font-spacing: -0.07em;
+$font-spacing: -0.07em;// !important;
 
 $font-base:   24;
 $font-break:  1024;
 $font-resp:   calc($font-base * 100 / $font-break);
 
-$scroll-top: 12rem;
+$scroll-top:  12rem;
 
 $color-fg:    #2c231a;
 $color-bg:    #fef3d5;
