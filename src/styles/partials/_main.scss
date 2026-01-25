@@ -134,12 +134,28 @@ section {
         // letter-spacing: var(--font-spacing);
     }
 
-    ol {
-        margin: 0 2rem;
+    ul {
+        position: relative;
+        margin: 0 2.5rem;
+        padding-left: 0;
+        list-style: none;
     }
+
     li {
-         margin-top: 1rem;
-        //  letter-spacing: var(--font-spacing);
+        position: relative;
+        margin-top: 1rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: -2.5em;
+            top: 6px;
+            width: 2em;
+            height: 2em;
+            background-repeat: no-repeat;
+            background-image: var(--icon-arrow);
+            background-size: contain;
+        }
     }
 }
 
@@ -254,7 +270,7 @@ section.notre-equipe {
 
 a {
     color: var(--color-blue);
-    
+
     &[href*="mailto:"]::after {
         content: '';
         display: inline-block;
