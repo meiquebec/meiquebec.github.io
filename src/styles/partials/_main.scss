@@ -30,7 +30,7 @@ html {
 
 body {
     color: var(--color-fg);
-    background-color: var(--color-bg-1);
+    background-color: var(--color-bg);
     overflow-x: hidden;
 
     padding-top: var(--scroll-top);
@@ -131,7 +131,7 @@ section {
 
     p {
         margin-top: 1rem;
-        // letter-spacing: var(--font-spacing);
+        letter-spacing: var(--font-spacing);
     }
 
     ul {
@@ -166,6 +166,7 @@ section.intro-video {
         padding: 0;
         overflow: hidden;
         line-height: 0;
+        aspect-ratio: 16/9;
 
         & > video {
             width: 100%;

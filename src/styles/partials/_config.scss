@@ -11,9 +11,7 @@ $font-resp:   calc($font-base * 100 / $font-break);
 $scroll-top: 12rem;
 
 $color-fg: #2c231a;
-// $color-fg: #000;
-$color-bg-1: #fef3d5;
-$color-bg-2: #fef3d5;
+$color-bg: #fef3d5;
 
 $color-blue: #1a0088;
 $color-green: #b8ce52;
@@ -37,8 +35,8 @@ $color-red-hex: string.unquote('#{string.slice(ie-hex-str($color-red), 4)}');
 	--scroll-top:      #{$scroll-top};
 
 	--color-fg:   #{$color-fg};
-	--color-bg-1: #{$color-bg-1};
-	--color-bg-2: #{$color-bg-2};
+	--color-bg: #{$color-bg};
+	--color-bg: #{$color-bg};
 
 	--color-blue:  #{$color-blue};
 	--color-green: #{$color-green};
