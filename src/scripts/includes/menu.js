@@ -7,6 +7,12 @@ window.Menu = {
 		// console.log("patate");
 		this.burger = document.querySelector('.burger');
 		this.burger.addEventListener('click', () => this.toggleBurger());
+
+		document.querySelectorAll('.menu a').forEach(elm => {
+			elm.addEventListener('click', () => {
+				this.burger.classList.remove('open');
+			});
+		});
 	},
 
 	toggleBurger: async function() {

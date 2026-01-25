@@ -10,6 +10,7 @@
 html {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
+    scroll-padding-top: var(--scroll-top);
     overscroll-behavior: contain;
     font-size: var(--font-size);
 
@@ -32,7 +33,7 @@ body {
     background-color: var(--color-bg-1);
     overflow-x: hidden;
 
-    padding-top: 12rem;
+    padding-top: var(--scroll-top);
 
     // transition: background-color var(--scheme-transition-duration);
 
@@ -247,5 +248,22 @@ section.notre-equipe {
         }
 
 
+    }
+}
+
+
+a {
+    color: var(--color-blue);
+    
+    &[href*="mailto:"]::after {
+        content: '';
+        display: inline-block;
+        width: 1em;
+        aspect-ratio: 1/1;
+        background-image: var(--icon-mail);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 0.1em;
     }
 }
