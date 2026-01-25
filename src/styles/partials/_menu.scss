@@ -1,10 +1,10 @@
-:root{
-  --logo-w: 60vmin;
+// :root{
+//   --logo-w: 60vmin;
 
-  --header-h: 20rem;   /* hauteur courante (pilotée par body.scrollTop) */
-//   --header-max: 160px; /* calculée au load/resize */
-//   --header-min: 80px;
-}
+//   --header-h: 20rem;   /* hauteur courante (pilotée par body.scrollTop) */
+// //   --header-max: 160px; /* calculée au load/resize */
+// //   --header-min: 80px;
+// }
 
 // html{
 //   height: 100%;
@@ -24,30 +24,22 @@ header {
 	top: 0;
 	left: 0;
 	right: 0;
-
-	// height: var(--header-h);
 	z-index: 2147483647;
-
 	background: var(--color-bg-2);
-	// border-bottom: 1px solid rgba(0, 0, 0, .08);
-	// overflow: hidden;
 
-	/* PAS de transition si tu veux un 1:1 strict */
+	& > div {
+		height: 100%;
+		display: flex;
+		align-items: top;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 1rem;
+		align-items: stretch;
+	}
+
 }
 
 
-
-.site-header__inner {
-	// background-color: green;
-	height: 100%;
-	display: flex;
-	align-items: top;
-	justify-content: space-between;
-	gap: 1rem;
-	padding: 1rem 1rem;
-	align-items: stretch;
-	// overflow: visible;
-}
 
 .brand {
 	flex-shrink: 0;
@@ -111,15 +103,11 @@ header {
 	}
 
 
-
-
 	&__social-medias {
 		display: flex;
 		gap: 0.5rem;
 		white-space: nowrap;
 		flex-wrap: nowrap;
-
-
 
 		&__instagram {
 			background-image: var(--icon-instagram);
@@ -136,6 +124,7 @@ header {
 		align-self: flex-start;
 		font-family: var(--font-logo);
 		color: var(--color-blue);
+		letter-spacing: 0;
 		// background-color: purple;
 		& > div {
 			width: 1.3em;
@@ -182,7 +171,7 @@ header:has(.burger.open) {
 	outline: none;
 	border: 0;
 	transition-property: transform;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
 	cursor: pointer;
 	
 	&.open {
@@ -196,9 +185,3 @@ header:has(.burger.open) {
 
 
 }
-
-/* IMPORTANT: offset effectif du contenu = header-h (sans layout shift) */
-// .page {
-// 	transform: translateY(calc(var(--header-h) - var(--header-max)));
-// 	will-change: transform;
-// }

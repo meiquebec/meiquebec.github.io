@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-family);
+    letter-spacing: var(--font-spacing);
 }
 
 
@@ -52,16 +53,17 @@ main {
 
 
 footer {
+    // background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
     // font-weight: 400;
     height: 5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     opacity: 0.6;
     user-select: none;
-    letter-spacing: var(--font-spacing);
+    // letter-spacing: var(--font-spacing);
 
     &::before {
         content: '';
@@ -90,63 +92,7 @@ section {
     // margin-left: 4rem;
     // margin-right: 4rem;
 
-    &.intro-video {
-        & > div {
-            // position: relative;
-            padding: 0;
-            overflow: hidden;
-            line-height: 0;
-
-            & > video {
-                width: 100%;
-                // padding: 0;
-                // margin: 0;
-            }
-
-            & > div {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                // background-color: purple;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                padding: 0 5rem;
-
-                & > div {
-                    font-family: var(--font-logo);
-                    text-transform: uppercase;
-                    font-size: 3rem;
-                    color: white;
-                    text-shadow: 0 0 1rem rgba(0,0,0,0.5);
-                }
-
-                & > div:nth-child(1) {
-                    text-align: left;
-                }
-
-                & > div:nth-child(2) {
-                    text-align: center;
-                }
-
-                & > div:nth-child(3) {
-                    text-align: right;
-                }
-            }
-        
-        }
-    }
-    
-    &.notre-equipe {
-        & > div > div {
-            margin-top: 1rem;
-            background-color: red;
-        
-        }
-    }
-
+   
     & > div {
         width: 85%;
         background-color: var(--color-green);
@@ -179,11 +125,12 @@ section {
         font-weight: normal;
         font-family: var(--font-logo);
         text-transform: uppercase;
+        letter-spacing: 0;
     }
 
     p {
         margin-top: 1rem;
-        letter-spacing: var(--font-spacing);
+        // letter-spacing: var(--font-spacing);
     }
 
     ol {
@@ -191,6 +138,114 @@ section {
     }
     li {
          margin-top: 1rem;
-         letter-spacing: var(--font-spacing);
+        //  letter-spacing: var(--font-spacing);
+    }
+}
+
+
+section.intro-video {
+    & > div {
+        // position: relative;
+        padding: 0;
+        overflow: hidden;
+        line-height: 0;
+
+        & > video {
+            width: 100%;
+            // padding: 0;
+            // margin: 0;
+        }
+
+        & > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            // background-color: purple;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding: 0 5rem;
+
+            & > div {
+                font-family: var(--font-logo);
+                text-transform: uppercase;
+                font-size: 3rem;
+                color: white;
+                text-shadow: 0 0 1rem rgba(0,0,0,0.5);
+                letter-spacing: 0;
+            }
+
+            & > div:nth-child(1) {
+                text-align: left;
+            }
+
+            & > div:nth-child(2) {
+                text-align: center;
+            }
+
+            & > div:nth-child(3) {
+                text-align: right;
+            }
+        }
+    
+    }
+}
+
+section.notre-equipe {
+    & > div > div {
+        display: flex;
+        flex-direction: row;
+        margin-top: 1rem;
+        // background-color: red;
+    
+        & > div:not(:first-child) {
+            padding-top: 1rem;
+        }
+
+        & > div:nth-child(1) {
+            width: 10rem;
+            flex: 0 0 10rem;
+            flex-grow: 0;
+            align-self: flex-start;
+            aspect-ratio: 272/239;
+            // background-color: yellow;
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            mask-image: var(--icon-explosion);
+            -webkit-mask-image: var(--icon-explosion);
+            // border: 3px solid tomato;
+
+            &.rene-levesque {
+                background-image: url(../images/rene-levesque.webp);
+            }
+
+            &.lucien-bouchard {
+                background-image: url(../images/lucien-bouchard.webp);
+            }
+
+            &.bernard-landry {
+                background-image: url(../images/bernard-landry.webp);
+            }
+        }
+
+        & > div:nth-child(2) {
+            padding: 0 0 0 1rem;
+
+            & > div:nth-child(1) {
+                font-size: 1.5em;
+            }
+            & > div:nth-child(2) {
+                font-size: 1.2em;
+            }
+
+            & > div:nth-child(3) {
+                padding-top: 0.5rem;
+            }
+        }
+
+
     }
 }
