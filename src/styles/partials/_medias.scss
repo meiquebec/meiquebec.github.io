@@ -6,7 +6,10 @@ section.medias {
 		margin-top: 2rem;
 
 		& > a {
-			background-color: var(--color-red);
+			// background-color: var(--color-red);
+			// background-color: rgba(0, 0, 0, 0.2);
+			// background-color: var(--color-bg);
+			background-color: rgba(255, 255, 255, 0.3);
 			display: flex;
 			flex-direction: column;
 			border-radius: 0.5rem;
@@ -21,7 +24,7 @@ section.medias {
 				transform: scale(1.03);
 			}
 
-			img {
+			& > img {
 				display: block;
 				width: 100%;
 			}
