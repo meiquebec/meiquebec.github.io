@@ -13,18 +13,6 @@ html {
     scroll-padding-top: var(--scroll-top);
     overscroll-behavior: contain;
     font-size: var(--font-size);
-
-    &.is-busy,
-    &.is-busy * {
-        cursor: wait !important;
-        pointer-events: none !important;
-    }
-
-    &.is-working,
-    &.is-working * {
-        cursor: progress !important;
-        pointer-events: none !important;
-    }
 }
 
 
@@ -32,17 +20,12 @@ body {
     color: var(--color-fg);
     background-color: var(--color-bg);
     overflow-x: hidden;
-
     padding-top: var(--scroll-top);
-
-    // transition: background-color var(--scheme-transition-duration);
-
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
-    min-height: 100dvh;
-
 }
+
 
 main {
     display: flex;
@@ -54,21 +37,17 @@ main {
 
 
 footer {
-    // background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
-    // font-weight: 400;
     height: 5rem;
     margin-bottom: 3rem;
     opacity: 0.6;
     user-select: none;
-    // letter-spacing: var(--font-spacing);
 
     &::before {
         content: '';
-        // width: 1.7em;
         height: 2.3rem;
         aspect-ratio: 136/75;
         background-image: var(--icon-logo);
@@ -80,6 +59,7 @@ footer {
     }
 }
 
+
 section {
     position: relative;
     width: 100%;
@@ -87,12 +67,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     margin-bottom: 6rem;
-    // margin: 2rem 4rem;
-    // margin-left: 4rem;
-    // margin-right: 4rem;
-
    
     & > div {
         width: 85%;
@@ -104,13 +79,10 @@ section {
         &::after {
             content: "";
             position: absolute;
-            // right: -2rem;
-            // top: -2rem;
-            right: 1.2rem;
-            top: -1.8rem;
+            right: 1.0rem;
+            top: -1.6rem;
             width: 4rem;
             aspect-ratio: 1/1;
-            // background-color: purple;
             background-image: var(--icon-etoile);
             background-size: contain;
             background-repeat: no-repeat;
@@ -119,8 +91,6 @@ section {
         }
         
     }
-
-
 
     h2 {
         font-weight: normal;
@@ -162,7 +132,6 @@ section {
 
 section.intro-video {
     & > div {
-        // position: relative;
         padding: 0;
         overflow: hidden;
         line-height: 0;
@@ -170,8 +139,6 @@ section.intro-video {
 
         & > video {
             width: 100%;
-            // padding: 0;
-            // margin: 0;
         }
 
         & > div {
@@ -180,7 +147,6 @@ section.intro-video {
             left: 0;
             width: 100%;
             height: 100%;
-            // background-color: purple;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -215,26 +181,22 @@ section.notre-equipe {
     & > div > div {
         display: flex;
         flex-direction: row;
-        margin-top: 1rem;
-        // background-color: red;
+        margin-top: 2rem;
     
         & > div:not(:first-child) {
-            padding-top: 1rem;
+            padding-top: 2rem;
         }
 
         & > div:nth-child(1) {
             width: 10rem;
             flex: 0 0 10rem;
-            flex-grow: 0;
             align-self: flex-start;
             aspect-ratio: 272/239;
-            // background-color: yellow;
             background-position: center center;
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
             mask-image: var(--icon-explosion);
             -webkit-mask-image: var(--icon-explosion);
-            // border: 3px solid tomato;
 
             &.rene-levesque {
                 background-image: url(../images/rene-levesque.webp);

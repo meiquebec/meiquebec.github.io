@@ -1,17 +1,15 @@
 section.medias {
     & > div > div {
-		margin-top: 2rem;
-		// background-color: purple;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr); /* 3 de large */
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1rem;
+		margin-top: 2rem;
 
 		& > a {
 			background-color: var(--color-red);
 			display: flex;
 			flex-direction: column;
-			border-top-left-radius: 0.5rem;
-			border-top-right-radius: 0.5rem;
+			border-radius: 0.5rem;
 			overflow: hidden;
 			text-decoration: none;
 			color: var(--color-fg);
@@ -26,7 +24,6 @@ section.medias {
 				hyphens: auto;
 				font-size: 0.8rem;
 				padding: 0.7rem;
-				// font-weight: normal;
 			}
 
 			& > div:nth-of-type(2) {
@@ -35,7 +32,6 @@ section.medias {
 				padding: 0.5rem;
 				text-align: right;
 				margin-top: auto; 
-				// font-weight: normal;
 			}
 		}
 	}
