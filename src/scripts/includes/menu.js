@@ -1,18 +1,11 @@
 window.Menu = {
-
-
+	
 	burger: null,
 
 	init: async function() {
-		// console.log("patate");
 		this.burger = document.querySelector('.burger');
 		this.burger.addEventListener('click', () => this.toggleBurger());
-
-		document.querySelectorAll('.menu a').forEach(elm => {
-			elm.addEventListener('click', () => {
-				this.burger.classList.remove('open');
-			});
-		});
+		document.addEventListener('click', () => this.burger.classList.remove('open'), true);
 	},
 
 	toggleBurger: async function() {
