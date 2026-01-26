@@ -137,6 +137,7 @@ section.intro-video {
 
         & > video {
             width: 100%;
+            aspect-ratio: 16/9;
             border-radius: 2rem;
         }
 
@@ -215,6 +216,7 @@ section.notre-equipe {
 
             & > div:nth-child(1) {
                 font-size: 1.5em;
+                // font-weight: bold;
             }
             & > div:nth-child(2) {
                 font-size: 1.2em;
