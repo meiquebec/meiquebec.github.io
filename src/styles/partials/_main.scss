@@ -43,8 +43,10 @@ footer {
     font-size: 0.8rem;
     height: 5rem;
     margin-bottom: 3rem;
-    opacity: 0.6;
+    // opacity: 0.9;
     user-select: none;
+    filter: grayscale(100);
+    color: var(--color-green);
 
     &::before {
         content: '';
@@ -55,7 +57,7 @@ footer {
         background-position: left center;
         background-repeat: no-repeat;
         margin-right: 0.5em;
-        filter: grayscale(100);
+        
     }
 }
 
@@ -136,6 +138,7 @@ section.intro-video {
         padding: 0;
         line-height: 0;
         aspect-ratio: 16/9;
+        user-select: none;
 
         & > video {
             width: 100%;
