@@ -61,7 +61,7 @@ header {
 	align-items: stretch;
 	text-transform: uppercase;
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1180px) {
 		display: none;
 	}
 
@@ -141,7 +141,7 @@ header:has(.burger.open) {
 	}
 
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1180px) {
 		display: block;
 	}
 
