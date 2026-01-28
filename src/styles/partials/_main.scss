@@ -82,8 +82,8 @@ section {
         &::after {
             content: "";
             position: absolute;
-            right: -1.8rem;
-            top: -1.8rem;
+            right: -1.6rem;
+            top: -1.6rem;
             width: 4rem;
             aspect-ratio: 1/1;
             background-image: var(--icon-etoile);
@@ -146,7 +146,7 @@ section.intro-video {
             border-radius: 2rem;
             display: block;
             object-fit: cover;
-            background: #000;
+            background: var(--color-green);
         }
 
         & > div {
@@ -196,8 +196,9 @@ section.notre-equipe {
         }
 
         & > div:nth-child(1) {
-            width: 10rem;
-            flex: 0 0 10rem;
+            // background-color: red;
+            // width: 10rem;
+            flex: 0 0 8rem;
             align-self: flex-start;
             aspect-ratio: 272/239;
             background-position: center center;
@@ -241,7 +242,7 @@ section.notre-equipe {
                 // font-weight: bold;
             }
             & > div:nth-child(2) {
-                font-size: 1.15em;
+                font-size: 1.1em;
             }
 
             & > div:nth-child(3) {
