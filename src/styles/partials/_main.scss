@@ -203,28 +203,42 @@ section.notre-equipe {
             mask-image: var(--icon-explosion);
             -webkit-mask-image: var(--icon-explosion);
 
-            &.rene-levesque {
-                background-image: url(../images/rene-levesque.webp);
+            &.leonard-vidal {
+                background-image: url(../images/equipe/leonard-vidal.webp);
             }
 
-            &.lucien-bouchard {
-                background-image: url(../images/lucien-bouchard.webp);
+            &.catherine-lamoureux-schmidt {
+                background-image: url(../images/equipe/catherine-lamoureux-schmidt.webp);
             }
 
-            &.bernard-landry {
-                background-image: url(../images/bernard-landry.webp);
+            &.remi-fecteau {
+                background-image: url(../images/equipe/remi-fecteau.webp);
             }
+
+            &.louis-simon-poirier {
+                background-image: url(../images/equipe/louis-simon-poirier.webp);
+            }
+
+            &.saskia-wagner {
+                background-image: url(../images/equipe/saskia-wagner.webp);
+            }
+
+            &.alexis-gagnon {
+                background-image: url(../images/equipe/alexis-gagnon.webp);
+            }
+
         }
 
         & > div:nth-child(2) {
             padding: 0 0 0 1rem;
 
             & > div:nth-child(1) {
-                font-size: 1.5em;
+                font-size: 1.3em;
+                white-space: nowrap;
                 // font-weight: bold;
             }
             & > div:nth-child(2) {
-                font-size: 1.2em;
+                font-size: 1.15em;
             }
 
             & > div:nth-child(3) {
