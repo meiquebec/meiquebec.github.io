@@ -144,6 +144,9 @@ section.intro-video {
             width: 100%;
             aspect-ratio: 16/9;
             border-radius: 2rem;
+            display: block;
+            object-fit: cover;
+            background: #000;
         }
 
         & > div {
