@@ -147,6 +147,9 @@ section.intro-video {
             display: block;
             object-fit: cover;
             background: var(--color-green);
+            // filter: grayscale(100);
+            
+filter: contrast(115%);
         }
 
         & > div {
