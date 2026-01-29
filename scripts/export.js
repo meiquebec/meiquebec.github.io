@@ -15,6 +15,7 @@ function formatFrDate(dateInput = new Date(), timeZone = 'America/Toronto') {
 		weekday: 'long',
 		day: 'numeric',
 		month: 'long',
+		year: 'numeric',
 		hour: 'numeric',
 		minute: '2-digit',
 		hour12: false,
@@ -22,7 +23,7 @@ function formatFrDate(dateInput = new Date(), timeZone = 'America/Toronto') {
 	});
 	const parts = Object.fromEntries(fmt.formatToParts(d).map(p => [p.type, p.value]));
 	const weekday = parts.weekday.charAt(0).toUpperCase() + parts.weekday.slice(1); // "Samedi"
-	return `${weekday} le ${parts.day} ${parts.month} à ${parts.hour} h ${parts.minute}`;
+	return `${weekday} le ${parts.day} ${parts.month} ${parts.year} à ${parts.hour} h ${parts.minute}`;
 }
 
 

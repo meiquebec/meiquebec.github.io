@@ -43,7 +43,6 @@ footer {
     font-size: 0.8rem;
     height: 5rem;
     margin-bottom: 3rem;
-    // opacity: 0.9;
     user-select: none;
     filter: grayscale(100);
     color: var(--color-green);
@@ -197,8 +196,6 @@ section.notre-equipe {
         }
 
         & > div:nth-child(1) {
-            // background-color: red;
-            // width: 10rem;
             flex: 0 0 8rem;
             align-self: flex-start;
             aspect-ratio: 272/239;
