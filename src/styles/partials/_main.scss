@@ -76,7 +76,7 @@ section {
         background-color: var(--color-green);
         border-radius: 2rem;
         padding: 2rem;
-        box-shadow: 0 0.3rem 0.3rem 0.3rem rgba(0,0,0,0.1);
+        box-shadow: 0 0.2rem 0.4rem 0.3rem rgba(0,0,0,0.1);
 
         &::after {
             content: "";
@@ -147,9 +147,7 @@ section.intro-video {
             display: block;
             object-fit: cover;
             background: var(--color-green);
-            // filter: grayscale(100);
-            
-filter: contrast(115%);
+            filter: contrast(115%);
         }
 
         & > div {
@@ -201,12 +199,14 @@ section.notre-equipe {
         & > div:nth-child(1) {
             flex: 0 0 8rem;
             align-self: flex-start;
-            aspect-ratio: 272/239;
+            // aspect-ratio: 272/239;
+            aspect-ratio: 1/1;
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
-            mask-image: var(--icon-explosion);
-            -webkit-mask-image: var(--icon-explosion);
+            border-radius: 50%;
+            // mask-image: var(--icon-explosion);
+            // -webkit-mask-image: var(--icon-explosion);
 
             &.leonard-vidal {
                 background-image: url(../images/equipe/leonard-vidal.webp);

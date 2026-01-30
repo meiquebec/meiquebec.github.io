@@ -28,12 +28,15 @@ header {
 	min-width: 0;
 	flex-direction: column;
 	text-decoration: none;
-	font-size: 1.2rem;
+	font-size: calc(1.2rem - calc(var(--scroll-pos) * 0.4rem));
 	font-family: var(--font-logo);
 	background-image: var(--icon-logo);
 	background-repeat: no-repeat;
 	background-position: center right;
 	height: 4em;
+
+	transition-property: font-size;
+	transition-duration: 50ms;
 
 	& > div {
 		font-family: inherit;
