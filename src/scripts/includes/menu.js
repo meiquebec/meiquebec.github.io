@@ -30,6 +30,7 @@ window.Menu = {
 	setScrollY: async function() {
  		let pos = window.scrollY || document.documentElement.scrollTop;
 		if(pos > this.maxscroll) pos = this.maxscroll;
+		if(pos < 0) pos = 0;
 		const perc = pos / this.maxscroll;
 		if(perc != this.scrollpos) {
 			this.scrollpos = perc;
