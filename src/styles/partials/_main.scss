@@ -34,7 +34,7 @@ body {
         background-repeat: no-repeat;
         background-image: var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1);
         background-size: var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1);
-        animation: drift9 22s linear var(--drift-time-delay) infinite;
+        animation: drift9 var(--drift-time) linear var(--drift-time-delay) infinite;
     }
 }
 
