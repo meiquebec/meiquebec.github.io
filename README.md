@@ -1,4 +1,4 @@
-# action.quebec
+# mei.quebec
 Mouvement Étudiant Indépendantiste \
 https://mei.quebec
 
