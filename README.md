@@ -1,13 +1,13 @@
 # action.quebec
-Calendrier indépendantiste Québécois \
-https://action.quebec
+Mouvement Étudiant Indépendantiste \
+https://mei.quebec
 
 
 ## Installation
 
 ```bash
-git clone https://github.com/action-quebec/action-quebec.github.io.git
-cd action-quebec.github.io
+git clone https://github.com/meiquebec/meiquebec.github.io.git
+cd meiquebec.github.io
 npm install
 code .
 ```
@@ -18,8 +18,9 @@ code .
 
 
 ## À propos
-action.quebec est une initiative de la Société Saint-Jean-Baptiste de Montréal (SSJB) visant à rassembler et mettre en valeur les événements culturels et communautaires indépendantistes. Le code est ouvert (open source) afin de favoriser la transparence, la réutilisation et les contributions de la communauté.
+Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers le tout Québec. L’organisation mobilise et représente tous les étudiants en vu de construire un Québec pays.
+Le code est ouvert (open source) afin de favoriser la transparence, la réutilisation et les contributions de la communauté.
 
 - Contribuer : propose des idées et correctifs via Issues et Pull Requests.
 - Licence : voir le fichier [LICENSE](LICENSE).
-- Contact : ouvre une Issue ou [écris-nous ✉](mailto:info@action.quebec).
+- Contact : ouvre une Issue ou [écris-nous ✉](mailto:mouvement.ei@gmail.com).
