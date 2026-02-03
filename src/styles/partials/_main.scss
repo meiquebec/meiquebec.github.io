@@ -25,7 +25,7 @@ body {
     min-height: 100dvh;
     max-width: 100%;
 
-    &::before {
+    &:not(&[data-brand="logo"])::before {
         content: "";
         position: fixed;
         inset: calc(var(--scroll-top) / 2) 0 0 0;
@@ -35,6 +35,16 @@ body {
         background-image: var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1), var(--icon-particule-2), var(--icon-particule-1);
         background-size: var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1), var(--particule-size-2) var(--particule-size-2), var(--particule-size-1) var(--particule-size-1);
         animation: drift9 var(--drift-time) linear var(--drift-time-delay) infinite;
+    }
+
+    &[data-brand="logo"] {
+        align-items: center;
+        justify-content: center;
+        padding-top: 0;
+
+        a.brand {
+            font-size: 10vmin;
+        }
     }
 }
 
