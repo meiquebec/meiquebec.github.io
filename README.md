@@ -17,7 +17,7 @@ code .
 - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (Serveur web intégré)
 
 
-## À propos du MÉI
+## À propos
 Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers le tout Québec. L’organisation mobilise et représente tous les étudiants en vu de construire un Québec pays.
 Le code est ouvert (open source) afin de favoriser la transparence, la réutilisation et les contributions de la communauté.
 
