@@ -1,7 +1,6 @@
-const fs = require("node:fs");
 const path = require("node:path");
+const { createWatchers, buildCSS, buildJS } = require("chokibasic");
 
-const { createWatchers, buildCSS, buildJS } = require("./watcher");
 const { close } = createWatchers(
 	[
 		{
@@ -13,7 +12,7 @@ const { close } = createWatchers(
 				console.log("[js] batch", events.length, events.map(e => e.file));
 				const entry = path.resolve(__dirname, "../src/scripts/mei.core.js");
 				const outfile = path.resolve(__dirname, "../src/scripts/mei.core.min.js");
-				buildJS(entry, outfile);
+				await buildJS(entry, outfile);
 			},
 		},
 		{
@@ -24,7 +23,7 @@ const { close } = createWatchers(
 				console.log("[scss] batch", events.length, events.map(e => e.file));
 				const inputScss = path.resolve(__dirname, "../src/styles/mei.core.scss");
 				const outCssMin = path.resolve(__dirname, "../src/styles/mei.core.min.css");
-				buildCSS(inputScss, outCssMin);
+				await buildCSS(inputScss, outCssMin);
 			},
 		},
 	],
