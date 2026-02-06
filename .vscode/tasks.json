@@ -2,26 +2,21 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "build:js",
+			"label": "build:watch",
 			"type": "npm",
-			"script": "buildjs",
+			"script": "watch",
+			"isBackground": true,
+			"runOptions": {
+				"runOn": "folderOpen",
+				"instanceLimit": 1
+			},
 			"presentation": {
 				"panel": "shared",
-				"group": "build",
+				"group": "build-watch",
 				"reveal": "never",
 				"showReuseMessage": false
 			},
-		},
-		{
-			"label": "build:css",
-			"type": "npm",
-			"script": "buildcss",
-			"presentation": {
-				"panel": "shared",
-				"group": "build",
-				"reveal": "never",
-				"showReuseMessage": false
-			}
+			"problemMatcher": []
 		}
 	]
 }

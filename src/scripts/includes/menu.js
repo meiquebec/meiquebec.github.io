@@ -13,7 +13,7 @@ window.Menu = {
 		window.addEventListener('resize', () => this.setPaddingTop(), { passive: true });
 		this.setPaddingTop();
 	},
-
+	
 
 	toggleBurger: async function() {
 		this.burger.classList.toggle('open');
