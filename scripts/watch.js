@@ -1,6 +1,7 @@
 const path = require("node:path");
 const { createWatchers, buildCSS, buildJS } = require("chokibasic");
 
+process.stdout.write('\x1b]0;build-watcher\x07');
 const { close } = createWatchers(
 	[
 		{
@@ -13,6 +14,7 @@ const { close } = createWatchers(
 				const entry = path.resolve(__dirname, "../src/scripts/mei.core.js");
 				const outfile = path.resolve(__dirname, "../src/scripts/mei.core.min.js");
 				await buildJS(entry, outfile);
+				console.log("");
 			},
 		},
 		{
@@ -24,6 +26,7 @@ const { close } = createWatchers(
 				const inputScss = path.resolve(__dirname, "../src/styles/mei.core.scss");
 				const outCssMin = path.resolve(__dirname, "../src/styles/mei.core.min.css");
 				await buildCSS(inputScss, outCssMin);
+				console.log("");
 			},
 		},
 	],

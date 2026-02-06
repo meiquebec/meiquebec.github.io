@@ -23,7 +23,7 @@ foreach(glob($SRCDIR . '*', GLOB_ONLYDIR) as $dir) {
         
         echo $src.RN;
         gdresize($src, $dst, 800, 600, false);
-        gdresize($src, $dsttb, 300, 400, true);
+        gdresize($src, $dsttb, 240, 320, true);
         
         $files[] = [
             'src' => '/images/galeries/' . $gallery_name . '/' . pathinfo($dst, PATHINFO_BASENAME),
