@@ -1,7 +1,7 @@
 const path = require("node:path");
 const { createWatchers, buildCSS, buildJS } = require("chokibasic");
+// const { createWatchers, buildCSS, buildJS } = require("../../chokibasic/src/watcher");
 
-process.stdout.write('\x1b]0;build-watcher\x07');
 const { close } = createWatchers(
 	[
 		{

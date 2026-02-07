@@ -1,20 +1,86 @@
 @use "swiper/swiper-bundle.css";
 
 
-.gallery-swiper {
 
-	// height: 10rem;
+.gallery {
+
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: stretch;
+	gap: 0.5rem;
 	margin-top: 2rem;
+
+
+	&>.gallery-prev,
+	&>.gallery-next {
+		position: relative;
+		height: 100%;
+		font-size: 0;
+		aspect-ratio: 9/52;
+		flex: 0 0 auto;
+		display: flex;
+		cursor: pointer;		
+
+		&:hover::before {
+			background-size: 90%;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			aspect-ratio: 9/52;
+			height: 100%;
+			background-image: var(--icon-next);
+			background-size: 80%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			transition: background-size 100ms;
+		}
+
+		&.swiper-button-disabled {
+			opacity: 0.35;
+			pointer-events: none;
+		}
+	}
+
+	&>.gallery-prev::before {
+		transform: scaleX(-100%);
+	}
+
+	&>.gallery-content {
+		position: relative;
+		min-height: 0;
+		display: block;
+		min-width: 0;
+		height: auto;
+		width: 100%;
+	}
+
+
+}
+
+
+.gallery-swiper {
+	width: 100%;
+	min-width: 0;
 
 	.gallery-card {
 		position: relative;
-    	aspect-ratio: 3/4;
-		// background-color: red;
+		min-width: 0;
+		aspect-ratio: 3/4;
 		background-image: var(--image);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: top left;
 		border-radius: 1rem;
-		box-shadow: 0 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
-		background-color: rgba(255, 255, 255, 0.3);
-		// width: 10rem;
-		
+		background-color: #ffffff4d;
+		cursor: pointer;
+		opacity: 0.9;
+		transition: opacity 100ms;
+
+		&:hover {
+			opacity: 1;
+		}
+
 	}
 }

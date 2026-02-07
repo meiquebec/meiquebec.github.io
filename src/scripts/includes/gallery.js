@@ -3,40 +3,81 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 
 ({
+	SPACE_REM: 1,
+	SLIDE_NUM: 3,
+	SLIDE_DELAY: 3000,
 
 	galleries: null,
+	swipers: null,
+
+	mutexSwiper: null,
+	mutexRem: null,
 
 	init: async function() {
 		await Promise.all([
 			documentReady(),
 			loadJsonProperties(this, { galleries: atob('L2dhbGxlcmllcy5qc29u') })
 		]);
-		await Promise.all([...document.querySelectorAll('gallery')].map(async elm => {
+
+		this.swipers = await Promise.all([...document.querySelectorAll('gallery')].map(async elm => {
 			const id = elm.getAttribute('id');
 			if(!id) return;
 			const gallery = this.galleries.find(g => g.name == id);
 			if(!gallery) return;
 			return this.createGallery(elm, gallery);
 		}));
+
+		window.addEventListener('resize', () => {
+			if (this.mutexSwiper != null) return;
+			const mutexRem = Number(Math.round(rem(this.SPACE_REM) + 'e+2') + 'e-2');
+			this.mutexSwiper = requestAnimationFrame(() => {
+				this.swipers.forEach(swiper => {
+					if(mutexRem != swiper.params.spaceBetween) {
+						swiper.params.spaceBetween = mutexRem;
+						swiper.update();
+					}
+				});
+				this.mutexSwiper = null;
+			});
+		});
+		requestAnimationFrame(() => {
+			this.swipers.forEach(swiper => {
+				swiper.params.spaceBetween = Number(Math.round(rem(this.SPACE_REM) + 'e+2') + 'e-2');
+				swiper.update();
+				swiper.updateSize();
+				swiper.updateSlides();
+				swiper.updateProgress();
+				swiper.updateSlidesClasses();
+			});
+		});
+	
 	},
 
 
 	createGallery: async function(elm, gallery) {
-		const container = create('div', 'swiper gallery-swiper')
+		const parent = create('div', 'gallery');
+		const prev = parent.create('div', 'gallery-prev', 'a');;
+		const content = parent.create('div', 'gallery-content');
+		const next = parent.create('div', 'gallery-next', 'a');
+
+		const container = content.create('div', 'swiper gallery-swiper')
 		const wrapper = container.create('div', 'swiper-wrapper');
 
-		const preloads = gallery.files.map(async img => {
+		const slidenum = elm.getAttribute('slidenum') ?? this.SLIDE_NUM;
+		const delay = elm.getAttribute('delay') ?? this.SLIDE_DELAY;
+
+		gallery.files.map(async img => {
 			const card = wrapper.create('div', 'swiper-slide gallery-card');
 			card.style.setProperty('--image', `url(${img.tbn})`);
-			return preloadImage(img.tbn);
+			preloadImage(img.tbn);
 		});
 
-		elm.replaceWith(container);
+		elm.replaceWith(parent);
 		return new Promise(resolve => {
-			resolve(new Swiper(container, {
-				modules: [Autoplay],
-				slidesPerView: 3,
-				spaceBetween: rem(1),
+			const swiper = new Swiper(container, {
+				modules: [Autoplay, Navigation],
+				slidesPerView: slidenum,
+				spaceBetween: rem(this.SPACE_REM),
 				allowTouchMove: true,
 				autoHeight: false,
 				preloadImages: false,
@@ -47,9 +88,10 @@ import { Autoplay, Navigation } from 'swiper/modules';
 				preventClicks: true,
 				preventClicksPropagation: true,
 				lazy: { loadPrevNext: true, loadOnTransitionStart: true },
-				autoplay: { delay: 5000, disableOnInteraction: false },
-				// navigation: { nextEl: '.events-swiper-next', prevEl: '.events-swiper-prev' },
-			}));
+				autoplay: { delay: delay, disableOnInteraction: false },
+				navigation: { nextEl: next, prevEl: prev },
+			});
+			resolve(swiper);
 		});
 		
 	},
