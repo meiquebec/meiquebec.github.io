@@ -41,5 +41,7 @@ section.medias {
 			}
 		}
 	}
-
+	a[target="_blank"]::after {
+		display: none;
+	}
 }

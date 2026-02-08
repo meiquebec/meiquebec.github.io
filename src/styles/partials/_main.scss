@@ -11,6 +11,18 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--scroll-top);
     font-size: var(--font-size);
+
+    &.is-busy,
+    &.is-busy * {
+        cursor: wait !important;
+        pointer-events: none !important;
+    }
+
+    &.is-working,
+    &.is-working * {
+        cursor: progress !important;
+        pointer-events: none !important;
+    }
 }
 
 
@@ -304,6 +316,18 @@ a {
         width: 1em;
         aspect-ratio: 1/1;
         background-image: var(--icon-mail);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 0.1em;
+    }
+
+    &[target="_blank"]::after {
+        content: '';
+        display: inline-block;
+        width: 1em;
+        aspect-ratio: 1/1;
+        background-image: var(--icon-link);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;

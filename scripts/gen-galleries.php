@@ -22,7 +22,7 @@ foreach(glob($SRCDIR . '*', GLOB_ONLYDIR) as $dir) {
         $dsttb = $DSTDIR . $gallery_name . '/' . pathinfo($src, PATHINFO_FILENAME) . '_tb.webp';
         
         echo $src.RN;
-        gdresize($src, $dst, 800, 600, false);
+        gdresize($src, $dst, 1280, 960, false);
         gdresize($src, $dsttb, 240, 320, true);
         
         $files[] = [

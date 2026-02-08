@@ -84,3 +84,22 @@ self.loadJsonProperties = async function(target, files = {}) {
 	}
 	return target;
 };
+
+
+/******************************************************
+ *             Body lock while working/busy           *
+ ******************************************************/
+self.busy = async (promise) => {
+	document.documentElement.classList.add('is-busy');	
+	const results = await Promise.allSettled(typeof promise == 'array' ? promise : [promise]);
+	document.documentElement.classList.remove('is-busy');
+	return typeof promise == 'array' ? results : results[0];
+};
+self.working = async (promise) => {
+	document.documentElement.classList.add('is-working');	
+	const results = await Promise.allSettled(typeof promise == 'array' ? promise : [promise]);
+	document.documentElement.classList.remove('is-working');
+	return typeof promise == 'array' ? results : results[0];
+};
+
+

@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import { Autoplay, Navigation } from 'swiper/modules';
+import Modal from './modal';
 
 
 ({
@@ -9,15 +10,19 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 	galleries: null,
 	swipers: null,
+	modal: null,
 
 	mutexSwiper: null,
 	mutexRem: null,
+
 
 	init: async function() {
 		await Promise.all([
 			documentReady(),
 			loadJsonProperties(this, { galleries: atob('L2dhbGxlcmllcy5qc29u') })
 		]);
+
+		this.modal = new Modal;
 
 		this.swipers = await Promise.all([...document.querySelectorAll('gallery')].map(async elm => {
 			const id = elm.getAttribute('id');
@@ -46,8 +51,6 @@ import { Autoplay, Navigation } from 'swiper/modules';
 				swiper.update();
 				swiper.updateSize();
 				swiper.updateSlides();
-				swiper.updateProgress();
-				swiper.updateSlidesClasses();
 			});
 		});
 	
@@ -69,6 +72,13 @@ import { Autoplay, Navigation } from 'swiper/modules';
 		gallery.files.map(async img => {
 			const card = wrapper.create('div', 'swiper-slide gallery-card');
 			card.style.setProperty('--image', `url(${img.tbn})`);
+			card.addEventListener('click', async () => {
+				await working(new Promise(async res => {
+					await preloadImage(img.src);
+					await this.modal.show(create('img', 'gallery-image', null, { src: img.src }));
+					res();
+				}));
+			});
 			preloadImage(img.tbn);
 		});
 
@@ -90,7 +100,9 @@ import { Autoplay, Navigation } from 'swiper/modules';
 				lazy: { loadPrevNext: true, loadOnTransitionStart: true },
 				autoplay: { delay: delay, disableOnInteraction: false },
 				navigation: { nextEl: next, prevEl: prev },
+			on: { init: function () { this.update(); }},
 			});
+
 			resolve(swiper);
 		});
 		

@@ -7,6 +7,6 @@
   "scripts": {
     "export": "node scripts/export.js",
     "watch": "node scripts/watch.js",
-    "gen-galleries": "php scripts/gen-galleries.php"
+    "galleries": "php scripts/galleries.php"
   }
 }

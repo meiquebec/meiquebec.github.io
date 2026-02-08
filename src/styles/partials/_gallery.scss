@@ -3,36 +3,40 @@
 
 
 .gallery {
-
+	position: relative;
 	display: grid;
 	grid-template-columns: auto 1fr auto;
 	align-items: stretch;
 	gap: 0.5rem;
 	margin-top: 2rem;
 
+	grid-auto-rows: 1fr;
 
 	&>.gallery-prev,
 	&>.gallery-next {
+  		min-height: 0;
+		justify-content: center;
 		position: relative;
-		height: 100%;
+		height: 9rem;
+		width: auto;
 		font-size: 0;
-		aspect-ratio: 9/52;
-		flex: 0 0 auto;
-		display: flex;
-		cursor: pointer;		
+		aspect-ratio: 6/27 !important;
+		cursor: pointer;	
+		align-self: stretch;	
 
 		&:hover::before {
-			background-size: 90%;
+			background-size: 75%;
 		}
 
 		&::before {
 			content: "";
 			display: block;
-			aspect-ratio: 9/52;
-			height: 100%;
+			aspect-ratio: 6/27;
+			height: auto;
+			width: 100%;
 			background-image: var(--icon-next);
-			background-size: 80%;
-			background-position: center center;
+			background-size: 70%;
+			background-position: right center;
 			background-repeat: no-repeat;
 			transition: background-size 100ms;
 		}
@@ -48,12 +52,19 @@
 	}
 
 	&>.gallery-content {
+		// display: block;
 		position: relative;
-		min-height: 0;
-		display: block;
 		min-width: 0;
-		height: auto;
+
+		min-height: 0;
 		width: 100%;
+		// height: 100%;
+		height: auto;
+		// background-color: aqua;
+
+		  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 	}
 
 
@@ -63,11 +74,12 @@
 .gallery-swiper {
 	width: 100%;
 	min-width: 0;
+	// height: 9rem;
 
 	.gallery-card {
 		position: relative;
 		min-width: 0;
-		aspect-ratio: 3/4;
+		aspect-ratio: 3/4 !important;
 		background-image: var(--image);
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -75,12 +87,17 @@
 		border-radius: 1rem;
 		background-color: #ffffff4d;
 		cursor: pointer;
-		opacity: 0.9;
+		// opacity: 0.9;
 		transition: opacity 100ms;
 
-		&:hover {
-			opacity: 1;
-		}
+		// &:hover {
+		// 	opacity: 1;
+		// }
 
 	}
+}
+
+img.gallery-image {
+	max-width: 80vw;
+	max-height: 80vh;
 }
