@@ -1,6 +1,6 @@
 const path = require("node:path");
 const { createWatchers, buildCSS, buildJS, buildPHP } = require("chokibasic");
-// const { createWatchers, buildCSS, buildJS, buildPHP } = require("../../chokibasic/src/watcher");
+
 
 const { close } = createWatchers(
 	[
@@ -8,7 +8,6 @@ const { close } = createWatchers(
 			name: "js",
 			patterns: ["src/scripts/**/*.js"],
 			ignored: ["**/*.min.js"],
-			debounceMs: 150,
 			callback: async (events) => {
 				console.log("[js] batch", events.length, events.map(e => e.file));
 				const entry = path.resolve(__dirname, "../src/scripts/mei.core.js");
@@ -20,7 +19,6 @@ const { close } = createWatchers(
 		{
 			name: "scss",
 			patterns: ["src/styles/**/*.scss"],
-			debounceMs: 150,
 			callback: async (events) => {
 				console.log("[scss] batch", events.length, events.map(e => e.file));
 				const inputScss = path.resolve(__dirname, "../src/styles/mei.core.scss");
@@ -32,7 +30,6 @@ const { close } = createWatchers(
 		{
 			name: "php",
 			patterns: ["src/**/_*.php"],
-			debounceMs: 150,
 			callback: async (events) => {
 				console.log("[php] batch", events.length, events.map(e => e.file));
 				await Promise.all(events.map(async e => buildPHP(e.file)));
@@ -45,6 +42,7 @@ const { close } = createWatchers(
 		debug: true
 	}
 );
+
 
 process.on("SIGINT", async () => {
 	await close();

@@ -1,8 +1,8 @@
 <?php
 
 $desc = htmlspecialchars($this->abstract, ENT_QUOTES, 'UTF-8');
-$path = ltrim(str_replace('\\', S, pathinfo(str_replace(realpath($this->root), '', realpath($this->file)), PATHINFO_DIRNAME)), '/');
-if($path) $path .= S;
+$path = ltrim(str_replace('\\', '/', pathinfo(str_replace(realpath($this->root), '', realpath($this->file)), PATHINFO_DIRNAME)), '/');
+if($path) $path .= '/';
 
 ?><!DOCTYPE html>
 <html lang="fr-CA">
