@@ -1,50 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr-CA">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta property="og:locale" content="fr_ca">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Médias | Mouvement Étudiant Indépendantiste">
-    <meta property="og:description" content="Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays.">
-    <meta property="og:url" content="https://mouvei.quebec/medias/">
-    <meta property="og:image" content="https://mouvei.quebec/images/ogimage.webp">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/mei.core.min.css">
-    <script src="/scripts/mei.core.min.js"></script>
-    <title>Médias | Mouvement Étudiant Indépendantiste</title>
-</head>
-<body>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://mouvei.quebec/medias/",
-        "name": "Médias | Mouvement Étudiant Indépendantiste",
-        "description": "Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays."
-    }
-    </script>
-    <header>
-        <div>
-            <a class="brand" href="/#">
-                <div>MOUVEMENT</div>
-                <div>ÉTUDIANT</div>
-                <div>INDÉPENDANTISTE</div>
-            </a>
-            <nav class="menu">
-                <a href="/medias/">Médias</a>
-                <a href="/notre-equipe/">Notre équipe</a>
-                <a href="/#nous-joindre">Nous joindre</a>
-                <a target="_blank" href="https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste">Boutique</a>
-                <div class="menu__social-medias">
-                    <a target="_blank" href="https://www.instagram.com/mouv.ei/" title="Instagram"><div class="menu__social-medias__instagram"></div></a>
-                    <a target="_blank" href="https://www.youtube.com/@mouv_ei/" title="Youtube"><div class="menu__social-medias__youtube"></div></a>
-                </div>
-            </nav>
-            <div class="burger"></div>
-        </div>
-    </header>
-    <main>
+<?php
+/**
+ * @title    Médias
+ * @abstract Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays.
+ */
+?>
         <section class="medias">
             <div>
                 <h2>Médias</h2>
@@ -92,9 +51,3 @@
                 </div>
             </div>
         </section>
-	</main>
-    <footer title="Tous droits réservés © Mouvement Étudiant Indépendantiste, ###YEAR###">
-        © Tous droits réservés<br>Mouvement Étudiant Indépendantiste, ###YEAR###
-    </footer>
-</body>
-</html>

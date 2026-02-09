@@ -1,6 +1,6 @@
+import Modal from './modal';
 import Swiper from 'swiper';
 import { Autoplay, Navigation } from 'swiper/modules';
-import Modal from './modal';
 
 
 ({
@@ -32,6 +32,15 @@ import Modal from './modal';
 			return this.createGallery(elm, gallery);
 		}));
 
+		requestAnimationFrame(() => {
+			this.swipers.forEach(swiper => {
+				swiper.params.spaceBetween = Number(Math.round(rem(this.SPACE_REM) + 'e+2') + 'e-2');
+				swiper.update();
+				swiper.updateSize();
+				swiper.updateSlides();
+			});
+		});
+
 		window.addEventListener('resize', () => {
 			if (this.mutexSwiper != null) return;
 			const mutexRem = Number(Math.round(rem(this.SPACE_REM) + 'e+2') + 'e-2');
@@ -45,15 +54,7 @@ import Modal from './modal';
 				this.mutexSwiper = null;
 			});
 		});
-		requestAnimationFrame(() => {
-			this.swipers.forEach(swiper => {
-				swiper.params.spaceBetween = Number(Math.round(rem(this.SPACE_REM) + 'e+2') + 'e-2');
-				swiper.update();
-				swiper.updateSize();
-				swiper.updateSlides();
-			});
-		});
-	
+
 	},
 
 
@@ -62,26 +63,26 @@ import Modal from './modal';
 		const prev = parent.create('div', 'gallery-prev', 'a');;
 		const content = parent.create('div', 'gallery-content');
 		const next = parent.create('div', 'gallery-next', 'a');
-
 		const container = content.create('div', 'swiper gallery-swiper')
 		const wrapper = container.create('div', 'swiper-wrapper');
-
 		const slidenum = elm.getAttribute('slidenum') ?? this.SLIDE_NUM;
 		const delay = elm.getAttribute('delay') ?? this.SLIDE_DELAY;
 
-		gallery.files.map(async img => {
-			const card = wrapper.create('div', 'swiper-slide gallery-card');
+		const cards = await Promise.all(gallery.files.map(async img => {
+			const card = create('div', 'swiper-slide gallery-card');
 			card.style.setProperty('--image', `url(${img.tbn})`);
 			card.addEventListener('click', async () => {
-				await working(new Promise(async res => {
+				working(new Promise(async res => {
 					await preloadImage(img.src);
 					await this.modal.show(create('img', 'gallery-image', null, { src: img.src }));
 					res();
 				}));
 			});
 			preloadImage(img.tbn);
-		});
-
+			return card;
+		}));
+		
+		wrapper.append(...cards);
 		elm.replaceWith(parent);
 		return new Promise(resolve => {
 			const swiper = new Swiper(container, {
@@ -89,7 +90,7 @@ import Modal from './modal';
 				slidesPerView: slidenum,
 				spaceBetween: rem(this.SPACE_REM),
 				allowTouchMove: true,
-				autoHeight: false,
+				autoHeight: true,
 				preloadImages: false,
 				observer: false,
 				observeParents: false,
@@ -100,7 +101,7 @@ import Modal from './modal';
 				lazy: { loadPrevNext: true, loadOnTransitionStart: true },
 				autoplay: { delay: delay, disableOnInteraction: false },
 				navigation: { nextEl: next, prevEl: prev },
-			on: { init: function () { this.update(); }},
+				// on: { init: function () { this.update(); }},
 			});
 
 			resolve(swiper);

@@ -1,6 +1,6 @@
 const path = require("node:path");
-const { createWatchers, buildCSS, buildJS } = require("chokibasic");
-// const { createWatchers, buildCSS, buildJS } = require("../../chokibasic/src/watcher");
+const { createWatchers, buildCSS, buildJS, buildPHP } = require("chokibasic");
+// const { createWatchers, buildCSS, buildJS, buildPHP } = require("../../chokibasic/src/watcher");
 
 const { close } = createWatchers(
 	[
@@ -26,6 +26,16 @@ const { close } = createWatchers(
 				const inputScss = path.resolve(__dirname, "../src/styles/mei.core.scss");
 				const outCssMin = path.resolve(__dirname, "../src/styles/mei.core.min.css");
 				await buildCSS(inputScss, outCssMin);
+				console.log("");
+			},
+		},
+		{
+			name: "php",
+			patterns: ["src/**/_*.php"],
+			debounceMs: 150,
+			callback: async (events) => {
+				console.log("[php] batch", events.length, events.map(e => e.file));
+				await Promise.all(events.map(async e => buildPHP(e.file)));
 				console.log("");
 			},
 		},

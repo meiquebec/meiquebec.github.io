@@ -1,0 +1,10 @@
+{
+    "data": {
+        "project": "Mouvement Étudiant Indépendantiste",
+        "baseurl": "https://mouvei.quebec/",
+         "gtag": ""
+    },
+    "includes": [],
+    "before": "_templates/header.php",
+    "after": "_templates/footer.php"
+}

@@ -52,6 +52,7 @@ async function rmDist() {
 function shouldExcludeFile(relFromRoot, absPath) {
 	// Exclusions de type/extension
 	const lower = absPath.toLowerCase();
+	if (path.basename(lower).startsWith('_')) return true;
 	if (lower.endsWith('.scss')) return true;
 	if (lower.endsWith('.js') && !lower.endsWith('.min.js')) return true;
 	return false;
