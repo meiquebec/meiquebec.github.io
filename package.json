@@ -4,6 +4,7 @@
     "swiper": "^12.1.0"
   },
   "scripts": {
+    "postinstall": "node scripts/install.js",
     "build": "node scripts/build.js",
     "export": "node scripts/export.js",
     "watch": "node scripts/watch.js",
