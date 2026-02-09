@@ -22,11 +22,12 @@ self.documentReady = function(clb = null) {
 	return new Promise((res) => {
 		if (document.readyState === "loading") {
 			document.addEventListener("DOMContentLoaded", async () => {
-				if(clb) clb();
-				res();
+				if(clb) res(clb());
+				else res(true);
 			}, { once: true });
 		} else {
-			if(clb) clb();
+			if(clb) res(clb());
+			else res(true);
 			res();
 		}
 	});
@@ -103,3 +104,17 @@ self.working = async (promise) => {
 };
 
 
+/******************************************************
+ *               Dynamic Script Loading               *
+ ******************************************************/
+self.loadScript = async function(endpoint, params = {}, isAsync = false) {
+    const url = new URL(endpoint);
+    Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
+    const script = document.createElement('script');
+    script.src = url.toString();
+    script.async = isAsync;
+    document.head.appendChild(script);
+};
+
+
+self.cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();

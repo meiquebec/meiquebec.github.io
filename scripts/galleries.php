@@ -15,11 +15,15 @@ foreach(glob($SRCDIR . '*', GLOB_ONLYDIR) as $dir) {
     $gallery_name = strtolower(pathinfo($dir, PATHINFO_FILENAME));
     mkdir($DSTDIR . $gallery_name, 0777, true);
 
+    $fileId = 0;
     $files = [];
     foreach(glob($dir . '/*') as $src) {
         if(!in_array(strtolower(pathinfo($src, PATHINFO_EXTENSION)), EXTENSIONS)) continue;
-        $dst = $DSTDIR . $gallery_name . '/' . pathinfo($src, PATHINFO_FILENAME) . '.webp';
-        $dsttb = $DSTDIR . $gallery_name . '/' . pathinfo($src, PATHINFO_FILENAME) . '_tb.webp';
+        $filename = sprintf('%02u', ++$fileId);
+        // $dst = $DSTDIR . $gallery_name . '/' . pathinfo($src, PATHINFO_FILENAME) . '.webp';
+        // $dsttb = $DSTDIR . $gallery_name . '/' . pathinfo($src, PATHINFO_FILENAME) . '_tb.webp';
+        $dst = $DSTDIR . $gallery_name . '/' . $filename . '.webp';
+        $dsttb = $DSTDIR . $gallery_name . '/' . $filename . '_tb.webp';
         
         echo $src.RN;
         gdresize($src, $dst, 1280, 960, false);

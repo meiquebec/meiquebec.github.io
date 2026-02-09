@@ -1,7 +1,7 @@
 
 	</main>
-    <footer title="Tous droits réservés © Mouvement Étudiant Indépendantiste, ###YEAR###">
-        © Tous droits réservés<br>Mouvement Étudiant Indépendantiste, ###YEAR###
+    <footer title="Tous droits réservés © <?php echo $this->project; ?>, ###YEAR###">
+        © Tous droits réservés<br><?php echo $this->project; ?>, ###YEAR###
     </footer>
 </body>
 </html>
