@@ -32,7 +32,7 @@ const { close } = createWatchers(
 			patterns: ["src/**/_*.php"],
 			callback: async (events) => {
 				console.log("[php] batch", events.length, events.map(e => e.file));
-				await Promise.all(events.map(async e => buildPHP(e.file)));
+				await Promise.all(events.map(e => buildPHP(e.file)));
 				console.log("");
 			},
 		},
@@ -48,7 +48,3 @@ process.on("SIGINT", async () => {
 	await close();
 	process.exit(0);
 });
-
-
-
-

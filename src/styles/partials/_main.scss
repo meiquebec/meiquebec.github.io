@@ -1,3 +1,5 @@
+@use "config" as *;
+
 * {
     margin: 0;
     padding: 0;
@@ -106,7 +108,6 @@ footer {
         background-position: left center;
         background-repeat: no-repeat;
         margin-right: 0.5em;
-
     }
 }
 
@@ -120,6 +121,19 @@ section {
     justify-content: center;
     margin-bottom: 6rem;
 
+    &.right {
+        align-self: flex-end;
+        @media (min-width: #{$font-break}px) {
+            transform: translateX(calc(0px - calc(calc(100vw - var(--font-size-break)) / 6)));
+        }
+    }
+
+    &.left {
+        align-self: flex-start;
+        @media (min-width: #{$font-break}px) {
+            transform: translateX(calc(calc(100vw - var(--font-size-break)) / 6));
+        }
+    }
     
     &>div {
         position: relative;
@@ -250,12 +264,12 @@ section.notre-equipe {
         &>div:nth-child(1) {
             flex: 0 0 8rem;
             align-self: flex-start;
-            // aspect-ratio: 272/239;
             aspect-ratio: 1/1;
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 50%;
+            // aspect-ratio: 272/239;
             // mask-image: var(--icon-explosion);
             // -webkit-mask-image: var(--icon-explosion);
 

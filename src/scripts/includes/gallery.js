@@ -17,6 +17,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 
 	init: async function() {
+		
 		await Promise.all([
 			documentReady(),
 			loadJsonProperties(this, { galleries: atob('L2dhbGxlcmllcy5qc29u') })
@@ -106,7 +107,6 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 			resolve(swiper);
 		});
-		
 	},
 
 }).init();

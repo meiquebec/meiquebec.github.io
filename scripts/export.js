@@ -11,7 +11,7 @@ const BANNER = path.join(__dirname, 'banner.txt');
 (async () => {
 	try {
 		const stats = await exportDist(SRC, DIST, BANNER);
-		console.log(`✅ Build finished.`);
+		console.log(`✅ Export finished.`);
 		console.log(`   Files copied : ${stats.copied}`);
 		console.log(`   Files ignored : ${stats.skipped}`);
 		process.exit(0);
