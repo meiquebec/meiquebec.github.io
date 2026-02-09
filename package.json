@@ -8,6 +8,7 @@
     "build": "node scripts/build.js",
     "export": "node scripts/export.js",
     "watch": "node scripts/watch.js",
-    "galleries": "php scripts/galleries.php"
+    "galleries": "php scripts/galleries.php",
+    "comites": "php scripts/comites.php"
   }
 }

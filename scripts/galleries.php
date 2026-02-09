@@ -41,7 +41,7 @@ foreach(glob($SRCDIR . '*', GLOB_ONLYDIR) as $dir) {
     ];
 }
 
-file_put_contents($JSONFILE, json_encode($galleries, JSON_PRETTY_PRINT));
+file_put_contents($JSONFILE, json_encode($galleries, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
 
 /**
