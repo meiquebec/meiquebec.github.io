@@ -18,8 +18,8 @@ if($path) $path .= '/';
     <meta property="og:url" content="<?php echo $this->baseurl . $path; ?>">
     <meta property="og:image" content="<?php echo $this->baseurl; ?>images/ogimage.webp">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/mei.core.min.css">
-    <script src="/scripts/mei.core.min.js"></script>
+    <link rel="stylesheet" href="/styles/mei.core.min.css?<?php echo time(); ?>">
+    <script src="/scripts/mei.core.min.js?<?php echo time(); ?>"></script>
     <title><? echo $this->title; ?> | <?php echo $this->project; ?></title>
 </head>
 <body>
