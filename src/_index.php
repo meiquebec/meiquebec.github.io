@@ -27,8 +27,8 @@
 </section>
 <section class="galerie">
     <div>
-        <h2>Marche pour l'indépendance</h2>
-        <gallery id="marche-pour-l-independance"></gallery>
+        <h2>Un pays en marche</h2>
+        <gallery id="un-pays-en-marche"></gallery>
     </div>
 </section>
 <section class="left nos-missions">
@@ -43,8 +43,8 @@
 </section>
 <section class="galerie">
     <div>
-        <h2>Équipe 2025-2026</h2>
-        <gallery id="equipe-2025-2026"></gallery>
+        <h2>Rêver le pays</h2>
+        <gallery id="rever-le-pays"></gallery>
     </div>
 </section>
 <section class="right nos-collaborateurs">

@@ -3,7 +3,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	margin-top: 2rem;
+	margin-top: 1rem;
 
 	&__map {
 
@@ -34,6 +34,14 @@
 			background-position: center center;
 			filter: drop-shadow(0 0 0.1rem var(--color-shadow));
 			cursor: pointer;
+			transform-origin: bottom center;
+			transition-duration: 100ms;
+			-webkit-clip-path: url(#clip-marker-pin);
+					clip-path: url(#clip-marker-pin);
+
+			&:hover {
+				transform: scale(1.1);
+			}
 		}
 
 	}

@@ -168,6 +168,16 @@ section {
         color: var(--color-blue);
     }
 
+    h3 {
+        margin-top: 1.5rem;
+        font-weight: normal;
+        font-family: var(--font-logo);
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: var(--color-blue);
+        font-size: 0.9em;
+    }
+
     p {
         margin-top: 1rem;
         letter-spacing: var(--font-spacing);

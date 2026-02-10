@@ -20,7 +20,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 		
 		await Promise.all([
 			documentReady(),
-			loadJsonProperties(this, { galleries: atob('L2dhbGxlcmllcy5qc29u') })
+			loadJsonProperties(this, { galleries: atob('L2RhdGEvZ2FsbGVyaWVzLmpzb24=') })
 		]);
 
 		this.modal = new Modal;

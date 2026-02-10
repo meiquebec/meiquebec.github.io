@@ -7,13 +7,13 @@
      ╚████╔╝ ███████╗╚██████╔╝███████╗██╗
       ╚═══╝  ╚══════╝ ╚══▀▀═╝ ╚══════╝╚═╝
 
-    Généré: Jeudi le 5 février 2026 à 20 h 01
+    Généré: Mardi le 10 février 2026 à 14 h 05
     Auteur: Maxime Larrivée-Roy <mlarriveeroy@gmail.com>
     Github: https://github.com/meiquebec
 
 -->
 <!DOCTYPE html>
-<html lang="fr-CA">
+<html lang="fr-CA" data-page="index">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -26,14 +26,14 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/styles/mei.core.min.css">
     <script src="/scripts/mei.core.min.js"></script>
-    <title>M.É.I. | Mouvement Étudiant Indépendantiste</title>
+    <title>MÉI | Mouvement Étudiant Indépendantiste</title>
 </head>
 <body>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "url": "https://mouvei.quebec",
+        "url": "https://mouvei.quebec/",
         "name": "MÉI | Mouvement Étudiant Indépendantiste",
         "description": "Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays."
     }
@@ -46,8 +46,8 @@
                 <div>INDÉPENDANTISTE</div>
             </a>
             <nav class="menu">
-                <a href="/medias/">Médias</a>
-                <a href="/notre-equipe/">Notre équipe</a>
+                <a data-page="medias" href="/medias/">Médias</a>
+                <a data-page="notre-equipe" href="/notre-equipe/">Notre équipe</a>
                 <a href="/#nous-joindre">Nous joindre</a>
                 <a target="_blank" href="https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste">Boutique</a>
                 <div class="menu__social-medias">
@@ -72,13 +72,19 @@
                 </div>
             </div>
         </section>
-        <section class="qui-sommes-nous">
+        <section class="right qui-sommes-nous">
             <div>
                 <h2>Qui sommes-nous?</h2>
                 <p>Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays.</p>
             </div>
         </section>
-        <section class="nos-missions">
+        <section class="galerie">
+            <div>
+                <h2>Un pays en marche</h2>
+                <gallery id="un-pays-en-marche"></gallery>
+            </div>
+        </section>
+        <section class="left nos-missions">
             <div>
                 <h2>Nos missions</h2>
                 <p>Le but de l’organisation se résume en deux grandes missions.</p>
@@ -88,20 +94,26 @@
                 </ul>
             </div>
         </section>
-        <section class="nos-collaborateurs">
+        <section class="galerie">
+            <div>
+                <h2>Rêver le pays</h2>
+                <gallery id="rever-le-pays"></gallery>
+            </div>
+        </section>
+        <section class="right nos-collaborateurs">
             <div>
                 <h2>Nos collaborateurs</h2>
-                <p>Le MÉI collabore étroitement avec la Société Saint-Jean-Baptiste, le Fonds indépendantiste du Québec et les OUI Québec afin de faciliter la mobilisation et de multiplier les activités socioculturelles.</p>
+                <p>Le MÉI collabore étroitement avec la <a target="_blank" href="https://ssjb.com/">Société Saint-Jean-Baptiste de Montréal</a>, le <a target="_blank" href="https://fidq.quebec/">Fonds indépendantiste du Québec</a> et les <a target="_blank" href="https://www.ouiquebec.org/">OUI Québec</a> afin de faciliter la mobilisation et de multiplier les activités socioculturelles.</p>
             </div>
         </section>
-        <a id="nous-joindre"></a>
         <section class="nous-joindre">
             <div>
-                <h2>Nous joindre</h2>
+                <h2><a id="nous-joindre"></a>Nous joindre</h2>
                 <p>Pour nous joindre, veuillez nous écrire à  l’adresse: <a href="mailto:mouvement.ei@gmail.com">mouvement.ei@gmail.com</a>.</p>
+                <carte-mei></carte-mei>
             </div>
         </section>
-    </main>
+	</main>
     <footer title="Tous droits réservés © Mouvement Étudiant Indépendantiste, 2026">
         © Tous droits réservés<br>Mouvement Étudiant Indépendantiste, 2026
     </footer>

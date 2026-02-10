@@ -4,7 +4,7 @@ const EXTENSIONS = ['jpeg', 'jpg', 'png', 'gif', 'webp'];
 
 $SRCDIR = realpath(__DIR__ . '/../assets/galleries') . '/';
 $DSTDIR = realpath(__DIR__ . '/../src/images/galeries') . '/';
-$JSONFILE = realpath(__DIR__ . '/../src'). '/galleries.json';
+$JSONFILE = realpath(__DIR__ . '/../src/data'). '/galleries.json';
 
 rrmdir($DSTDIR, false);
 

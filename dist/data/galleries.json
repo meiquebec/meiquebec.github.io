@@ -1,0 +1,92 @@
+[
+    {
+        "name": "rever-le-pays",
+        "files": [
+            {
+                "src": "/images/galeries/rever-le-pays/01.webp",
+                "tbn": "/images/galeries/rever-le-pays/01_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/02.webp",
+                "tbn": "/images/galeries/rever-le-pays/02_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/03.webp",
+                "tbn": "/images/galeries/rever-le-pays/03_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/04.webp",
+                "tbn": "/images/galeries/rever-le-pays/04_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/05.webp",
+                "tbn": "/images/galeries/rever-le-pays/05_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/06.webp",
+                "tbn": "/images/galeries/rever-le-pays/06_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/07.webp",
+                "tbn": "/images/galeries/rever-le-pays/07_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/08.webp",
+                "tbn": "/images/galeries/rever-le-pays/08_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/09.webp",
+                "tbn": "/images/galeries/rever-le-pays/09_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/10.webp",
+                "tbn": "/images/galeries/rever-le-pays/10_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/11.webp",
+                "tbn": "/images/galeries/rever-le-pays/11_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/12.webp",
+                "tbn": "/images/galeries/rever-le-pays/12_tb.webp"
+            }
+        ]
+    },
+    {
+        "name": "un-pays-en-marche",
+        "files": [
+            {
+                "src": "/images/galeries/un-pays-en-marche/01.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/01_tb.webp"
+            },
+            {
+                "src": "/images/galeries/un-pays-en-marche/02.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/02_tb.webp"
+            },
+            {
+                "src": "/images/galeries/un-pays-en-marche/03.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/03_tb.webp"
+            },
+            {
+                "src": "/images/galeries/un-pays-en-marche/04.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/04_tb.webp"
+            },
+            {
+                "src": "/images/galeries/un-pays-en-marche/05.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/05_tb.webp"
+            },
+            {
+                "src": "/images/galeries/un-pays-en-marche/06.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/06_tb.webp"
+            },
+            {
+                "src": "/images/galeries/un-pays-en-marche/07.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/07_tb.webp"
+            },
+            {
+                "src": "/images/galeries/un-pays-en-marche/08.webp",
+                "tbn": "/images/galeries/un-pays-en-marche/08_tb.webp"
+            }
+        ]
+    }
+]

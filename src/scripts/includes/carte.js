@@ -34,6 +34,7 @@
 		if(!tag) return false;
 		this.parent = create('div', 'carte-mei');
 		this.ccmap = this.parent.create('div', 'carte-mei__map', null, { id: "carte-mei" });
+		this.parent.create('div', null, '<svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px" aria-hidden="true"><defs><clipPath id="clip-marker-pin" clipPathUnits="objectBoundingBox"><path d="M 0.5 0 C 0.776143 0 1 0.156694 1 0.35 C 1 0.665639 0.5 1 0.5 1 C 0.5 1 0 0.668444 0 0.35 C 0 0.156694 0.223857 0 0.5 0 Z"/></clipPath></defs></svg>');
 		tag.replaceWith(this.parent);
 		return true;
 	},
@@ -45,7 +46,7 @@
 
 
 	loadComites: async function() {
-		await loadJsonProperties(this, { comites: atob('L2NvbWl0ZXMuanNvbg==') });
+		await loadJsonProperties(this, { comites: atob('L2RhdGEvY29taXRlcy5qc29u') });
 	},
 
 

@@ -7,6 +7,7 @@ export default class Modal {
 	opened = false;
 
 	opts = {
+		parent: null,
 		class: false,
 		lock: false,
 		onlyBgClick: false,
@@ -15,7 +16,7 @@ export default class Modal {
 	
 	constructor(opts = {}) {
 		this.opts = { ...this.opts, ...opts };
-		this.container = document.body.create('div', 'modal');
+		this.container = (this.opts.parent || document.body).create('div', 'modal');
 		this.duration = parseInt(getComputedStyle(this.container).getPropertyValue('--transition-duration').replace(/^[^\d]*(\d+).*$/, '$1'));
 		this.placeholder = this.container.create('div', 'modal__placeholder');
 		if(this.opts.class) this.container.classList.add(this.opts.class);

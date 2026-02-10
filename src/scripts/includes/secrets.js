@@ -1,6 +1,4 @@
-window.SECRETS = loadSecrets();
-
-async function loadSecrets() {
+window.SECRETS = (async () => {
 	try {
 		const response = await fetch(atob('L2J0MW9oOTdqN1guanNvbg=='));
 		if (!response.ok) throw new Error(`Error loading secrets: ${response.status}`);
@@ -8,4 +6,4 @@ async function loadSecrets() {
 	} catch (error) {
 		console.error(error.message);
 	}
-}
+})();

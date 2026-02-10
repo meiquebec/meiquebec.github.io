@@ -115,13 +115,53 @@ self.downloadMapStyle = () => {
 					visible: false
 				}
 			},
+{
+  id: "pointOfInterest.business",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.business.foodAndDrink",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.business.shopping",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.business.gasStation",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.medical",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.medical.hospital",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.school",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.attraction",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.placeOfWorship",
+  label: { visible: false }
+},
+{
+  id: "pointOfInterest.government",
+  label: { visible: false }
+},
 			{
 				id: "pointOfInterest.recreation.park",
 				geometry: {
 					fillColor: css('--map-green')
 				},
 				label: {
-					visible: true,
+					visible: false,
 					textFillOpacity: 0.89,
 					textFillColor: css('--map-fg'),
 					textStrokeOpacity: 0.30,
