@@ -116,3 +116,15 @@ self.loadScript = async function(endpoint, params = {}, isAsync = false) {
     document.head.appendChild(script);
 };
 
+
+/******************************************************
+ *                Download JSON Object                *
+ ******************************************************/
+self.downloadJsonObject = (obj, filename) => {
+    const a = document.createElement("a");
+    a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj, null, "\t"));
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}

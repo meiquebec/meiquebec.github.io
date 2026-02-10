@@ -4,8 +4,10 @@
 	flex-direction: column;
 	width: 100%;
 	margin-top: 2rem;
+	content-visibility: visible !important;
 
 	&__map {
+
 		position: relative;
 		width: 100%;
 		aspect-ratio: 5/3;
@@ -21,6 +23,17 @@
 				width: 0.75rem !important;
 				height: 0.75rem !important;
 			}		
+		}
+
+		.mei-marker {
+			width: 1.5rem;
+			height: 1.5rem;
+			// background-color: blue;
+			background-image: var(--icon-marker);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center center;
+			cursor: pointer;
 		}
 
 	}

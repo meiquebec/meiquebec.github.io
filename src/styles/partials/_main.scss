@@ -113,6 +113,7 @@ footer {
 
 
 section {
+    // content-visibility: auto !important;
     position: relative;
     width: 100%;
     max-width: calc(var(--font-size-break) - 16px);

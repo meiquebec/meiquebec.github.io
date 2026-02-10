@@ -1,4 +1,4 @@
-import CSSDoc from "./cssdoc";
+// import CSSDoc from "./cssdoc";
 
 (window.CarteMEI = {
 
@@ -7,6 +7,7 @@ import CSSDoc from "./cssdoc";
 	parent: null,
 	ccmap: null,
 	map: null,
+	// info: null,
 	
 
 	init: async function() {
@@ -52,13 +53,8 @@ import CSSDoc from "./cssdoc";
 		const { ColorScheme, ControlPosition, LatLngBounds } = await google.maps.importLibrary('core');
 		const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 		const { Map, Data } = await google.maps.importLibrary('maps');
-		const css = new CSSDoc;
-
-
-
-
-
-
+		// const css = new CSSDoc;
+		// this.info = new google.maps.InfoWindow();
 
 		this.map = new Map(this.ccmap, {
             streetViewControl: false,
@@ -70,50 +66,28 @@ import CSSDoc from "./cssdoc";
 
 			center: { lat: 45.5017, lng: -73.5673 }, // Montreal coordinates
 			zoom: 12, // Zoom level (0-20+)
-			mapId: '7a4f282a9b2f394eb458f2ee',
+			mapId: this.secrets.MAP_ID,
 	
-			// styles: [
-			// 	{ elementType: "geometry", stylers: [{ color: css("--map-bg") }] },
-			// 	{ elementType: "labels.text.fill", stylers: [{ color: css("--map-fg") }] },
-			// 	{ elementType: "labels.text.stroke", stylers: [{ color: css("--map-bg") }] },
-			// 	{ featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: css("--map-fg") }, { weight: 0.6 }, { lightness: 40 }] },
-			// 	{ featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: css("--map-blue") }] },
-			// 	{ featureType: "water", elementType: "geometry", stylers: [{ color: css("--map-water") }] },
-			// 	{ featureType: "water", elementType: "labels.text.fill", stylers: [{ color: css("--map-water") }] },
-			// 	{ featureType: "landscape", elementType: "geometry", stylers: [{ color: css("--map-ground") }] },
-			// 	{ featureType: "poi.park", elementType: "geometry", stylers: [{ color: css("--map-green") }] },
-			// 	{ featureType: "poi.park", elementType: "labels.text.fill", stylers: [{ color: css("--map-fg") }] },
-			// 	{ featureType: "poi", stylers: [{ visibility: "simplified" }] },
-			// 	{ featureType: "poi.business", stylers: [{ visibility: "off" }] },
-			// 	{ featureType: "road", elementType: "geometry", stylers: [{ color: css("--map-road") }] },
-			// 	{ featureType: "road", elementType: "geometry.stroke", stylers: [{ color: css("--map-fg") }, { weight: 0.5 }, { lightness: 55 }] },
-			// 	{ featureType: "road", elementType: "labels.text.fill", stylers: [{ color: css("--map-fg") }] },
-			// 	{ featureType: "road.highway", elementType: "geometry", stylers: [{ color: css("--map-highway") }] },
-			// 	{ featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ color: css("--map-red") }, { weight: 1.1 }] },
-			// 	{ featureType: "road.highway", elementType: "labels.text.fill", stylers: [{ color: css("--map-red") }] },
-			// 	{ featureType: "transit", elementType: "geometry", stylers: [{ color: css("--map-road") }] },
-			// 	{ featureType: "transit.station", elementType: "labels.text.fill", stylers: [{ color: css("--map-blue") }] }
-			// ]
         });
 
 
-		this.comites.filter(e => e.active).forEach(item => {
-			const el = document.createElement("div");
-			el.textContent = "📍";
-			el.style.fontSize = "22px";
+		this.comites.filter(e => e.active).map(async item => {
+			const el = create('div', 'mei-marker');
 
-			const adv2 = new AdvancedMarkerElement({
+
+			el.addEventListener("click", (ev) => {
+
+				ev.stopPropagation();
+				console.log("click via DOM content");
+			});
+			
+			const marker = new AdvancedMarkerElement({
 				map: this.map,
 				position: { lat: item.location.lat, lng: item.location.lng },
 				content: el,
 				title: item.name,
 			});
 
-// const marker = new google.maps.Marker({
-//   position: { lat: item.location.lat, lng: item.location.lng },
-//   map: this.map,
-//   title: "Montréal",
-// });
 
 		});
 

@@ -12,7 +12,7 @@
     "liveServer.settings.ignoreFiles": [
         ".vscode/**",
         ".github/**",
-        "**/_**",
+        "**/_*.php",
         "**/.git/**",
         "**/.vendor/**",
         "**/node_modules/**",
