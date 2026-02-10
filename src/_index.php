@@ -57,6 +57,7 @@
     <div>
         <h2><a id="nous-joindre"></a>Nous joindre</h2>
         <p>Pour nous joindre, veuillez nous écrire à  l’adresse: <a href="mailto:mouvement.ei@gmail.com">mouvement.ei@gmail.com</a>.</p>
+        <h3>Des comités à travers tout le Québec!</h3>
         <carte-mei></carte-mei>
     </div>
 </section>
