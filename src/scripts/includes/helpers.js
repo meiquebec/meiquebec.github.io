@@ -116,5 +116,3 @@ self.loadScript = async function(endpoint, params = {}, isAsync = false) {
     document.head.appendChild(script);
 };
 
-
-self.cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();

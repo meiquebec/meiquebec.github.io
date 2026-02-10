@@ -22,9 +22,9 @@ $color-blue:  #1a0088;
 $color-green: #b8ce52;
 $color-red:   #ff5e32;
 
-$color-blue-hex:  string.unquote('#{string.slice(ie-hex-str($color-blue), 4)}');
-$color-green-hex: string.unquote('#{string.slice(ie-hex-str($color-green), 4)}');
-$color-red-hex:   string.unquote('#{string.slice(ie-hex-str($color-red), 4)}');
+$color-blue-hex:  hexbin($color-blue);
+$color-green-hex: hexbin($color-green);
+$color-red-hex:   hexbin($color-red);
 
 $map-ground:  hex6(color.scale(wash($color-bg, $color-green, 25%), $lightness: 0%));
 $map-water:   hex6(color.scale(wash($color-bg, $color-blue, 45%), $lightness: -10%));

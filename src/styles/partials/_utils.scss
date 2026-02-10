@@ -1,14 +1,18 @@
 @use "sass:string";
 @use "sass:color";
 
-// Helpers
+
 @function wash($bg, $base, $amount) {
-  // $amount = % de $base (reste = bg)
-  @return color.mix($base, $bg, $amount);
+	@return color.mix($base, $bg, $amount);
 }
 
-// Force sortie hex #RRGGBB
+
 @function hex6($c) {
-  $ie: ie-hex-str($c);                 // "#AARRGGBB"
-  @return string.unquote("##{string.slice($ie, 4)}"); // "#RRGGBB"
+	$ie: ie-hex-str($c);
+	@return string.unquote("##{string.to-lower-case(string.slice($ie, 4))}");
+}
+
+
+@function hexbin($c) {
+	@return string.to-lower-case(string.unquote('#{string.slice(ie-hex-str($c), 4)}'));
 }
