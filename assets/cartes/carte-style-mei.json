@@ -92,6 +92,13 @@
 			}
 		},
 		{
+			"id": "natural.land.landCover.dryCrops",
+			"geometry": {
+				"fillOpacity": 1,
+				"fillColor": "#edeab4"
+			}
+		},
+		{
 			"id": "natural.water",
 			"geometry": {
 				"fillColor": "#8773a6"
@@ -107,6 +114,34 @@
 			"id": "pointOfInterest",
 			"label": {
 				"visible": false
+			}
+		},
+		{
+			"id": "pointOfInterest.recreation.sportsComplex",
+			"geometry": {
+				"fillOpacity": 1,
+				"fillColor": "#edeab4"
+			}
+		},
+		{
+			"id": "pointOfInterest.other.cemetery",
+			"geometry": {
+				"fillOpacity": 1,
+				"fillColor": "#edeab4"
+			}
+		},
+		{
+			"id": "pointOfInterest.recreation.golfCourse",
+			"geometry": {
+				"fillOpacity": 1,
+				"fillColor": "#b8ce52"
+			}
+		},
+		{
+			"id": "pointOfInterest.recreation.natureReserve",
+			"geometry": {
+				"fillOpacity": 1,
+				"fillColor": "#edeab4"
 			}
 		},
 		{
@@ -180,6 +215,13 @@
 				"textFillColor": "#2c231a",
 				"textStrokeOpacity": 0.3,
 				"textStrokeColor": "#fef3d5"
+			}
+		},
+		{
+			"id": "pointOfInterest.transit.airport",
+			"geometry": {
+				"fillOpacity": 1,
+				"fillColor": "#edeab4"
 			}
 		},
 		{

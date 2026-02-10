@@ -2,8 +2,8 @@ import CSSDoc from "./cssdoc";
 
 
 self.downloadMapStyle = () => {
-
 	const css = new CSSDoc;
+
 	const styles = {
 		variant: "light",
 		backgroundColor: css('--map-bg'),
@@ -98,6 +98,13 @@ self.downloadMapStyle = () => {
 				}
 			},
 			{
+				id: "natural.land.landCover.dryCrops",
+				geometry: {
+					fillOpacity: 1,
+					fillColor: css('--map-ground')
+				}
+			},
+			{
 				id: "natural.water",
 				geometry: {
 					fillColor: css('--map-water')
@@ -115,46 +122,74 @@ self.downloadMapStyle = () => {
 					visible: false
 				}
 			},
-{
-  id: "pointOfInterest.business",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.business.foodAndDrink",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.business.shopping",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.business.gasStation",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.medical",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.medical.hospital",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.school",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.attraction",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.placeOfWorship",
-  label: { visible: false }
-},
-{
-  id: "pointOfInterest.government",
-  label: { visible: false }
-},
+			{
+				id: "pointOfInterest.recreation.sportsComplex",
+				geometry: {
+					fillOpacity: 1,
+					fillColor: css('--map-ground')
+				}
+			},
+			{
+				id: "pointOfInterest.other.cemetery",
+				geometry: {
+					fillOpacity: 1,
+					fillColor: css('--map-ground')
+				}
+			},
+			{
+				id: "pointOfInterest.recreation.golfCourse",
+				geometry: {
+					fillOpacity: 1,
+					fillColor: css('--map-green')
+				}
+			},
+			{
+				id: "pointOfInterest.recreation.natureReserve",
+				geometry: {
+					fillOpacity: 1,
+					fillColor: css('--map-ground')
+				}
+			},
+			{
+				id: "pointOfInterest.business",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.business.foodAndDrink",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.business.shopping",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.business.gasStation",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.medical",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.medical.hospital",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.school",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.attraction",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.placeOfWorship",
+				label: { visible: false }
+			},
+			{
+				id: "pointOfInterest.government",
+				label: { visible: false }
+			},
 			{
 				id: "pointOfInterest.recreation.park",
 				geometry: {
@@ -166,6 +201,13 @@ self.downloadMapStyle = () => {
 					textFillColor: css('--map-fg'),
 					textStrokeOpacity: 0.30,
 					textStrokeColor: css('--map-bg')
+				}
+			},
+			{
+				id: "pointOfInterest.transit.airport",
+				geometry: {
+					fillOpacity: 1,
+					fillColor: css('--map-ground')
 				}
 			},
 			{

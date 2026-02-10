@@ -25,6 +25,10 @@
 			}		
 		}
 
+		&__markermask {
+			display: none;
+		}
+
 		.mei-marker {
 			width: 1.5rem;
 			height: 1.5rem;
@@ -42,6 +46,62 @@
 			&:hover {
 				transform: scale(1.1);
 			}
+		}
+
+	}
+
+
+	.mapinfo {
+		margin-top: 0.5rem;
+		margin-left: 0.5rem;
+		max-width: calc(100% - 3rem);
+		border-radius: 0.5rem;
+		background-color: var(--color-red);
+		transform-origin: top left;
+		transform: scale(0);
+		transition: transform 200ms;
+		padding: 0.25rem;
+		box-shadow: 0 0.2rem 1rem 0.1rem var(--color-shadow);
+
+		&.show {
+			transform: scale(1);
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: row;
+
+			img {
+				flex-shrink: 0;
+				border-radius: 0.5rem;
+				width: 3rem;
+				height: 3rem;
+				object-fit: cover;
+			}
+
+			div {
+				
+				padding: 0 0.25rem;
+				font-size: 0.8rem;
+
+				a {
+					&[target="_blank"][href*="instagram"]::after {
+						content: '';
+						display: inline-block;
+						width: 1em;
+						aspect-ratio: 1/1;
+						background-image: var(--icon-insta);
+						background-position: center;
+						background-size: contain;
+						background-repeat: no-repeat;
+						margin-left: 0.2em;
+						margin-bottom: 0.1em;
+						vertical-align: middle;
+					}
+				}
+
+			}
+
 		}
 
 	}
