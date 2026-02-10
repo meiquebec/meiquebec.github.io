@@ -2,6 +2,15 @@
 @use "sass:string";
 @use "sass:color";
 
+
+$color-fg:     #2c231a;
+$color-bg:     #fef3d5;
+$color-blue:   #1a0088;
+$color-green:  #b8ce52;
+$color-red:    #ff5e32;
+$color-alpha:  #ffffff4d;
+$color-shadow: #0000001a;
+
 $font-family:  Logic;
 $font-logo:    Dazzle;
 $font-spacing: -0.07em;
@@ -15,12 +24,6 @@ $scroll-top:  11rem;
 
 $particule-size-1: 2.5em;
 $particule-size-2: 1.75em;
-
-$color-fg:    #2c231a;
-$color-bg:    #fef3d5;
-$color-blue:  #1a0088;
-$color-green: #b8ce52;
-$color-red:   #ff5e32;
 
 $color-blue-hex:  hexbin($color-blue);
 $color-green-hex: hexbin($color-green);

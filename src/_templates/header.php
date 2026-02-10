@@ -4,8 +4,10 @@ $desc = htmlspecialchars($this->abstract, ENT_QUOTES, 'UTF-8');
 $path = ltrim(str_replace('\\', '/', pathinfo(str_replace(realpath($this->root), '', realpath($this->file)), PATHINFO_DIRNAME)), '/');
 if($path) $path .= '/';
 
+
+
 ?><!DOCTYPE html>
-<html lang="fr-CA">
+<html lang="fr-CA" data-page="<?php echo $this->name; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -38,8 +40,8 @@ if($path) $path .= '/';
                 <div>INDÉPENDANTISTE</div>
             </a>
             <nav class="menu">
-                <a href="/medias/">Médias</a>
-                <a href="/notre-equipe/">Notre équipe</a>
+                <a data-page="medias" href="/medias/">Médias</a>
+                <a data-page="notre-equipe" href="/notre-equipe/">Notre équipe</a>
                 <a href="/#nous-joindre">Nous joindre</a>
                 <a target="_blank" href="https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste">Boutique</a>
                 <div class="menu__social-medias">

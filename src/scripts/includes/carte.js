@@ -57,26 +57,23 @@
 		// this.info = new google.maps.InfoWindow();
 
 		this.map = new Map(this.ccmap, {
-            streetViewControl: false,
+            mapId: this.secrets.MAP_ID,
+			streetViewControl: false,
             mapTypeControl: false,
             zoomControl: false,
             cameraControl: false,
             disableDoubleClickZoom: true,
 			colorScheme: ColorScheme.LIGHT,
 
-			center: { lat: 45.5017, lng: -73.5673 }, // Montreal coordinates
-			zoom: 12, // Zoom level (0-20+)
-			mapId: this.secrets.MAP_ID,
+			center: { lat: 45.5017, lng: -73.5673 },
+			zoom: 12
 	
         });
 
 
 		this.comites.filter(e => e.active).map(async item => {
 			const el = create('div', 'mei-marker');
-
-
 			el.addEventListener("click", (ev) => {
-
 				ev.stopPropagation();
 				console.log("click via DOM content");
 			});

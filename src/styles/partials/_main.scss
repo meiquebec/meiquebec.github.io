@@ -142,7 +142,7 @@ section {
         background-color: var(--color-green);
         border-radius: 2rem;
         padding: 2rem;
-        box-shadow: 0 0.2rem 0.4rem 0.3rem rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.2rem 0.4rem 0.3rem var(--color-shadow);
 
         &::after {
             content: "";

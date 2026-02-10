@@ -4,15 +4,15 @@
 	flex-direction: column;
 	width: 100%;
 	margin-top: 2rem;
-	content-visibility: visible !important;
 
 	&__map {
 
 		position: relative;
 		width: 100%;
 		aspect-ratio: 5/3;
-		background-color: #ffffff4d;
+		background-color: var(--color-alpha);
 		border-radius: 1rem;
+		box-shadow: 0 0.2rem 1rem 0.1rem var(--color-shadow);
 
 		.gm-style .gm-fullscreen-control {
 			width: 1.5rem !important;
@@ -28,11 +28,11 @@
 		.mei-marker {
 			width: 1.5rem;
 			height: 1.5rem;
-			// background-color: blue;
 			background-image: var(--icon-marker);
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: center center;
+			filter: drop-shadow(0 0 0.1rem var(--color-shadow));
 			cursor: pointer;
 		}
 
