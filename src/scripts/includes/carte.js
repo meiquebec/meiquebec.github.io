@@ -34,7 +34,6 @@
 		this.parent = create('div', 'carte-mei');
 		this.ccmap = this.parent.create('div', 'carte-mei__map', null, { id: "carte-mei" });
 		this.parent.create('div', 'carte-mei__markermask', '<svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px" aria-hidden="true"><defs><clipPath id="clip-marker-pin" clipPathUnits="objectBoundingBox"><path d="M 0.5 0 C 0.776143 0 1 0.156694 1 0.35 C 1 0.665639 0.5 1 0.5 1 C 0.5 1 0 0.668444 0 0.35 C 0 0.156694 0.223857 0 0.5 0 Z"/></clipPath></defs></svg>');
-		this.info = new MapInfo(this.parent);
 		tag.replaceWith(this.parent);
 		return true;
 	},
@@ -65,11 +64,13 @@
 			colorScheme: ColorScheme.LIGHT
         });
 
+		this.info = new MapInfo(this.parent);
 		this.map.controls[ControlPosition.TOP_LEFT].push(this.info.elm);
 
-		const bounds = new LatLngBounds();
-		this.comites.filter(e => e.active).forEach(c => bounds.extend({ lat: c.location.lat, lng: c.location.lng }));
-		this.map.fitBounds(bounds, 48);
+		const center = create('div', 'mei-center', null, { title: "Centrer la carte" });
+		center.addEventListener('click', () => this.centerMap());
+		this.map.controls[ControlPosition.BOTTOM_RIGHT].push(center);
+		this.centerMap();
 
 		this.markers = await Promise.all(this.comites.filter(e => e.active).map(async item => {
 			const marker = create('div', 'mei-marker');
@@ -88,6 +89,14 @@
 			});
 		}));
 	},
+
+
+	centerMap: async function() {
+		const { LatLngBounds } = await google.maps.importLibrary('core');
+		const bounds = new LatLngBounds();
+		this.comites.filter(e => e.active).forEach(c => bounds.extend({ lat: c.location.lat, lng: c.location.lng }));
+		this.map.fitBounds(bounds, 48);
+	}
 
 }).init();
 
