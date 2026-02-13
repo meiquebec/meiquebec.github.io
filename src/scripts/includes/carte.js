@@ -50,7 +50,7 @@
 
 
 	initMap: async function() {
-		const { ColorScheme, ControlPosition, LatLngBounds } = await google.maps.importLibrary('core');
+		const { ColorScheme, ControlPosition } = await google.maps.importLibrary('core');
 		const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 		const { Map } = await google.maps.importLibrary('maps');
 
@@ -72,22 +72,26 @@
 		this.map.controls[ControlPosition.BOTTOM_RIGHT].push(center);
 		this.centerMap();
 
-		this.markers = await Promise.all(this.comites.filter(e => e.active).map(async item => {
-			const marker = create('div', 'mei-marker');
-			marker.addEventListener("click", e => {
-				e.stopPropagation();
-				this.map.setZoom(Math.max(this.map.getZoom(), 10))
-				this.map.panTo({ lat: item.location.lat, lng: item.location.lng });
-				this.info.show(item);
-				
-			});
-			return new AdvancedMarkerElement({
-				map: this.map,
-				position: { lat: item.location.lat, lng: item.location.lng },
-				content: marker,
-				title: item.name,
-			});
-		}));
+		this.markers = await Promise.all(this.comites.filter(e => e.active).map(async item => this.createMarker(item, AdvancedMarkerElement)));
+	},
+
+
+	createMarker: function(item, AME) {
+		
+		const marker = create('div', 'mei-marker');
+		marker.addEventListener("click", e => {
+			e.stopPropagation();
+			this.map.setZoom(Math.max(this.map.getZoom(), 11));
+			this.map.panTo({ lat: item.location.lat, lng: item.location.lng });
+			this.info.show(item);
+			
+		});
+		return new AME({
+			map: this.map,
+			position: { lat: item.location.lat, lng: item.location.lng },
+			content: marker,
+			title: item.name,
+		});
 	},
 
 
