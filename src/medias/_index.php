@@ -2,7 +2,7 @@
 /**
  * @name     medias
  * @title    Médias
- * @abstract Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays.
+ * @abstract Retrouvez les articles, entrevues et reportages qui parlent du Mouvement Étudiant Indépendantiste : presse, radio, télé et web.
  * @indent   8
  */
 ?>

@@ -42,7 +42,7 @@ if($path) $path .= '/';
             <nav class="menu">
                 <a data-page="medias" href="/medias/">Médias</a>
                 <a data-page="notre-equipe" href="/notre-equipe/">Notre équipe</a>
-                <a href="/#nous-joindre">Nous joindre</a>
+                <a data-page="nous-joindre" href="/nous-joindre/">Nous joindre</a>
                 <a target="_blank" href="https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste">Boutique</a>
                 <div class="menu__social-medias">
                     <a target="_blank" href="https://www.instagram.com/mouv.ei/" title="Instagram"><div class="menu__social-medias__instagram"></div></a>

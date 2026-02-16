@@ -181,6 +181,14 @@ section {
     p {
         margin-top: 1rem;
         letter-spacing: var(--font-spacing);
+
+        &.reseaux-socaux-liens {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+        }
+
     }
 
     ul {
@@ -357,5 +365,39 @@ a {
         background-size: contain;
         background-repeat: no-repeat;
         margin-left: 0.1em;
+    }
+
+
+    &.instagram, &.youtube {
+        background: var(--color-bg);
+        padding: 0.5em 1em;
+        border-radius: 1em;
+        box-shadow: 0 0.2rem 1rem 0.1rem var(--color-shadow);
+        transition: transform 100ms;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+
+        &::after {
+            vertical-align: middle;
+            width: auto;
+            height: 2em;
+        }
+    }
+
+    &.instagram {
+        &::after {
+            aspect-ratio: 14/5;
+            background-image: var(--logo-instagram);
+        }
+    }
+
+    &.youtube {
+        &::after {
+
+            aspect-ratio: 251/105;
+            background-image: var(--logo-youtube);
+        }
     }
 }

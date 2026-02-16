@@ -53,11 +53,3 @@
         <p>Le MÉI collabore étroitement avec la <a target="_blank" href="https://ssjb.com/">Société Saint-Jean-Baptiste de Montréal</a>, le <a target="_blank" href="https://fidq.quebec/">Fonds indépendantiste du Québec</a> et les <a target="_blank" href="https://www.ouiquebec.org/">OUI Québec</a> afin de faciliter la mobilisation et de multiplier les activités socioculturelles.</p>
     </div>
 </section>
-<section class="nous-joindre">
-    <div>
-        <h2><a id="nous-joindre"></a>Nous joindre</h2>
-        <p>Pour nous joindre, veuillez nous écrire à  l’adresse: <a href="mailto:mouvement.ei@gmail.com">mouvement.ei@gmail.com</a>.</p>
-        <h3>Des comités à travers tout le Québec!</h3>
-        <carte-mei></carte-mei>
-    </div>
-</section>

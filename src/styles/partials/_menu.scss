@@ -110,7 +110,8 @@ header {
 
 
 html[data-page="medias"] .menu a[data-page="medias"],
-html[data-page="notre-equipe"] .menu a[data-page="notre-equipe"] {
+html[data-page="notre-equipe"] .menu a[data-page="notre-equipe"],
+html[data-page="nous-joindre"] .menu a[data-page="nous-joindre"] {
     background-image: linear-gradient(0deg, var(--color-red), var(--color-red));
     background-position: bottom;
     background-repeat: no-repeat;

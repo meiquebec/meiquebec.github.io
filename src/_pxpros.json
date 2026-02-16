@@ -2,7 +2,7 @@
     "data": {
         "project": "Mouvement Étudiant Indépendantiste",
         "baseurl": "https://mouvei.quebec/",
-         "gtag": ""
+        "gtag": ""
     },
     "includes": [],
     "before": "_templates/header.php",
