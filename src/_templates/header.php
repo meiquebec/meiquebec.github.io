@@ -2,9 +2,10 @@
 
 $desc = htmlspecialchars($this->abstract, ENT_QUOTES, 'UTF-8');
 $path = ltrim(str_replace('\\', '/', pathinfo(str_replace(realpath($this->root), '', realpath($this->file)), PATHINFO_DIRNAME)), '/');
-if($path) $path .= '/';
+if ($path) $path .= '/';
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="fr-CA" data-page="<?php echo $this->name; ?>">
 <head>
     <meta charset="UTF-8">
@@ -19,18 +20,32 @@ if($path) $path .= '/';
     <link rel="stylesheet" href="/styles/mei.core.min.css?###TIMESTAMP###">
     <script src="/scripts/mei.core.min.js??###TIMESTAMP###"></script>
     <title><? echo $this->title; ?> | <?php echo $this->project; ?></title>
-</head>
-<body>
-    <script type="application/ld+json">
+   <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "<?php echo $this->baseurl . $path; ?>",
-        "name": "<?php echo $this->title; ?> | <?php echo $this->project; ?>",
-        "description": "<?php echo $desc; ?>"
+        "@type": "Organization",
+        "@id": "https://exemple.org/#organisation",
+        "name": "Mouvement Étudiant Indépendantiste",
+        "url": "https://mouvei.quebec/",
+        "logo": "https://mouvei.quebec/images/ogimage.webp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "82 Sherbrooke St W 2e étage",
+            "addressLocality": "Montréal",
+            "addressRegion": "QC",
+            "postalCode": "H2X 1X3",
+            "addressCountry": "CA"
+        },
+        "email": "mouvement.ei@gmail.com",
+        "sameAs": [
+            "https://www.instagram.com/mouv.ei/",
+            "https://www.youtube.com/@mouv_ei/"
+        ]
     }
     </script>
-    <header>
+</head>
+<body>
+     <header>
         <div>
             <h1 title="Mouvement Étudiant Indépendantiste">
                 <a class="brand" href="/#">
@@ -45,8 +60,12 @@ if($path) $path .= '/';
                 <a data-page="nous-joindre" href="/nous-joindre/">Nous joindre</a>
                 <a target="_blank" href="https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste">Boutique</a>
                 <div class="menu__social-medias">
-                    <a target="_blank" href="https://www.instagram.com/mouv.ei/" title="Instagram"><div class="menu__social-medias__instagram"></div></a>
-                    <a target="_blank" href="https://www.youtube.com/@mouv_ei/" title="Youtube"><div class="menu__social-medias__youtube"></div></a>
+                    <a target="_blank" href="https://www.instagram.com/mouv.ei/" title="Instagram">
+                        <div class="menu__social-medias__instagram"></div>
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/@mouv_ei/" title="Youtube">
+                        <div class="menu__social-medias__youtube"></div>
+                    </a>
                 </div>
             </nav>
             <div class="burger"></div>
