@@ -4,22 +4,20 @@ $desc = htmlspecialchars($this->abstract, ENT_QUOTES, 'UTF-8');
 $path = ltrim(str_replace('\\', '/', pathinfo(str_replace(realpath($this->root), '', realpath($this->file)), PATHINFO_DIRNAME)), '/');
 if($path) $path .= '/';
 
-
-
 ?><!DOCTYPE html>
 <html lang="fr-CA" data-page="<?php echo $this->name; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta property="og:locale" content="fr_ca">
+    <meta property="og:locale" content="fr_CA">
     <meta property="og:type" content="website">
     <meta property="og:title" content="<? echo $this->title; ?> | <?php echo $this->project; ?>">
     <meta property="og:description" content="<?php echo $desc; ?>">
     <meta property="og:url" content="<?php echo $this->baseurl . $path; ?>">
     <meta property="og:image" content="<?php echo $this->baseurl; ?>images/ogimage.webp">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/mei.core.min.css?<?php echo time(); ?>">
-    <script src="/scripts/mei.core.min.js?<?php echo time(); ?>"></script>
+    <link rel="stylesheet" href="/styles/mei.core.min.css?###TIMESTAMP###">
+    <script src="/scripts/mei.core.min.js??###TIMESTAMP###"></script>
     <title><? echo $this->title; ?> | <?php echo $this->project; ?></title>
 </head>
 <body>
@@ -34,11 +32,13 @@ if($path) $path .= '/';
     </script>
     <header>
         <div>
-            <a class="brand" href="/#">
-                <div>MOUVEMENT</div>
-                <div>ÉTUDIANT</div>
-                <div>INDÉPENDANTISTE</div>
-            </a>
+            <h1 title="Mouvement Étudiant Indépendantiste">
+                <a class="brand" href="/#">
+                    <div>MOUVEMENT</div>
+                    <div>ÉTUDIANT</div>
+                    <div>INDÉPENDANTISTE</div>
+                </a>
+            </h1>
             <nav class="menu">
                 <a data-page="medias" href="/medias/">Médias</a>
                 <a data-page="notre-equipe" href="/notre-equipe/">Notre équipe</a>

@@ -2,7 +2,7 @@
 /**
  * @name     nous-joindre
  * @title    Nous joindre
- * @abstract Nous joindre : trouvez le comité près de chez vous grâce à la carte, et contactez-nous par nos différents canaux (courriel, réseaux sociaux, etc.).
+ * @abstract Trouvez le comité près de chez vous grâce à la carte, et contactez-nous par nos différents canaux (courriel, réseaux sociaux, etc.).
  * @indent   8
  */
 ?>

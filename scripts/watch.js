@@ -1,6 +1,11 @@
 const path = require("node:path");
 const { createWatchers, buildCSS, buildJS, buildPHP } = require("chokibasic");
 
+const cssIn = path.resolve(__dirname, "../src/styles/mei.core.scss");
+const cssOut = path.resolve(__dirname, "../src/styles/mei.core.min.css");
+const jsIn = path.resolve(__dirname, "../src/scripts/mei.core.js");
+const jsOut = path.resolve(__dirname, "../src/scripts/mei.core.min.js");
+
 
 const { close } = createWatchers(
 	[
@@ -10,9 +15,7 @@ const { close } = createWatchers(
 			ignored: ["**/*.min.js"],
 			callback: async (events) => {
 				console.log("[js] batch", events.length, events.map(e => e.file));
-				const entry = path.resolve(__dirname, "../src/scripts/mei.core.js");
-				const outfile = path.resolve(__dirname, "../src/scripts/mei.core.min.js");
-				await buildJS(entry, outfile);
+				await buildJS(jsIn, jsOut);
 				console.log("");
 			},
 		},
@@ -21,9 +24,7 @@ const { close } = createWatchers(
 			patterns: ["src/styles/**/*.scss"],
 			callback: async (events) => {
 				console.log("[scss] batch", events.length, events.map(e => e.file));
-				const inputScss = path.resolve(__dirname, "../src/styles/mei.core.scss");
-				const outCssMin = path.resolve(__dirname, "../src/styles/mei.core.min.css");
-				await buildCSS(inputScss, outCssMin);
+				await buildCSS(cssIn, cssOut);
 				console.log("");
 			},
 		},
