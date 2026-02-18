@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "chokibasic": "^1.1.4",
+    "chokibasic": "^1.1.8",
     "swiper": "^12.1.1"
   },
   "scripts": {

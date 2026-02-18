@@ -1,10 +1,3 @@
-<?php
-
-$desc = htmlspecialchars($this->abstract, ENT_QUOTES, 'UTF-8');
-$path = ltrim(str_replace('\\', '/', pathinfo(str_replace(realpath($this->root), '', realpath($this->file)), PATHINFO_DIRNAME)), '/');
-if ($path) $path .= '/';
-
-?>
 <!DOCTYPE html>
 <html lang="fr-CA" data-page="<?php echo $this->name; ?>">
 <head>
@@ -13,12 +6,12 @@ if ($path) $path .= '/';
     <meta property="og:locale" content="fr_CA">
     <meta property="og:type" content="website">
     <meta property="og:title" content="<? echo $this->title; ?> | <?php echo $this->project; ?>">
-    <meta property="og:description" content="<?php echo $desc; ?>">
-    <meta property="og:url" content="<?php echo $this->baseurl . $path; ?>">
-    <meta property="og:image" content="<?php echo $this->baseurl; ?>images/ogimage.webp">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/styles/mei.core.min.css?###TIMESTAMP###">
-    <script src="/scripts/mei.core.min.js??###TIMESTAMP###"></script>
+    <meta property="og:description" content="<?php echo STR::htmlesc($this->abstract); ?>">
+    <meta property="og:url" content="<?php echo $this->baseurl . $this->absurl; ?>">
+    <meta property="og:image" content="<?php echo $this->baseurl; ?>/images/ogimage.webp">
+    <link rel="icon" type="image/x-icon" href="<?php echo $this->relroot; ?>favicon.ico">
+    <link rel="stylesheet" href="<?php echo $this->relroot; ?>styles/mei.core.min.css?###TIMESTAMP###">
+    <script src="<?php echo $this->relroot; ?>scripts/mei.core.min.js??###TIMESTAMP###"></script>
     <title><? echo $this->title; ?> | <?php echo $this->project; ?></title>
    <script type="application/ld+json">
     {

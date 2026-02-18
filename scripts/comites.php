@@ -1,6 +1,6 @@
 <?php
+require_once(__DIR__ . '/../node_modules/pxpros/src/utils.inc.php');
 
-const RN = "\r\n";
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -8,16 +8,18 @@ ini_set('serialize_precision', '-1');
 ini_set('precision', '14');
 
 
-$comiteFile = realpath(pathinfo(__DIR__, PATHINFO_DIRNAME).'/src/comites.json');
-$secretFile = realpath(pathinfo(__DIR__, PATHINFO_DIRNAME).'/src/bt1oh97j7X.json');
+$comiteFile = realpath(pathinfo(__DIR__, PATHINFO_DIRNAME).'/src/data/comites.json');
+$secretFile = realpath(pathinfo(__DIR__, PATHINFO_DIRNAME).'/src/bt1oh97j7X.bin');
 
 if(!$comiteFile || !$secretFile) {
 	echo "Missing configuration files.".RN;
 	exit(1);
 }
 
+
 $comites = json_decode(file_get_contents($comiteFile));
-$secrets = json_decode(file_get_contents($secretFile));
+$secrets = OBF::decode(file_get_contents($secretFile));
+
 
 foreach($comites as $item) {
 	if(!empty($item->location)) continue;
