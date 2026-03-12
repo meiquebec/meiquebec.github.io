@@ -71,7 +71,7 @@ npm run build
 
 #### npm run export
 
-Cette commande exporte le projet src/ vers dist/ en ne copiant que les fichiers nécéssaires à l'environnement de production.
+Cette commande exporte le projet `src/` vers `dist/` en ne copiant que les fichiers nécéssaires à l'environnement de production.
 
 ```bash
 npm run export 
@@ -79,7 +79,7 @@ npm run export
 
 #### npm run galleries
 
-Cette commande exporte et optimise les galeries photos assets/images/galleries/* vers src/images/galeries/*
+Cette commande exporte et optimise les galeries photos `assets/images/galleries/*` vers `src/images/galeries/*`
 
 ```bash
 npm run galleries 
@@ -88,7 +88,7 @@ npm run galleries
 
 #### npm run comites
 
-Cette commande permet de compléter le fichier src/data/comites.json avec les informations de géolocalisation nécéssaires à la carte des comités. 
+Cette commande permet de compléter le fichier `src/data/comites.json` avec les informations de géolocalisation nécéssaires à la carte des comités. 
 
 ```bash
 npm run comites 
