@@ -77,7 +77,6 @@
 
 
 	createMarker: function(item, AME) {
-		
 		const marker = create('div', 'mei-marker');
 		marker.addEventListener("click", e => {
 			e.stopPropagation();

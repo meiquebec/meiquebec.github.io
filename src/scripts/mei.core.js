@@ -7,4 +7,4 @@ import './includes/mapstyle';
 
 const driftTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--drift-time').replace(/s$/gi, ''));
 const delay = 0 - (Math.floor(Math.random() * (driftTime + 1)));
-document.documentElement.style.setProperty('--drift-time-delay',`${delay}s`);
+document.documentElement.style.setProperty('--drift-time-delay', `${delay}s`);
