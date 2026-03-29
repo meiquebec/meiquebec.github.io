@@ -86,12 +86,12 @@
 		// overflow: visible;
 		// isolation: isolate;
 		cursor: pointer;
-		// opacity: 0.9;
+		opacity: 0.8;
 		transition: opacity 100ms;
 
-		// &:hover {
-		// 	opacity: 1;
-		// }
+		&:hover {
+			opacity: 1;
+		}
 
 	}
 }
