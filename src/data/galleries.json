@@ -1,5 +1,38 @@
 [
     {
+        "name": "le-grand-sursaut-2",
+        "files": [
+            {
+                "src": "/images/galeries/le-grand-sursaut-2/01.webp",
+                "tbn": "/images/galeries/le-grand-sursaut-2/01_tb.webp"
+            },
+            {
+                "src": "/images/galeries/le-grand-sursaut-2/02.webp",
+                "tbn": "/images/galeries/le-grand-sursaut-2/02_tb.webp"
+            },
+            {
+                "src": "/images/galeries/le-grand-sursaut-2/03.webp",
+                "tbn": "/images/galeries/le-grand-sursaut-2/03_tb.webp"
+            },
+            {
+                "src": "/images/galeries/le-grand-sursaut-2/04.webp",
+                "tbn": "/images/galeries/le-grand-sursaut-2/04_tb.webp"
+            },
+            {
+                "src": "/images/galeries/le-grand-sursaut-2/05.webp",
+                "tbn": "/images/galeries/le-grand-sursaut-2/05_tb.webp"
+            },
+            {
+                "src": "/images/galeries/le-grand-sursaut-2/06.webp",
+                "tbn": "/images/galeries/le-grand-sursaut-2/06_tb.webp"
+            },
+            {
+                "src": "/images/galeries/le-grand-sursaut-2/07.webp",
+                "tbn": "/images/galeries/le-grand-sursaut-2/07_tb.webp"
+            }
+        ]
+    },
+    {
         "name": "rever-le-pays",
         "files": [
             {
@@ -49,6 +82,10 @@
             {
                 "src": "/images/galeries/rever-le-pays/12.webp",
                 "tbn": "/images/galeries/rever-le-pays/12_tb.webp"
+            },
+            {
+                "src": "/images/galeries/rever-le-pays/13.webp",
+                "tbn": "/images/galeries/rever-le-pays/13_tb.webp"
             }
         ]
     },

@@ -5,6 +5,14 @@ import './includes/gallery';
 import './includes/carte';
 import './includes/mapstyle';
 
+
 const driftTime = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--drift-time').replace(/s$/gi, ''));
 const delay = 0 - (Math.floor(Math.random() * (driftTime + 1)));
 document.documentElement.style.setProperty('--drift-time-delay', `${delay}s`);
+
+
+if (window.location.search.includes('fbclid')) {
+	const url = new URL(window.location);
+	url.searchParams.delete('fbclid');
+	window.history.replaceState({}, document.title, url.pathname + url.search);
+}
