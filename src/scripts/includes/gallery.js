@@ -32,14 +32,13 @@ import { Autoplay, Navigation } from 'swiper/modules';
 			if(!gallery) return;
 			return this.createGallery(elm, gallery);
 		}));
-
-		requestAnimationFrame(() => {
-			this.swipers.forEach(swiper => {
-				swiper.params.spaceBetween = Number(Math.round(rem(this.SPACE_REM) + 'e+2') + 'e-2');
-				swiper.update();
-				swiper.updateSize();
-				swiper.updateSlides();
-			});
+		
+		await new Promise(requestAnimationFrame);
+		this.swipers.forEach(swiper => {
+			swiper.params.spaceBetween = Number(Math.round(rem(this.SPACE_REM) + 'e+2') + 'e-2');
+			swiper.update();
+			swiper.updateSize();
+			swiper.updateSlides();
 		});
 
 		window.addEventListener('resize', () => {

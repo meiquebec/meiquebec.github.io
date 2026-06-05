@@ -6,7 +6,7 @@ import { gunzipSync } from 'zlib';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const root = resolve(__dirname, '..');
 
-const comiteFile = resolve(root, 'src/data/comites.json');
+const comiteFile = resolve(root, 'src/nos-comites/comites.json');
 const secretFile = resolve(root, 'src/bt1oh97j7X.bin');
 
 // === OBF::decode ===
@@ -39,7 +39,7 @@ async function getGeocode(address, apiKey) {
 }
 
 // === Main ===
-const comites = JSON.parse(readFileSync(comiteFile, 'utf8'));
+const comites = JSON.parse(readFileSync(comiteFile, 'utf8')).sort((a, b) => a.name.localeCompare(b.name));
 const secrets = obfDecode(readFileSync(secretFile));
 
 for (const item of comites) {
@@ -50,5 +50,8 @@ for (const item of comites) {
 
 	await new Promise(r => setTimeout(r, 1000)); // sleep(1)
 }
+
+
+
 
 writeFileSync(comiteFile, JSON.stringify(comites, null, 4));

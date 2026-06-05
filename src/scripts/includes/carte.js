@@ -45,7 +45,7 @@
 
 
 	loadComites: async function() {
-		await loadJsonProperties(this, { comites: atob('L2RhdGEvY29taXRlcy5qc29u') });
+		await loadJsonProperties(this, { comites: atob('L25vcy1jb21pdGVzL2NvbWl0ZXMuanNvbg==') });
 	},
 
 

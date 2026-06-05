@@ -1,7 +1,7 @@
 {
 	"recommendations": [
-		"appulate.filewatcher",
-		"ritwickdey.LiveServer"
+		"ritwickdey.LiveServer",
+		"VisbyDev.folder-path-color"
 	],
 	"unwantedRecommendations": [
 		"glenn2223.live-sass",
