@@ -7,11 +7,6 @@
  */
 
 $articles = YAML::parseFile(__DIR__ . '/_articles.yaml');
-
-// echo "<pre>";
-// print_r($articles);
-// echo "</pre>";
-
 ?>
 <section class="medias">
     <div>
