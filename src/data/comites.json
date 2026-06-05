@@ -113,11 +113,11 @@
         "id": "comite_independantiste_de_sainte_foy",
         "name": "Comité indépendantiste de Sainte-Foy",
         "address": "2410 Ch Ste-Foy, Québec, QC G1V 1T2",
-        "instagram": "https://www.instagram.com/sainte.foy_independant/",
-        "active": false,
+        "instagram": "https://www.instagram.com/oui_sainte_foy/",
+        "active": true,
         "location": {
             "lat": 46.7865914,
-            "lng": -71.28693849999999
+            "lng": -71.2869384
         }
     },
     {
@@ -180,7 +180,7 @@
         "name": "Comité souverainiste du Cégep de Bois-de-Boulogne",
         "address": "10555 Ave de Bois-de-Boulogne, Montreal, Quebec H4N 1K7",
         "instagram": "https://www.instagram.com/oui.bdeb/",
-        "active": false,
+        "active": true,
         "location": {
             "lat": 45.5379225,
             "lng": -73.6757837
@@ -190,11 +190,11 @@
         "id": "comite_independantiste_du_college_de_montmorency",
         "name": "Comité indépendantiste du Collège de Montmorency",
         "address": "475 Bd de l'Avenir, Laval, QC H7N 5H9",
-        "instagram": "https://www.instagram.com/comite_independantiste_de_momo/",
-        "active": false,
+        "instagram": "https://www.instagram.com/independantistes_momo/",
+        "active": true,
         "location": {
-            "lat": 45.56001939999999,
-            "lng": -73.71880039999999
+            "lat": 45.56001939,
+            "lng": -73.71880039
         }
     },
     {
@@ -259,8 +259,30 @@
         "instagram": "https://www.instagram.com/oui_joliette/",
         "active": true,
         "location": {
-            "lat": 46.0278628,
-            "lng": -73.4349793
+            "lat": 46.0275109,
+            "lng": -73.4353529
+        }
+    },
+    {
+        "id": "oui_levis",
+        "name": "Oui Lévis",
+        "address": "205 Rue Monseigneur-Bourget, Lévis, QC G6V 6Z9",
+        "instagram": "https://www.instagram.com/oui.levis/",
+        "active": true,
+        "location": {
+            "lat": 46.8175422,
+            "lng": -71.150491
+        }
+    },
+    {
+        "id": "oui_saint_jean",
+        "name": "Oui Saint-Jean",
+        "address": "30 Bd du Séminaire N, Saint-Jean-sur-Richelieu, QC J3B 5J4",
+        "instagram": "https://www.instagram.com/ouisaintjean/",
+        "active": true,
+        "location": {
+            "lat": 45.2978196,
+            "lng": -73.2695256
         }
     }
 ]

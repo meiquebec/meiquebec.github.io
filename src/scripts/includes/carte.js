@@ -80,7 +80,7 @@
 		const marker = create('div', 'mei-marker');
 		marker.addEventListener("click", e => {
 			e.stopPropagation();
-			this.map.setZoom(Math.max(this.map.getZoom(), 11));
+			this.map.setZoom(Math.max(this.map.getZoom(), 13));
 			this.map.panTo({ lat: item.location.lat, lng: item.location.lng });
 			this.info.show(item);
 			

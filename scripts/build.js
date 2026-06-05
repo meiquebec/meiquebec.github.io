@@ -1,7 +1,9 @@
-const path = require("node:path");
-const { buildCSS, buildJS, buildPHP, buildSitemap } = require("chokibasic");
+import path from "path";
+import { fileURLToPath } from 'url';
+import { buildCSS, buildJS, buildPHP, buildSitemap } from "chokibasic";
 
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const phpin = 'src';
 const srcin = path.resolve(__dirname, "../src/");
 const jsin = path.resolve(srcin, "scripts/mei.core.js");
 const jsout = path.resolve(srcin, "scripts/mei.core.min.js");
@@ -12,6 +14,6 @@ const cssout = path.resolve(srcin, "styles/mei.core.min.css");
 (async () => {
 	await buildJS(jsin, jsout);
 	await buildCSS(cssin, cssout);
-	await buildPHP(srcin);
-	await buildSitemap(srcin);
+	await buildPHP(phpin);
+	await buildSitemap(phpin);
 })();

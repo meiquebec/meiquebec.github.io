@@ -1,6 +1,9 @@
-const path = require("node:path");
-const { createWatchers, buildCSS, buildJS, buildPHP } = require("chokibasic");
+import path from "path";
+import { fileURLToPath } from 'url';
+import { createWatchers, buildCSS, buildJS, buildPHP } from "chokibasic";
 
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const cssIn = path.resolve(__dirname, "../src/styles/mei.core.scss");
 const cssOut = path.resolve(__dirname, "../src/styles/mei.core.min.css");
 const jsIn = path.resolve(__dirname, "../src/scripts/mei.core.js");
@@ -34,6 +37,15 @@ const { close } = createWatchers(
 			callback: async (events) => {
 				console.log("[php] batch", events.length, events.map(e => e.file));
 				await Promise.all(events.map(e => buildPHP(e.file)));
+				console.log("");
+			},
+		},
+		{
+			name: "yaml",
+			patterns: ["src/**/*.yaml"],
+			callback: async (events) => {
+				console.log("[yaml] batch", events.length, events.map(e => path.dirname(e.file)));
+				await Promise.all(events.map(e => buildPHP(path.dirname(e.file))));
 				console.log("");
 			},
 		},

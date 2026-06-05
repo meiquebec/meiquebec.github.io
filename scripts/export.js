@@ -1,7 +1,8 @@
-const path = require('path');
-const { exportDist } = require("chokibasic");
+import path from "path";
+import { fileURLToPath } from 'url';
+import { exportDist } from "chokibasic";
 
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIR = process.cwd();
 const SRC = path.join(DIR, 'src');
 const DIST = path.join(DIR, 'dist');

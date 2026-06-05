@@ -186,7 +186,7 @@ section {
             margin-top: 1.5rem;
             display: flex;
             justify-content: center;
-            gap: 6rem;
+            gap: 2.2rem;
         }
 
     }
@@ -368,7 +368,7 @@ a {
     }
 
 
-    &.instagram, &.youtube {
+    &.instagram, &.youtube, &.facebook {
         background: var(--color-bg);
         padding: 0.5em 1em;
         border-radius: 1em;
@@ -395,9 +395,15 @@ a {
 
     &.youtube {
         &::after {
-
             aspect-ratio: 251/105;
             background-image: var(--logo-youtube);
+        }
+    }
+
+    &.facebook {
+        &::after {
+            aspect-ratio: 300/90;
+            background-image: var(--logo-facebook);
         }
     }
 }

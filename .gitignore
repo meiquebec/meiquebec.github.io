@@ -1,6 +1,6 @@
 /node_modules/
-/package-lock.json
+/dist/
 /src/test/
-/src/bt1oh97j7X.bin
+bt1oh97j7X.bin
 Thumbs.db
 .cache.db

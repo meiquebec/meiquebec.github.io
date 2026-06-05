@@ -5,51 +5,27 @@
  * @abstract Retrouvez les articles, entrevues et reportages qui parlent du Mouvement Étudiant Indépendantiste : presse, radio, télé et web.
  * @indent   8
  */
+
+$articles = YAML::parseFile(__DIR__ . '/_articles.yaml');
+
+// echo "<pre>";
+// print_r($articles);
+// echo "</pre>";
+
 ?>
 <section class="medias">
     <div>
         <h2>Médias</h2>
         <div>
-            <a target="_blank" title="Petite cartographie contemporaine du Oui et du Non" href="https://www.ledevoir.com/politique/930009/petite-cartographie-contemporaine-oui-non">
-                <img src="../images/medias/le-devoir-oui-non.webp">
-                <div>Petite cartographie contemporaine du Oui et du Non</div>
+            <?php foreach($articles as $article): ?><a target="_blank" noopener noreferrer title="<?php echo $article->titre; ?>" href="<?php echo $article->lien; ?>">
+                <img src="<?php echo $article->image; ?>">
+                <div><?php echo $article->titre; ?></div>
                 <div>
-                    <div>Le Devoir</div>
-                    <div>1er nov. 2025</div>
+                    <div><?php echo $article->media; ?></div>
+                    <div><?php echo $article->date; ?></div>
                 </div>
             </a>
-            <a target="_blank" title="Souveraineté du Québec : pourquoi les jeunes retournent vers le « oui »?" href="https://www.youtube.com/watch?v=asx3N1LMR8w">
-                <img src="../images/medias/radio-canada-pourquoi-les-jeunes.webp">
-                <div>Souveraineté du Québec : pourquoi les jeunes retournent vers le « oui »?</div>
-                <div>
-                    <div>Radio-Canada</div>
-                    <div>31 oct. 2025</div>
-                </div>
-            </a>
-            <a target="_blank" title="Young Montreal sovereigntists long for Quebec independence, 30 years after referendum" href="https://www.cbc.ca/news/canada/montreal/quebec-independence-montreal-march-9.6954119">
-                <img src="../images/medias/cbc-30year-referendum.webp">
-                <div>Young Montreal sovereigntists long for Quebec independence, 30 years after referendum</div>
-                <div>
-                    <div>CBC</div>
-                    <div>26 oct. 2025</div>
-                </div>
-            </a>
-            <a target="_blank" title="Les comités étudiants indépendantistes se multiplient au Québec" href="https://ici.radio-canada.ca/nouvelle/2195895/independance-quebec-souverainete-etudiant-jeune-cegep-referendum">
-                <img src="../images/medias/radio-canada-comites-etudiants.webp">
-                <div>Les comités étudiants indépendantistes se multiplient au Québec</div>
-                <div>
-                    <div>Radio-Canada</div>
-                    <div>30 sept. 2025</div>
-                </div>
-            </a>
-            <a target="_blank" title="Des comités pour un Québec libre dans tous les CÉGEPS?" href="https://www.youtube.com/watch?v=P-B7GIz1QTM">
-                <img src="../images/medias/generation-oui-des-comites-cegep.webp">
-                <div>Des comités pour un Québec libre dans tous les CÉGEPS?</div>
-                <div>
-                    <div>Generation OUI</div>
-                    <div>29 sept. 2025</div>
-                </div>
-            </a>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

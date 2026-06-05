@@ -29,5 +29,15 @@
         "**/*.php",
         "**/*.ts",
         "**/!(*.min).js"
+    ],
+    "folder-path-color.folders": [
+        {
+            "path": "src",
+            "color": "cyan"
+        },
+        {
+            "path": "scripts",
+            "color": "magenta"
+        }
     ]
 }
