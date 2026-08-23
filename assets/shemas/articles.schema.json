@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "articles.schema.json",
+  "title": "Articles",
+  "description": "Liste des articles de presse mentionnant le MÉI",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Article",
+    "description": "Un article de presse",
+    "properties": {
+      "titre": {
+        "type": "string",
+        "description": "Titre de l'article"
+      },
+      "lien": {
+        "type": "string",
+        "description": "URL vers l'article",
+        "format": "uri"
+      },
+      "image": {
+        "type": "string",
+        "description": "Nom du fichier image de l'article (format .webp)",
+        "pattern": "^[a-z0-9_-]+\\.webp$"
+      },
+      "media": {
+        "type": "string",
+        "description": "Nom du média ayant publié l'article",
+        "examples": [
+          "Le Devoir",
+          "Radio-Canada",
+          "CTV News",
+          "CBC",
+          "La Tribune",
+          "98,5 FM",
+          "FM 93",
+          "Noovo Info",
+          "The Gazette",
+          "Quartier libre",
+          "Generation OUI"
+        ]
+      },
+      "date": {
+        "type": "string",
+        "description": "Date de publication en format lisible en français",
+        "examples": [
+          "1er nov. 2025",
+          "30 oct. 2025",
+          "29 mar. 2026"
+        ]
+      }
+    },
+    "required": ["titre", "lien", "image", "media", "date"],
+    "additionalProperties": false
+  }
+}

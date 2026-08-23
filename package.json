@@ -22,13 +22,13 @@
     "comites": "node scripts/comites.js"
   },
   "dependencies": {
-    "chokibasic": "^2.0.1",
-    "sharp": "^0.34.5",
+    "chokibasic": "^2.0.3",
+    "sharp": "^0.35.2",
     "swiper": "^12.2.0"
   },
   "allowScripts": {
-    "esbuild@0.28.0": true,
     "@parcel/watcher@2.5.6": true,
-    "sharp@0.34.5": true
+    "sharp@0.34.5": true,
+    "esbuild@0.28.1": true
   }
 }

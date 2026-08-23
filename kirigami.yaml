@@ -1,0 +1,37 @@
+kirigami:
+  project: Mouvement Étudiant Indépendantiste
+  baseurl: https://mouvei.quebec
+  banner:  scripts/banner.txt
+  root:    src
+  
+
+export:
+  path: dist
+  ignore:
+    - bt1oh97j7X.bin
+
+
+prepros:
+  before: _templates/header.php
+  after:  _templates/footer.php
+  # mountext: [.webp, .jpeg]
+  # network: true
+  # deep: true
+  format: true
+  includes:
+    - _plugins/md.plugins.php
+
+
+tasks:
+
+  - name:  js-core
+    type:  js
+    entry: scripts/mei.core.js
+
+  - name:  scss-core
+    type:  scss
+    entry: styles/mei.core.scss
+
+  # - name:  conf-game
+  #   type:  conf
+  #   entry: game/config.yaml

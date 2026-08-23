@@ -7,8 +7,8 @@
             </div>
         </section>
 	</main>
-    <footer title="Tous droits réservés © <?php echo $this->project; ?>, ###YEAR###">
-        © Tous droits réservés<br><?php echo $this->project; ?>, ###YEAR###
+    <footer title="Tous droits réservés © <?php echo $project; ?>, ###YEAR###">
+        © Tous droits réservés<br><?php echo $project; ?>, ###YEAR###
     </footer>
 </body>
 </html>

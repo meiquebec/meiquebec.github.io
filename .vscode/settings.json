@@ -12,8 +12,12 @@
     "intelephense.files.exclude": [
         "**/.git/**",
         "**/node_modules/**",
-        "!**/node_modules/pxpros/**"
+        "!**/node_modules/@kirigami/prepros/**"
     ],
+    "yaml.schemas": {
+        "./assets/shemas/articles.schema.json": "_articles.yaml",
+        "./assets/shemas/equipe.schema.json": "_equipe.yaml"
+    },
     "liveServer.settings.port": 5504,
     "liveServer.settings.CustomBrowser": "chrome",
     "liveServer.settings.root": "./src/",

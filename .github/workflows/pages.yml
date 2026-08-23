@@ -32,8 +32,6 @@ jobs:
 
       - name: Build and Export
         run: |
-          npm run comites
-          npm run galleries
           npm run build
           npm run export
 

@@ -3,10 +3,8 @@
  * @name     nos-comites
  * @title    Nos comités
  * @abstract Trouvez le comité près de chez vous grâce à la carte, et contactez-nous par nos différents canaux (courriel, réseaux sociaux, etc.).
- * @indent   8
+ * @comites  comites.json
  */
-
-$comites = json_decode(file_get_contents(__DIR__ . '/comites.json'));
 ?>
 <section class="nos-comites">
     <div>
@@ -16,7 +14,7 @@ $comites = json_decode(file_get_contents(__DIR__ . '/comites.json'));
         <h3>Liste des comités</h3>
         <ul>
             <?php foreach($comites as $comite):?>
-            <li><a target="_blank" noopener noreferrer href="<?php echo $comite->instagram; ?>"><?php echo $comite->name; ?></a></li>
+                <li><a target="_blank" noopener noreferrer href="<?php echo $comite->instagram; ?>"><?php echo $comite->name; ?></a></li>
             <?php endforeach; ?>
         </ul>    
     </div>
@@ -24,9 +22,13 @@ $comites = json_decode(file_get_contents(__DIR__ . '/comites.json'));
 
 <section class="nous-joindre">
     <div>
-        <h2>Nous joindre</h2>
-        <p>Pour nous joindre, veuillez nous écrire à  l’adresse: <a href="mailto:mouvement.ei@gmail.com">mouvement.ei@gmail.com</a>.</p>
-        <h3>Nos coordonnées</h3>
-        <p>Nos locaux sont situés dans la bâtisse de la <a target="_blank" noopener noreferrer href="https://ssjb.com/">Société Saint-Jean-Baptiste</a> à l'adresse suivante:<br><a target="_blank" noopener noreferrer href="https://maps.app.goo.gl/TZQZsPi8hs53USj96">82 Rue Sherbrooke Ouest, Montréal, QC H2X 1X3</a></p>
+        <markdown>
+            ## Nous joindre
+            Pour nous joindre, veuillez nous écrire à  l’adresse: [mouvement.ei@gmail.com](mailto:mouvement.ei@gmail.com).
+
+            ### Nos coordonnées
+            Nos locaux sont situés dans la bâtisse de la [Société Saint-Jean-Baptiste](https://ssjb.com/) à l'adresse suivante:
+            [82 Rue Sherbrooke Ouest, Montréal, QC H2X 1X3](https://maps.app.goo.gl/TZQZsPi8hs53USj96)
+        </markdown>
     </div>
 </section>

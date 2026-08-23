@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="fr-CA" data-page="<?php echo $this->name; ?>">
+<html lang="fr-CA" data-page="<?php echo $name; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta property="og:locale" content="fr_CA">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<? echo $this->title; ?> | <?php echo $this->project; ?>">
-    <meta property="og:description" content="<?php echo STR::htmlesc($this->abstract); ?>">
-    <meta property="og:url" content="<?php echo $this->baseurl . $this->absurl; ?>">
-    <meta property="og:image" content="<?php echo $this->baseurl; ?>/images/ogimage.webp">
-    <link rel="icon" type="image/x-icon" href="<?php echo $this->relroot; ?>favicon.ico">
-    <link rel="stylesheet" href="<?php echo $this->relroot; ?>styles/mei.core.min.css?###TIMESTAMP###">
-    <script src="<?php echo $this->relroot; ?>scripts/mei.core.min.js??###TIMESTAMP###"></script>
-    <title><? echo $this->title; ?> | <?php echo $this->project; ?></title>
-   <script type="application/ld+json">
+    <meta property="og:title" content="<? echo $title; ?> | <?php echo $project; ?>">
+    <meta property="og:description" content="<?php echo STR::htmlesc($abstract); ?>">
+    <meta property="og:url" content="<?php echo rtrim($baseurl, '/') . $absurl; ?>">
+    <meta property="og:image" content="<?php echo $baseurl; ?>images/ogimage.webp">
+    <link rel="icon" type="image/x-icon" href="<?php echo $relroot; ?>favicon.ico">
+    <link rel="stylesheet" href="<?php echo $relroot; ?>styles/mei.core.min.css?###TIMESTAMP###">
+    <script src="<?php echo $relroot; ?>scripts/mei.core.min.js??###TIMESTAMP###"></script>
+    <title><? echo $title; ?> | <?php echo $project; ?></title>
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",

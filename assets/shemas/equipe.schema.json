@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "equipe.schema.json",
+  "title": "Équipe",
+  "description": "Liste des membres de l'équipe du MÉI",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Membre",
+    "description": "Un membre de l'équipe",
+    "properties": {
+      "nom": {
+        "type": "string",
+        "description": "Nom complet du membre"
+      },
+      "poste": {
+        "type": "string",
+        "description": "Poste occupé au sein de l'organisation",
+        "examples": [
+          "Co-porte-parole",
+          "Relations internes",
+          "Secrétaire",
+          "Trésorière",
+          "Mobilisation"
+        ]
+      },
+      "photo": {
+        "type": "string",
+        "description": "Nom du fichier image du membre (format .webp)",
+        "pattern": "^[a-z0-9-]+\\.webp$"
+      },
+      "bio": {
+        "type": "string",
+        "description": "Biographie du membre"
+      }
+    },
+    "required": ["nom", "poste", "photo", "bio"],
+    "additionalProperties": false
+  }
+}
