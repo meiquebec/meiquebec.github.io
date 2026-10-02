@@ -252,13 +252,17 @@ Quand Kirigami saura passer des variables d'environnement aux scripts
 Le site sera édité par l'équipe du MÉI dans
 [Kiri Studio](https://github.com/php-kirigami/kiri-studio) : pas de
 terminal, pas de build local, publication par l'API GitHub. Tout ce qui
-est contenu doit donc être éditable sans toucher au PHP, et tout ce qui
-est généré doit se régénérer **en CI**. Conséquences :
+est contenu doit donc être éditable sans toucher au PHP. Conséquences :
 
-- **La CI fait tout.** Un comité ajouté dans Studio n'a ni position ni
-  logo : c'est la CI qui géocode et récupère la photo Instagram. Le secret
-  `GEOCODING_API_KEY` et l'étape de recommit des caches sont donc
-  obligatoires, pas optionnels.
+- **L'aperçu calcule, la publication emporte, la CI rattrape.** Un comité
+  ajouté dans Studio est géocodé et reçoit son logo **dans l'aperçu**, dès
+  la modification de `comites.yaml` (`scripts[].watch`), avec la clé
+  saisie une fois dans « Clés du site » (`studio.secrets`). À la
+  publication, Studio envoie les caches remplis avec les modifications
+  (`studio.publish`). La CI ne refait que ce qui manque ; son secret
+  `GEOCODING_API_KEY` et le recommit des caches restent obligatoires.
+  Détails : [SCRIPTS.md](SCRIPTS.md#qui-exécute-le-script-et-quand).
+  Demande Kirigami core 3.2.9 et Kiri Studio 0.5.5.
 - **Studio ne montre que la saisie.** `comites.yaml` ne contient que ce
   que l'équipe tape (nom, adresse, Instagram, actif) ; coordonnées et
   logos vivent dans des caches générés (`geocodage.json`,
@@ -290,8 +294,8 @@ est généré doit se régénérer **en CI**. Conséquences :
   convention de nom : la photo de profil Instagram du comité est récupérée
   une fois et gardée ; un champ `logo` facultatif permet d'en imposer une
   autre (voir [SCRIPTS.md §1](SCRIPTS.md#1-comités--géocodage-et-logos)).
-  Risque : Instagram peut bloquer la CI — à vérifier au premier
-  déploiement.
+  La photo est prise depuis le poste de l'équipe (aperçu) : Instagram
+  bloque souvent les serveurs de la CI.
 - **Aucun texte dans les `_index.php`.** Studio ne peut pas éditer le PHP :
   chaque bloc `<markdown>` devient un `.md` de `src/_data/<page>/` chargé
   par annotation (§2, modèle humainhumain), et Studio le liste sous le

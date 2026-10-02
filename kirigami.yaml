@@ -68,6 +68,8 @@ scripts:
   - name:    preparer-comites
     trigger: before-build
     mount:   [secrets.local.yaml]
+    # Relancé dès que la liste change (kiri serve, aperçu de Kiri Studio).
+    watch:   [src/_data/comites/comites.yaml]
 
 
 tasks:
@@ -98,3 +100,15 @@ studio:
     src/_data/equipe/equipe.yaml:   Équipe
     src/_data/medias/articles.yaml: Articles
     src/_data/comites/comites.yaml: Comités
+  # Clé saisie une fois dans Studio (« Clés du site »), gardée sur le poste :
+  # l'aperçu géocode lui-même les nouveaux comités.
+  secrets:
+    file: secrets.local.yaml
+    keys:
+      geocodage: Clé de géocodage Google (Geocoding API)
+  # Ce que l'aperçu a calculé part avec la publication : la CI n'a plus à le
+  # refaire (et la photo Instagram est prise depuis le poste de l'équipe).
+  publish:
+    - src/_data/comites/geocodage.json
+    - src/_data/comites/instagram.json
+    - assets/images/comites/instagram/*.jpg

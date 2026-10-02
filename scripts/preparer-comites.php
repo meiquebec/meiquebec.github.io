@@ -142,8 +142,10 @@ foreach ($comites as $c) {
     // L'URL d'Instagram est signée et expire : l'image est téléchargée tout de suite.
     if ($image && CURL::getContents($image, $fichier) && @getimagesize($fichier)) {
         PREPROS::exportFile($fichier);
-        unset($echecs[$compte]);
-        $echecsModifies = true;
+        if (isset($echecs[$compte])) {
+            unset($echecs[$compte]);
+            $echecsModifies = true;
+        }
         $recuperes++;
         echo "Logo Instagram récupéré : {$compte}\n";
     } else {

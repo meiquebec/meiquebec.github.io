@@ -22,7 +22,7 @@ incorrect, dette qui bloque la migration), **B** basse (cosmétique, ménage).
   variables CSS) et `src/_marque/` (fiche de marque statique).
 - Données : `notre-equipe/_equipe.yaml` (6 membres),
   `medias/_articles.yaml` (≈ 15 articles), `nos-comites/comites.json`
-  (26 comités, dont 2 inactifs), `data/galleries.json` (généré, 3 galeries).
+  (26 comités, dont 4 inactifs), `data/galleries.json` (généré, 3 galeries).
 - Front-end : un bundle esbuild (`scripts/mei.core.js` → helpers, menu,
   modale, galeries Swiper, carte Google Maps des comités, outil de style de
   carte) et un bundle Sass (`styles/mei.core.scss`, 10 partiels).

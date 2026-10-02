@@ -148,12 +148,25 @@ script réussit même sans `secrets.local.yaml` (clone frais, CI sans
 secret). S'il faut géocoder et que la clé manque → erreur explicite
 (« ajoutez la clé de géocodage dans secrets.local.yaml »).
 
-Le site étant édité dans Kiri Studio, c'est presque toujours **la CI** qui
-exécutera ce script après l'ajout d'un comité, puis recommitera
-`geocodage.json`. Ses messages d'erreur sont le seul retour qu'aura
-l'équipe : ils nomment le comité, le champ et la correction attendue, en
-français (« Comité « Oui Rimouski » : adresse introuvable par Google —
-vérifiez l'adresse dans la fiche du comité »).
+Ses messages sont le seul retour qu'aura l'équipe : ils nomment le comité,
+le champ et la correction attendue, en français (« Comité « Oui Rimouski » :
+adresse introuvable par Google — vérifiez l'adresse dans la fiche du
+comité »).
+
+### Qui exécute le script, et quand
+
+| Où | Quand | Clé de géocodage | Résultat |
+|---|---|---|---|
+| **Aperçu de Kiri Studio** (poste de l'équipe) | Au démarrage de l'aperçu, puis **à chaque modification de `comites.yaml`** (`watch`) | Saisie une fois dans « Clés du site », chiffrée sur le poste (`studio.secrets`) | Épingle et logo visibles tout de suite dans l'aperçu ; à la publication, Studio envoie aussi les caches remplis (`studio.publish`) |
+| **CI** (GitHub Actions) | À chaque déploiement | Secret `GEOCODING_API_KEY`, **obligatoire** | Filet de sécurité : ne fait que ce que l'aperçu n'a pas fait (aperçu jamais lancé, clé absente sur le poste), puis recommite les caches |
+| **Poste d'un développeur** | `npm run serve` / `npm run build` / `npm run comites` | `secrets.local.yaml` à la racine | Comme l'aperçu |
+
+Sans clé (aperçu de Studio avant que la clé soit saisie), une nouvelle
+adresse n'est **pas** une erreur : le comité apparaît dans la liste, son
+logo arrive, et un avertissement dit qu'il sera placé sur la carte au
+déploiement. En CI, le secret est obligatoire (`obligatoire: true` dans
+le fichier écrit par le workflow) : une nouvelle adresse sans clé y fait
+échouer le build plutôt que de publier une carte incomplète.
 
 ### Logos — photo de profil Instagram, récupérée une seule fois
 
@@ -183,18 +196,19 @@ qu'il faut déjà remplir).
   supprimé, réseau) : notés avec leur date dans
   `src/_data/comites/instagram.json` (exclu de Studio), pour ne pas
   rappeler Instagram à chaque build — nouvel essai au plus une fois par
-  semaine. Un logo manquant **ne fait pas échouer le build** : la page
-  affiche une image de remplacement (logo du MÉI) et le script l'affiche
-  en avertissement.
+  semaine. Un logo manquant **ne fait pas échouer le build** : l'infobulle
+  de la carte s'affiche sans image, et le script le signale en
+  avertissement.
 - **Champ `logo` du YAML** : s'il est rempli, il gagne, et Instagram n'est
   pas appelé pour ce comité.
 
-> ⚠️ **Risque en CI.** Instagram sert souvent sa page de connexion aux
-> adresses IP de serveurs (GitHub Actions), et c'est la CI qui construit
-> quand l'équipe ajoute un comité dans Studio. Non testable d'ici. Si la
-> CI est bloquée : le comité s'affiche avec l'image de remplacement, et un
-> build local (`npx kiri run preparer-comites`) récupère la photo, qui est
-> ensuite commitée. À vérifier au premier déploiement (voir TODO).
+> **Instagram et la CI.** Instagram sert souvent sa page de connexion aux
+> adresses IP de serveurs (GitHub Actions). C'est pourquoi la photo est
+> d'abord récupérée **depuis le poste de l'équipe**, par l'aperçu de
+> Studio, et publiée avec ses modifications (`studio.publish`). La CI ne
+> s'en charge que si l'aperçu ne l'a pas fait ; si elle est bloquée,
+> l'infobulle reste sans image jusqu'au prochain aperçu ou build local.
+> Testé le 2026-10-02 depuis un poste : 26 photos sur 26.
 
 ### Lecture dans la page
 
