@@ -15,11 +15,9 @@ CI la prend dans les secrets existants (`GOOGLE_API_KEY`), les postes dans
 - [ ] Faire une rotation de l'ancienne clé (publique depuis le début) ; supprimer le secret `MAP_ID`, devenu inutile
 - [ ] Saisir les deux clés dans « Clés du site » de Kiri Studio, sur le poste de l'équipe
 
-## 2. Publications Kirigami
+## 2. Kiri Studio 0.5.5
 
-- [ ] Publier core 3.2.9 (`scripts[].watch`, chemins `mount`/`watch` non intégrés, schéma `studio.secrets`/`studio.publish`) et la cascade cli/mcp/vscode
-- [ ] Publier Kiri Studio 0.5.5 (« Clés du site », publication des caches)
-- [ ] Monter `@kirigami/cli` du site à la version qui embarque core 3.2.9 : d'ici là, `kirigami.yaml` (avec `watch`, `secrets`, `publish`) n'est valide qu'avec le core du monorepo
+- [ ] Publier le brouillon de release GitHub de Kiri Studio 0.5.5 (« Clés du site », publication des caches) pour que les Studio installés se mettent à jour
 
 ## 3. Vérifications avant de fusionner
 
