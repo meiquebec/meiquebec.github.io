@@ -1,38 +1,50 @@
 <?php
 
 /**
- * Galerie d'images, écrite dans Kiri Studio comme un bloc de codes
- * {% img-asset %} (ceux que Studio insère quand on choisit une image) :
+ * Galerie d'images : le nom d'un dossier de assets/images/galeries/.
  *
- *   {% galerie
- *   {% img-asset "galeries/rever-le-pays/IMG_2738.JPG" 800 %}
- *   {% img-asset "galeries/rever-le-pays/photo (1).jpeg" 800 %}
- *   %}
+ *   {% galerie rever-le-pays %}
  *
- * Chaque image passe par IMG::asset() : une grande image (1280×960, contain)
- * et une vignette (240×320, cover). La largeur écrite dans le code est
- * ignorée, pour que toutes les galeries se ressemblent. Sans JavaScript, chaque
- * vignette mène à sa grande image ; gallery.js en fait un carrousel Swiper.
- * Demande php-wasm 8.5.11-4 (un bloc peut contenir d'autres codes {% %}).
+ * Toutes les photos du dossier, dans l'ordre de leurs noms. L'équipe ajoute
+ * ou retire des photos avec le gestionnaire d'images de Kiri Studio ; l'aperçu
+ * suit en direct (le watch de Kirigami re-rend les pages quand une image de
+ * image.source change, core 3.2.10).
+ *
+ * Tout se fait ici, quand la balise est analysée : PREPROS::mount() donne les
+ * fichiers réellement présents dans le dossier, et chaque photo passe par
+ * IMG::asset() — une grande image (1280×960, contain) et une vignette
+ * (240×320, cover), générées seulement si elles manquent ou sont périmées.
+ * Sans JavaScript, chaque vignette mène à sa grande image ; gallery.js en fait
+ * un carrousel Swiper.
  */
 MD::registerPlugin('galerie', function (array $args, string $body): string {
-    preg_match_all('/\{%\s*img-asset\s+("(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\'|\S+)/', $body, $codes);
+    $nom = trim($args[0] ?? '');
+    if ($nom === '' || str_contains($nom, '..')) return '<!-- galerie : nom de dossier manquant -->';
+
+    $source = rtrim(PREPROS::$config->image->source ?? 'assets/images', '/');
+    $photos = array_filter(
+        array_map('basename', PREPROS::mount("{$source}/galeries/{$nom}/*") ?: []),
+        fn($f) => preg_match('/\.(jpe?g|png|gif|webp|avif|heic)$/i', $f)
+    );
+    natcasesort($photos);
+    if (!$photos) {
+        error_log("Galerie « {$nom} » : dossier {$source}/galeries/{$nom}/ vide ou introuvable");
+        return '<!-- galerie « ' . htmlspecialchars($nom, ENT_QUOTES, 'UTF-8') . ' » vide -->';
+    }
 
     $cartes = [];
-    foreach ($codes[1] as $arg) {
-        $chemin = in_array($arg[0], ['"', "'"], true) ? stripslashes(substr($arg, 1, -1)) : $arg;
+    foreach ($photos as $photo) {
+        $chemin = "galeries/{$nom}/{$photo}";
         try {
             $grande   = IMG::asset($chemin, 1280, 960, false, PREPROS::$file);
             $vignette = IMG::asset($chemin, 240, 320, true, PREPROS::$file);
         } catch (Throwable $e) {
-            error_log("Galerie : image introuvable « {$chemin} » ({$e->getMessage()})");
-            $cartes[] = '<!-- galerie : image introuvable ' . htmlspecialchars($chemin, ENT_QUOTES, 'UTF-8') . ' -->';
+            error_log("Galerie « {$nom} » : image illisible « {$photo} » ({$e->getMessage()})");
             continue;
         }
         $cartes[] = '<a class="galerie__carte" href="' . htmlspecialchars($grande, ENT_QUOTES, 'UTF-8') . '">'
             . '<img src="' . htmlspecialchars($vignette, ENT_QUOTES, 'UTF-8') . '" alt="" loading="lazy"></a>';
     }
 
-    if (!$cartes) return '<!-- galerie vide -->';
-    return '<div class="galerie">' . implode('', $cartes) . '</div>';
+    return $cartes ? '<div class="galerie">' . implode('', $cartes) . '</div>' : '<!-- galerie vide -->';
 });
