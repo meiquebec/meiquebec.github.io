@@ -28,15 +28,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      # Clé de géocodage pour scripts/preparer-comites.php (voir docs/SCRIPTS.md).
+      # Clés Google, jamais commitées (voir docs/SCRIPTS.md) : « geocodage » pour
+      # scripts/preparer-comites.php, « carte » pour la page des comités. Tant
+      # que la clé n'est pas séparée en deux, GOOGLE_API_KEY sert aux deux.
       # « obligatoire » : en CI, une nouvelle adresse sans clé fait échouer le
       # build au lieu de publier une carte incomplète. Fichier ignoré par git.
-      - name: Clé de géocodage
+      - name: Clés Google
         shell: bash
         env:
-          GEOCODING_API_KEY: ${{ secrets.GEOCODING_API_KEY }}
+          GEOCODAGE: ${{ secrets.GEOCODING_API_KEY || secrets.GOOGLE_API_KEY }}
+          CARTE: ${{ secrets.GOOGLE_API_KEY }}
         run: |
-          printf 'geocodage: "%s"\nobligatoire: true\n' "$GEOCODING_API_KEY" > secrets.local.yaml
+          printf 'geocodage: "%s"\ncarte: "%s"\nobligatoire: true\n' "$GEOCODAGE" "$CARTE" > secrets.local.yaml
 
       - name: KiriBuild
         uses: php-kirigami/kiribuild@v2

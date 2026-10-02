@@ -10,6 +10,20 @@
  */
 
 
+// Clé navigateur de la carte : jamais commitée. Elle vient de secrets.local.yaml
+// (« carte: … », écrit par la CI à partir du secret GOOGLE_API_KEY, par Kiri
+// Studio à partir des « Clés du site », à la main chez un développeur), sinon
+// de kirigami.carte.cle. Chaîne vide : pas de carte.
+function comites_cle_carte(): string
+{
+    $montes = PREPROS::mount('secrets.local.yaml') ?: [];
+    foreach ($montes as $fichier) {
+        if (is_file($fichier) && ($secrets = YAML::parseFile($fichier)) && !empty($secrets->carte)) return (string) $secrets->carte;
+    }
+    return (string) (PREPROS::$config->data->carte->cle ?? '');
+}
+
+
 // Clé du cache de géocodage : l'adresse en NFC, sans espaces superflus, en
 // minuscules. Les accents sont gardés : Google ne les traite pas comme
 // équivalents non plus.

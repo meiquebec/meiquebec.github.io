@@ -16,8 +16,8 @@ $pointes = array_values(array_filter($actifs, fn($c) => $c->position));
     <div>
         <h2>Nos comités</h2>
         <h3>Des comités à travers tout le Québec!</h3>
-        <?php if ($carte->cle ?? ''): ?>
-        <carte-mei data-config="<?= base64_encode(OBF::encode(['cle' => $carte->cle, 'mapid' => $carte->mapid])) ?>" data-comites="<?= htmlspecialchars(json_encode($pointes, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) ?>"></carte-mei>
+        <?php if ($cleCarte = comites_cle_carte()): ?>
+        <carte-mei data-config="<?= base64_encode(OBF::encode(['cle' => $cleCarte, 'mapid' => $carte->mapid])) ?>" data-comites="<?= htmlspecialchars(json_encode($pointes, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) ?>"></carte-mei>
         <?php endif; ?>
         <h3>Liste des comités</h3>
         <ul>

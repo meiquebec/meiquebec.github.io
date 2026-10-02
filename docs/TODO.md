@@ -4,11 +4,16 @@ La migration est faite sur la branche `kirigami` (non fusionnée, non
 déployée). Ce qui reste, dans l'ordre. Retirer une ligne dès qu'elle est
 faite.
 
-## 1. Clés Google (console Google Cloud)
+## 1. Clés Google (recommandé, ne bloque plus rien)
 
-- [ ] Créer une clé **navigateur** : Maps JavaScript API seulement, référents `https://mouvei.quebec/*`, `http://127.0.0.1:*/*`, `http://localhost:*/*` ; la mettre dans `kirigami.yaml` → `kirigami.carte.cle` (tant qu'elle est vide, la carte n'est pas affichée)
-- [ ] Créer une clé **géocodage** : Geocoding API seulement ; secret `GEOCODING_API_KEY` du dépôt GitHub, `secrets.local.yaml` chez les développeurs, « Clés du site » dans Kiri Studio
-- [ ] Faire une rotation de l'ancienne clé (publique depuis le début) ; supprimer les secrets `GOOGLE_API_KEY` et `MAP_ID` du dépôt
+La clé actuelle sert à la carte et au géocodage, sans être commitée : la
+CI la prend dans les secrets existants (`GOOGLE_API_KEY`), les postes dans
+`secrets.local.yaml` (voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-de-la-carte)).
+
+- [ ] Créer une clé **navigateur** (Maps JavaScript API seulement, référents `https://mouvei.quebec/*`, `http://127.0.0.1:*/*`, `http://localhost:*/*`) et la mettre dans le secret `GOOGLE_API_KEY`
+- [ ] Créer une clé **géocodage** (Geocoding API seulement) : nouveau secret `GEOCODING_API_KEY`
+- [ ] Faire une rotation de l'ancienne clé (publique depuis le début) ; supprimer le secret `MAP_ID`, devenu inutile
+- [ ] Saisir les deux clés dans « Clés du site » de Kiri Studio, sur le poste de l'équipe
 
 ## 2. Publications Kirigami
 

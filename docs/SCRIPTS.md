@@ -397,33 +397,40 @@ négligeable ; voir K6 si la différence se voit.
 
 ## 3. Clés de la carte
 
-**Plus de script, plus de fichier `.bin`.**
+**Plus de fichier `.bin` à télécharger, et aucune clé dans le dépôt.**
 
-La clé de la Maps JavaScript API est publique par nature : Google la
-protège par la **restriction de référent HTTP**, pas par le secret. Une
-fois la clé navigateur restreinte (H1 dans [AUDIT.md](AUDIT.md)), elle peut
-vivre dans `kirigami.yaml` (`kirigami.carte.cle`, `kirigami.carte.mapid`)
-et être rendue dans la page des comités :
+Toutes les clés Google passent par un seul fichier non suivi,
+`secrets.local.yaml`, à la racine :
 
-```php
-<carte-mei data-config="<?= OBF::encode(['cle' => $carte->cle, 'mapid' => $carte->mapid]) ?>"
-           data-comites="<?= htmlspecialchars(json_encode($actifs, JSON_UNESCAPED_UNICODE)) ?>"></carte-mei>
+```yaml
+geocodage: "AIza…"   # scripts/preparer-comites.php (Geocoding API)
+carte:     "AIza…"   # page des comités (Maps JavaScript API)
 ```
 
-- `OBF::encode()` produit exactement le format actuel du `.bin` (JSON →
-  base64 → ROT13 → gzip sans les deux octets d'en-tête) : le décodeur de
-  `secrets.js` se réutilise tel quel, en base64 au lieu d'un `fetch`
-  binaire. L'obfuscation reste optionnelle — elle ne fait qu'écarter les
-  robots qui moissonnent les clés `AIza…`.
-- Ce qui disparaît : `scripts/install.js` et le `postinstall`,
+| Où | Qui écrit le fichier |
+|---|---|
+| CI | le workflow, à partir des secrets **existants** : `carte` ← `GOOGLE_API_KEY` ; `geocodage` ← `GEOCODING_API_KEY` s'il existe, sinon `GOOGLE_API_KEY` |
+| Kiri Studio | l'aperçu, à partir des « Clés du site » (`studio.secrets`), chiffrées sur le poste |
+| Développeur | à la main (ou à partir du `.bin` de production, comme fait le 2026-10-02) |
+
+- La page des comités lit `carte` avec `comites_cle_carte()`
+  (`src/_plugins/comites.php`, qui monte le fichier à la demande) et la rend
+  dans `<carte-mei data-config>`, encodée avec `OBF::encode()` puis base64 —
+  exactement l'ancien format du `.bin` (JSON → base64 → ROT13 → gzip sans
+  en-tête). `carte.js` la décode. Sans clé, pas de carte ; la liste reste.
+- Le `MAP_ID` (`7a4f282a9b2f394eb458f2ee`) n'est pas un secret : il est dans
+  `kirigami.yaml` (`kirigami.carte.mapid`).
+- Pourquoi pas la clé en clair dans `kirigami.yaml` : le dépôt est public, et
+  une clé `AIza…` en clair y est repérée par les scanners de GitHub et de
+  Google. Encodée dans le HTML, elle reste aussi visible que l'était le
+  `.bin` (le HTML généré est commité), mais sans motif reconnaissable.
+- **Toujours recommandé** (H1 dans [AUDIT.md](AUDIT.md)) : séparer la clé en
+  deux — une clé navigateur restreinte par référent pour `carte`, une clé
+  Geocoding API pour `geocodage` — puis faire une rotation de l'actuelle. Il
+  suffira de changer les secrets ; aucun fichier du dépôt n'a à changer.
+- Ce qui a disparu : `scripts/install.js` et le `postinstall`,
   `src/bt1oh97j7X.bin`, l'étape « Obfuscation » de la CI, l'entrée
-  `export.ignore`, les secrets `GOOGLE_API_KEY` / `MAP_ID` du dépôt GitHub
-  (remplacés par le seul `GEOCODING_API_KEY`).
-- Si on préfère ne pas commiter la clé navigateur, la mettre aussi dans
-  `secrets.local.yaml` et la lire depuis la page — mais alors la CI doit
-  l'écrire elle aussi, et le rendu des pages doit pouvoir lire ce fichier
-  (le monter via `PREPROS::mount()` dans la page). Plus de pièces pour un
-  gain nul : non recommandé.
+  `export.ignore`, `secrets.js` et le `fetch` du `.bin`.
 
 ---
 

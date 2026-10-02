@@ -21,11 +21,10 @@ kirigami:
   boutique:    https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste
   formulaire:  https://docs.google.com/forms/d/1lmEXvZz6tyVQA2FYvYILfyLLc0NhkWgiAepPkSg5w-U
 
-  # Carte des comités. « cle » est la clé NAVIGATEUR (Maps JavaScript API),
-  # publique par nature et restreinte par référent HTTP à mouvei.quebec et
-  # localhost dans la console Google Cloud. Vide : la carte n'est pas affichée.
+  # Carte des comités. La clé Google n'est PAS ici : elle vient de
+  # secrets.local.yaml (« carte: … »), écrit par la CI, par Kiri Studio ou à la
+  # main (voir docs/SCRIPTS.md §3). Sans clé, la carte n'est pas affichée.
   carte:
-    cle:   ""
     mapid: 7a4f282a9b2f394eb458f2ee
 
 
@@ -106,6 +105,7 @@ studio:
     file: secrets.local.yaml
     keys:
       geocodage: Clé de géocodage Google (Geocoding API)
+      carte:     Clé de la carte Google (Maps JavaScript API)
   # Ce que l'aperçu a calculé part avec la publication : la CI n'a plus à le
   # refaire (et la photo Instagram est prise depuis le poste de l'équipe).
   publish:
