@@ -11,7 +11,7 @@
         <h2>Notre équipe</h2>
         <?php foreach ($equipe as $membre): ?>
         <div>
-            <img asset="<?= htmlspecialchars($membre->photo) ?>" width="240" height="240" cover alt="<?= htmlspecialchars($membre->nom) ?>" loading="lazy">
+            <img asset="<?= htmlspecialchars($membre->photo) ?>" width="240" alt="<?= htmlspecialchars($membre->nom) ?>" loading="lazy">
             <div>
                 <div><?= $membre->nom ?></div>
                 <div><?= $membre->poste ?></div>

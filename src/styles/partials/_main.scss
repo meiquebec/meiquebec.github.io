@@ -282,13 +282,16 @@ section.notre-equipe {
             padding-top: 2rem;
         }
 
-        // Photo carrée générée par <img asset … cover>.
+        // Photo générée en 240 px de large, proportions gardées (portraits de
+        // téléphone, visage dans le haut) : affichée en cercle, cadrée vers le
+        // haut plutôt qu'au centre, qui couperait au torse.
         &>img:nth-child(1) {
             flex: 0 0 8rem;
             width: 8rem;
             height: 8rem;
             align-self: flex-start;
             object-fit: cover;
+            object-position: 50% 10%;
             border-radius: 50%;
             // aspect-ratio: 272/239;
             // mask-image: var(--icon-explosion);
