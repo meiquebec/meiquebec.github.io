@@ -15,10 +15,6 @@ CI la prend dans les secrets existants (`GOOGLE_API_KEY`), les postes dans
 - [ ] Faire une rotation de l'ancienne clé (publique depuis le début) ; supprimer le secret `MAP_ID`, devenu inutile
 - [ ] Saisir les deux clés dans « Clés du site » de Kiri Studio, sur le poste de l'équipe
 
-## 2. Kiri Studio 0.5.5
-
-- [ ] Publier le brouillon de release GitHub de Kiri Studio 0.5.5 (« Clés du site », publication des caches) pour que les Studio installés se mettent à jour
-
 ## 3. Vérifications avant de fusionner
 
 - [ ] `npm run serve` et contrôle visuel des quatre pages : carrousels des galeries, photos de l'équipe, vignettes des médias, carte (avec la clé navigateur), infobulles des comités
