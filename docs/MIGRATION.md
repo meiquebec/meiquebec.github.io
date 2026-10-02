@@ -257,10 +257,11 @@ est contenu doit donc être éditable sans toucher au PHP. Conséquences :
 - **L'aperçu calcule, la publication emporte, la CI rattrape.** Un comité
   ajouté dans Studio est géocodé et reçoit son logo **dans l'aperçu**, dès
   la modification de `comites.yaml` (`scripts[].watch`), avec la clé
-  saisie une fois dans « Clés du site » (`studio.secrets`). À la
-  publication, Studio envoie les caches remplis avec les modifications
-  (`studio.publish`). La CI ne refait que ce qui manque ; son secret
-  `GEOCODING_API_KEY` et le recommit des caches restent obligatoires.
+  Google que l'aperçu lit tout seul dans le `.bin` publié par le
+  déploiement — rien à saisir. À la publication, Studio envoie les caches
+  remplis avec les modifications (`studio.publish`). La CI ne refait que
+  ce qui manque ; son secret `GOOGLE_API_KEY` et le recommit des caches
+  restent obligatoires.
   Détails : [SCRIPTS.md](SCRIPTS.md#qui-exécute-le-script-et-quand).
   Demande Kirigami core 3.2.9 et Kiri Studio 0.5.5.
 - **Studio ne montre que la saisie.** `comites.yaml` ne contient que ce

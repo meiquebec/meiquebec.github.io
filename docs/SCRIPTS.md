@@ -157,15 +157,15 @@ comité »).
 
 | Où | Quand | Clé de géocodage | Résultat |
 |---|---|---|---|
-| **Aperçu de Kiri Studio** (poste de l'équipe) | Au démarrage de l'aperçu, puis **à chaque modification de `comites.yaml`** (`watch`) | Saisie une fois dans « Clés du site », chiffrée sur le poste (`studio.secrets`) | Épingle et logo visibles tout de suite dans l'aperçu ; à la publication, Studio envoie aussi les caches remplis (`studio.publish`) |
-| **CI** (GitHub Actions) | À chaque déploiement | Secret `GEOCODING_API_KEY`, **obligatoire** | Filet de sécurité : ne fait que ce que l'aperçu n'a pas fait (aperçu jamais lancé, clé absente sur le poste), puis recommite les caches |
-| **Poste d'un développeur** | `npm run serve` / `npm run build` / `npm run comites` | `secrets.local.yaml` à la racine | Comme l'aperçu |
+| **Aperçu de Kiri Studio** (poste du client) | Au démarrage de l'aperçu, puis **à chaque modification de `comites.yaml`** (`watch`) | Lue toute seule dans le `.bin` publié par le déploiement (§3) — rien à saisir | Épingle et logo visibles tout de suite dans l'aperçu ; à la publication, Studio envoie aussi les caches remplis (`studio.publish`) |
+| **CI** (GitHub Actions) | À chaque déploiement | Secret `GOOGLE_API_KEY`, **obligatoire** | Filet de sécurité : ne fait que ce que l'aperçu n'a pas fait (aperçu jamais lancé, hors ligne), puis recommite les caches |
+| **Poste d'un développeur** | `npm run serve` / `npm run build` / `npm run comites` | `secrets.local.yaml` s'il existe, sinon le `.bin` publié | Comme l'aperçu |
 
-Sans clé (aperçu de Studio avant que la clé soit saisie), une nouvelle
-adresse n'est **pas** une erreur : le comité apparaît dans la liste, son
-logo arrive, et un avertissement dit qu'il sera placé sur la carte au
-déploiement. En CI, le secret est obligatoire (`obligatoire: true` dans
-le fichier écrit par le workflow) : une nouvelle adresse sans clé y fait
+Si la clé manque malgré tout (poste hors ligne), une nouvelle adresse
+n'est **pas** une erreur : le comité apparaît dans la liste, son logo
+arrive, et un avertissement dit qu'il sera placé sur la carte au
+déploiement. En CI, la clé est obligatoire (`obligatoire: true` dans le
+fichier écrit par le workflow) : une nouvelle adresse sans clé y fait
 échouer le build plutôt que de publier une carte incomplète.
 
 ### Logos — photo de profil Instagram, récupérée une seule fois
