@@ -1,6 +1,7 @@
 {
   "name": "meiquebec.github.io",
-  "version": "1.0.1",
+  "version": "2.0.0",
+  "private": true,
   "description": "Mouvement Étudiant Indépendantiste",
   "homepage": "https://github.com/meiquebec/meiquebec.github.io#readme",
   "bugs": {
@@ -13,22 +14,24 @@
   "license": "MIT",
   "author": "Maxime Larrivée-Roy",
   "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "scripts": {
-    "postinstall": "node scripts/install.js",
-    "build": "node scripts/build.js",
-    "export": "node scripts/export.js",
-    "watch": "node scripts/watch.js",
-    "galleries": "node scripts/galleries.js",
-    "comites": "node scripts/comites.js"
+    "serve": "kiri serve",
+    "build": "kiri build",
+    "watch": "kiri watch",
+    "export": "kiri export",
+    "comites": "kiri run preparer-comites"
   },
   "dependencies": {
-    "chokibasic": "^2.0.3",
-    "sharp": "^0.35.2",
     "swiper": "^12.2.0"
+  },
+  "devDependencies": {
+    "@kirigami/cli": "^0.1.15"
   },
   "allowScripts": {
     "@parcel/watcher@2.5.6": true,
-    "sharp@0.34.5": true,
-    "esbuild@0.28.1": true
+    "esbuild@0.28.2": true
   }
 }

@@ -75,11 +75,9 @@
 		position: relative;
 		min-width: 0;
 		// margin: 0.3rem;
+		display: block;
 		aspect-ratio: 3/4 !important;
-		background-image: var(--image);
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: top left;
+		overflow: hidden;
 		border-radius: 1rem;
 		background-color: var(--color-alpha);
 		// box-shadow: 0 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
@@ -93,6 +91,37 @@
 			opacity: 1;
 		}
 
+		// Vignette 240×320 déjà recadrée par IMG::asset() ({% galerie %}).
+		&>img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top left;
+		}
+
+	}
+}
+
+// Avant le passage de gallery.js (ou sans JavaScript) : vignettes en ligne.
+.galerie {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 2rem;
+
+	&>.galerie__carte {
+		flex: 0 0 6rem;
+		aspect-ratio: 3/4;
+		overflow: hidden;
+		border-radius: 1rem;
+
+		&>img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 }
 

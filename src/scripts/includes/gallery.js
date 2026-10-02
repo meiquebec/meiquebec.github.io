@@ -8,7 +8,6 @@ import { Autoplay, Navigation } from 'swiper/modules';
 	SLIDE_NUM: 3,
 	SLIDE_DELAY: 3000,
 
-	galleries: null,
 	swipers: null,
 	modal: null,
 
@@ -16,22 +15,16 @@ import { Autoplay, Navigation } from 'swiper/modules';
 	mutexRem: null,
 
 
+	// Les galeries arrivent déjà dans le HTML (plugin {% galerie %}) :
+	// <div class="galerie"><a class="galerie__carte" href="grande"><img src="vignette"></a>…</div>
 	init: async function() {
-		
-		await Promise.all([
-			documentReady(),
-			loadJsonProperties(this, { galleries: atob('L2RhdGEvZ2FsbGVyaWVzLmpzb24=') })
-		]);
+
+		await documentReady();
+		const galeries = [...document.querySelectorAll('.galerie')];
+		if(!galeries.length) return;
 
 		this.modal = new Modal;
-
-		this.swipers = await Promise.all([...document.querySelectorAll('gallery')].map(async elm => {
-			const id = elm.getAttribute('id');
-			if(!id) return;
-			const gallery = this.galleries.find(g => g.name == id);
-			if(!gallery) return;
-			return this.createGallery(elm, gallery);
-		}));
+		this.swipers = await Promise.all(galeries.map(async elm => this.createGallery(elm)));
 		
 		await new Promise(requestAnimationFrame);
 		this.swipers.forEach(swiper => {
@@ -58,30 +51,31 @@ import { Autoplay, Navigation } from 'swiper/modules';
 	},
 
 
-	createGallery: async function(elm, gallery) {
+	createGallery: async function(elm) {
 		const parent = create('div', 'gallery');
-		const prev = parent.create('div', 'gallery-prev', 'a');;
+		const prev = parent.create('div', 'gallery-prev', 'a');
 		const content = parent.create('div', 'gallery-content');
 		const next = parent.create('div', 'gallery-next', 'a');
 		const container = content.create('div', 'swiper gallery-swiper')
 		const wrapper = container.create('div', 'swiper-wrapper');
-		const slidenum = elm.getAttribute('slidenum') ?? this.SLIDE_NUM;
-		const delay = elm.getAttribute('delay') ?? this.SLIDE_DELAY;
+		const slidenum = this.SLIDE_NUM;
+		const delay = this.SLIDE_DELAY;
 
-		const cards = await Promise.all(gallery.files.map(async img => {
-			const card = create('div', 'swiper-slide gallery-card');
-			card.style.setProperty('--image', `url(${img.tbn})`);
-			card.addEventListener('click', async () => {
+		// Chaque lien du balisage devient une diapositive ; son href est la grande image.
+		const cards = [...elm.querySelectorAll('.galerie__carte')].map(card => {
+			card.classList.add('swiper-slide', 'gallery-card');
+			card.addEventListener('click', async evt => {
+				evt.preventDefault();
+				const src = card.href;
 				working(new Promise(async res => {
-					await preloadImage(img.src);
-					await this.modal.show(create('img', 'gallery-image', null, { src: img.src }));
+					await preloadImage(src);
+					await this.modal.show(create('img', 'gallery-image', null, { src }));
 					res();
 				}));
 			});
-			preloadImage(img.tbn);
 			return card;
-		}));
-		
+		});
+
 		wrapper.append(...cards);
 		elm.replaceWith(parent);
 		return new Promise(resolve => {

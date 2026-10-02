@@ -2,38 +2,89 @@
 <html lang="fr-CA" data-page="index">
     <head>
         <meta charset="UTF-8">
+        <script>
+            (function(){var e=document.documentElement;e.classList.add("js");try{var t=localStorage.getItem("kirigami-theme");if(t==="dark"||t==="light")e.setAttribute("data-theme",t)}catch(x){}})();
+        </script>
+        <link rel="stylesheet" href="./styles/mei.core.min.css?###TIMESTAMP###">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
+        <title>MÉI | Mouvement Étudiant Indépendantiste</title>
+        <meta name="description" content="Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays.">
+        <meta name="robots" content="index, follow">
+        <meta name="language" content="fr-CA">
+        <meta name="generator" content="Kirigami">
+        <meta name="author" content="Maxime Larrivée-Roy">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="MÉI | Mouvement Étudiant Indépendantiste">
+        <meta name="twitter:description" content="Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays.">
+        <meta name="twitter:image" content="https://mouvei.quebec/images/ogimage.webp">
+        <meta property="og:site_name" content="Mouvement Étudiant Indépendantiste">
         <meta property="og:locale" content="fr_CA">
         <meta property="og:type" content="website">
         <meta property="og:title" content="MÉI | Mouvement Étudiant Indépendantiste">
         <meta property="og:description" content="Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec. L’organisation mobilise et représente tous les étudiants en vue de construire un Québec pays.">
         <meta property="og:url" content="https://mouvei.quebec/">
-        <meta property="og:image" content="https://mouvei.quebecimages/ogimage.webp">
-        <link rel="icon" type="image/x-icon" href="./favicon.ico">
-        <link rel="stylesheet" href="./styles/mei.core.min.css?###TIMESTAMP###">
-        <script src="./scripts/mei.core.min.js??###TIMESTAMP###"></script>
-        <title>MÉI | Mouvement Étudiant Indépendantiste</title>
+        <meta property="og:image" content="https://mouvei.quebec/images/ogimage.webp">
+        <link rel="canonical" href="https://mouvei.quebec/">
+        <link rel="author" type="text/plain" href="./humans.txt">
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "Organization",
-                "@id": "https://exemple.org/#organisation",
-                "name": "Mouvement Étudiant Indépendantiste",
-                "url": "https://mouvei.quebec/",
-                "logo": "https://mouvei.quebec/images/ogimage.webp",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "82 Sherbrooke St W 2e étage",
-                    "addressLocality": "Montréal",
-                    "addressRegion": "QC",
-                    "postalCode": "H2X 1X3",
-                    "addressCountry": "CA"
-                },
-                "email": "mouvement.ei@gmail.com",
-                "sameAs": [
-                    "https://www.instagram.com/mouv.ei/",
-                    "https://www.youtube.com/@mouv_ei/",
-                    "https://www.facebook.com/mouvei/"
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "@id": "https://mouvei.quebec/#organization",
+                        "name": "Mouvement Étudiant Indépendantiste",
+                        "url": "https://mouvei.quebec/",
+                        "description": "Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec.",
+                        "email": "mouvement.ei@gmail.com",
+                        "sameAs": [
+                            "https://www.instagram.com/mouv.ei/",
+                            "https://www.youtube.com/@mouv_ei/",
+                            "https://www.facebook.com/mouvei/"
+                        ],
+                        "logo": {
+                            "@type": "ImageObject",
+                            "@id": "https://mouvei.quebec/#logo",
+                            "url": "https://mouvei.quebec/images/ogimage.webp",
+                            "contentUrl": "https://mouvei.quebec/images/ogimage.webp"
+                        },
+                        "image": {
+                            "@id": "https://mouvei.quebec/#logo"
+                        },
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "82 Sherbrooke St W 2e étage",
+                            "addressLocality": "Montréal",
+                            "addressRegion": "QC",
+                            "postalCode": "H2X 1X3",
+                            "addressCountry": "CA"
+                        }
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://mouvei.quebec/#website",
+                        "url": "https://mouvei.quebec/",
+                        "name": "Mouvement Étudiant Indépendantiste",
+                        "description": "Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités à travers tout le Québec.",
+                        "inLanguage": "fr-CA",
+                        "publisher": {
+                            "@id": "https://mouvei.quebec/#organization"
+                        }
+                    },
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://mouvei.quebec/#webpage",
+                        "url": "https://mouvei.quebec/",
+                        "name": "MÉI",
+                        "isPartOf": {
+                            "@id": "https://mouvei.quebec/#website"
+                        },
+                        "about": {
+                            "@id": "https://mouvei.quebec/#organization"
+                        },
+                        "inLanguage": "fr-CA"
+                    }
                 ]
             }
         </script>
@@ -42,22 +93,22 @@
         <header>
             <div>
                 <h1 title="Mouvement Étudiant Indépendantiste">
-                    <a class="brand" href="/#">
+                    <a class="brand" href="./">
                         <div>MOUVEMENT</div>
                         <div>ÉTUDIANT</div>
                         <div>INDÉPENDANTISTE</div>
                     </a>
                 </h1>
                 <nav class="menu">
-                    <a data-page="medias" href="/medias/">Médias</a>
-                    <a data-page="notre-equipe" href="/notre-equipe/">Notre équipe</a>
-                    <a data-page="nos-comites" href="/nos-comites/">Nos comités</a>
-                    <a target="_blank" href="https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste">Boutique</a>
+                    <a data-page="medias" href="./medias/">Médias</a>
+                    <a data-page="notre-equipe" href="./notre-equipe/">Notre équipe</a>
+                    <a data-page="nos-comites" href="./nos-comites/">Nos comités</a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste">Boutique</a>
                     <div class="menu__social-medias">
-                        <a target="_blank" href="https://www.instagram.com/mouv.ei/" title="Instagram">
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mouv.ei/" title="Instagram">
                             <div class="menu__social-medias__instagram"></div>
                         </a>
-                        <a target="_blank" href="https://www.youtube.com/@mouv_ei/" title="Youtube">
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@mouv_ei/" title="Youtube">
                             <div class="menu__social-medias__youtube"></div>
                         </a>
                     </div>
@@ -68,10 +119,10 @@
         <main>
             <section class="intro-video">
                 <div>
-                    <a target="_blank" noopener noreferrer href="https://docs.google.com/forms/d/1lmEXvZz6tyVQA2FYvYILfyLLc0NhkWgiAepPkSg5w-U">
-                        <video playsinline webkit-playsinline autoplay muted loop preload="metadata" poster="/images/intro.webp">
-                            <source src="/videos/intro.webm" type="video/webm">
-                            <source src="/videos/intro.mp4" type="video/mp4">
+                    <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/1lmEXvZz6tyVQA2FYvYILfyLLc0NhkWgiAepPkSg5w-U">
+                        <video playsinline webkit-playsinline autoplay muted loop preload="metadata" poster="./images/intro.webp">
+                            <source src="./videos/intro.webm" type="video/webm">
+                            <source src="./videos/intro.mp4" type="video/mp4">
                         </video>
                         <div>
                             <div>Embarque</div>
@@ -83,14 +134,22 @@
             </section>
             <section class="right qui-sommes-nous">
                 <div>
-                    <h2 id="qui-somme-nous">Qui somme-nous</h2>
+                    <h2 id="qui-sommes-nous">Qui sommes-nous</h2>
                     <p>Le Mouvement Étudiant Indépendantiste (MÉI) est un organisme à but non lucratif reconnu dont la mission est de représenter les jeunes souverainistes dans l’espace public. Regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et universités, l’organisation mobilise et rassemble les étudiants autour d’un objectif commun : la construction du Québec de demain.</p>
                 </div>
             </section>
             <section>
                 <div>
                     <h2 id="le-grand-sursaut-2">Le Grand Sursaut 2</h2>
-                    <gallery id="le-grand-sursaut-2"></gallery>
+                    <div class="galerie">
+                        <a class="galerie__carte" href="./images/galeries/le-grand-sursaut-2/image1-1280x960.webp"><img src="./images/galeries/le-grand-sursaut-2/image1-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/le-grand-sursaut-2/image2-1280x960.webp"><img src="./images/galeries/le-grand-sursaut-2/image2-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/le-grand-sursaut-2/image3-1280x960.webp"><img src="./images/galeries/le-grand-sursaut-2/image3-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/le-grand-sursaut-2/image4-1280x960.webp"><img src="./images/galeries/le-grand-sursaut-2/image4-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/le-grand-sursaut-2/image5-1280x960.webp"><img src="./images/galeries/le-grand-sursaut-2/image5-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/le-grand-sursaut-2/image7-1280x960.webp"><img src="./images/galeries/le-grand-sursaut-2/image7-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/le-grand-sursaut-2/image8-1280x960.webp"><img src="./images/galeries/le-grand-sursaut-2/image8-240x320-cover.webp" alt="" loading="lazy"></a>
+                    </div>
                 </div>
             </section>
             <section class="left nos-missions">
@@ -105,10 +164,23 @@
             </section>
             <section>
                 <div>
-                    <h2 id="rêver-le-pays">Rêver le pays</h2>
-                    <gallery id="rever-le-pays"></gallery>
+                    <h2 id="rver-le-pays">Rêver le pays</h2>
+                    <div class="galerie">
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/1B307CB3-3023-4002-9FA4-444341956A56-1280x960.webp"><img src="./images/galeries/rever-le-pays/1B307CB3-3023-4002-9FA4-444341956A56-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/6b6c1dafc1064d748686b326590af70c-1280x960.webp"><img src="./images/galeries/rever-le-pays/6b6c1dafc1064d748686b326590af70c-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/78C8804F-4679-44E0-89C0-00FC8B4E18E4-1280x960.webp"><img src="./images/galeries/rever-le-pays/78C8804F-4679-44E0-89C0-00FC8B4E18E4-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/65884833-76A2-4147-83EF-7EE3D4860A03%202-1280x960.webp"><img src="./images/galeries/rever-le-pays/65884833-76A2-4147-83EF-7EE3D4860A03%202-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/aa7923852eeac116539baf1690ebe44d-1280x960.webp"><img src="./images/galeries/rever-le-pays/aa7923852eeac116539baf1690ebe44d-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/D25B6971-678D-428B-8AA0-E22BB987B333-1280x960.webp"><img src="./images/galeries/rever-le-pays/D25B6971-678D-428B-8AA0-E22BB987B333-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/image6-1280x960.webp"><img src="./images/galeries/rever-le-pays/image6-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/IMG_2738-1280x960.webp"><img src="./images/galeries/rever-le-pays/IMG_2738-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/IMG_3958-1280x960.webp"><img src="./images/galeries/rever-le-pays/IMG_3958-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/IMG_5904-1280x960.webp"><img src="./images/galeries/rever-le-pays/IMG_5904-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/IMG_7221-1280x960.webp"><img src="./images/galeries/rever-le-pays/IMG_7221-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/IMG_7858-1280x960.webp"><img src="./images/galeries/rever-le-pays/IMG_7858-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/rever-le-pays/IMG_9562-1280x960.webp"><img src="./images/galeries/rever-le-pays/IMG_9562-240x320-cover.webp" alt="" loading="lazy"></a>
+                    </div>
                 </div>
-                z
             </section>
             <section class="right nos-collaborateurs">
                 <div>
@@ -119,17 +191,34 @@
             <section class="left">
                 <div>
                     <h2 id="un-pays-en-marche">Un pays en marche</h2>
-                    <gallery id="un-pays-en-marche"></gallery>
+                    <div class="galerie">
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/1-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/1-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/2-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/2-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/3-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/3-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/4-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/4-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/5-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/5-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/6-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/6-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/7-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/7-240x320-cover.webp" alt="" loading="lazy"></a>
+                        <a class="galerie__carte" href="./images/galeries/un-pays-en-marche/8-1280x960.webp"><img src="./images/galeries/un-pays-en-marche/8-240x320-cover.webp" alt="" loading="lazy"></a>
+                    </div>
                 </div>
             </section>
             <section class="reseaux-sociaux">
                 <div>
                     <h2>Réseaux sociaux</h2>
                     <p>Suivez-nous sur les différentes plateformes pour les dernières actualités, vidéos et annonces.</p>
-                    <p class="reseaux-socaux-liens"><a class="facebook" target="_blank" href="https://www.facebook.com/mouvei"></a><a class="instagram" target="_blank" href="https://www.instagram.com/mouv.ei/"></a><a class="youtube" target="_blank" href="https://www.youtube.com/@mouv_ei/"></a></p>
+                    <p class="reseaux-sociaux-liens">
+                        <a class="facebook" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/mouvei/" title="Facebook"></a>
+                        <a class="instagram" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mouv.ei/" title="Instagram"></a>
+                        <a class="youtube" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@mouv_ei/" title="Youtube"></a>
+                    </p>
                 </div>
             </section>
         </main>
-        <footer title="Tous droits réservés © Mouvement Étudiant Indépendantiste, ###YEAR###">© Tous droits réservés<br>Mouvement Étudiant Indépendantiste, ###YEAR###</footer>
+        <footer title="Tous droits réservés © Mouvement Étudiant Indépendantiste, 2026">© Tous droits réservés<br>Mouvement Étudiant Indépendantiste, 2026</footer>
+        <script>
+            document.querySelectorAll("pre>code").forEach(function(c){var L=c.innerHTML.replace(/^\n+/,"").replace(/\n[^\S\n]*$/,"").split("\n"),n=1/0;L.forEach(function(l){if(l.trim())n=Math.min(n,l.match(/^[ \t]*/)[0].length)});if(n&&n<1/0)c.innerHTML=L.map(function(l){return l.slice(n)}).join("\n")});
+        </script>
+        <script src="./scripts/mei.core.min.js?###TIMESTAMP###"></script>
     </body>
 </html>

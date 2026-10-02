@@ -1,0 +1,109 @@
+# yaml-language-server: $schema=../../../assets/schemas/comites.schema.json
+
+- nom: Collectif indépendantiste de Mcgill
+  adresse: 845 Rue Sherbrooke O, Montréal, QC H3A 0G4
+  instagram: https://www.instagram.com/cimcgill/
+
+- nom: Comité fier
+  adresse: 3500 Rue de Courval, Trois-Rivières, QC G8Z 1T2
+  instagram: https://www.instagram.com/comite.fi3r/
+
+- nom: Comité indépendantiste de l'Université Laval
+  adresse: 1045 Av. de la Médecine, Québec, QC G1V 0A6
+  instagram: https://www.instagram.com/comite_independantiste_ul/
+  actif: false
+
+- nom: Comité indépendantiste de Marie-Victorin
+  adresse: 7000 Rue Marie-Victorin, Montréal, QC H1G 2J6
+  instagram: https://www.instagram.com/mv.oui/
+
+- nom: Comité indépendantiste de Sainte-Foy
+  adresse: 2410 Ch Ste-Foy, Québec, QC G1V 1T2
+  instagram: https://www.instagram.com/oui_sainte_foy/
+
+- nom: COMITÉ indépendantiste du collège Ahuntsic
+  adresse: 9155 Rue St-Hubert, Montréal, QC H2M 1Y7
+  instagram: https://www.instagram.com/souverainistecollegeahuntsic/
+
+- nom: Comité indépendantiste du Collège de Montmorency
+  adresse: 475 Bd de l'Avenir, Laval, QC H7N 5H9
+  instagram: https://www.instagram.com/independantistes_momo/
+
+- nom: "Comité souverainiste de l’UQÀM"
+  adresse: 405 Rue Sainte-Catherine E, Montréal, QC H2X 3S1
+  instagram: https://www.instagram.com/cosuqam/
+
+- nom: Comité souverainiste du Cégep de Bois-de-Boulogne
+  adresse: 10555 Ave de Bois-de-Boulogne, Montreal, Quebec H4N 1K7
+  instagram: https://www.instagram.com/oui.bdeb/
+
+- nom: "Conseil de la souveraineté du Québec du cégep de l’Outaouais"
+  adresse: 333 Bd de la Cité-des-Jeunes, Gatineau, QC J8Y 6R4
+  instagram: https://www.instagram.com/csqco/
+
+- nom: MÉSUM
+  adresse: 2700 Ch de la Tour, Montréal, QC H3T 1J4
+  instagram: https://www.instagram.com/mesum.umontreal/
+  actif: false
+
+- nom: Oui Brébeuf
+  adresse: 3200 Chem. de la Côte-Sainte-Catherine, Montréal, QC H3T 1C9
+  instagram: https://www.instagram.com/oui.brebeuf/
+
+- nom: Oui cégep du Vieux Montréal
+  adresse: 255 Rue Ontario E, Montréal, QC H2X 1X6
+  instagram: https://www.instagram.com/oui_cvm/
+
+- nom: Oui Concordia
+  adresse: 7141 Rue Sherbrooke O, Montréal, QC H4B 1R6
+  instagram: https://www.instagram.com/ouiconcordia/
+
+- nom: Oui de Sherbrooke
+  adresse: 2500 Bd de l'Université, Sherbrooke, QC J1K 1T3
+  instagram: https://www.instagram.com/oui_de_s/
+
+- nom: OUI Édouard Montpetit
+  adresse: 945 Ch. de Chambly, Longueuil, QC J4H 3M6
+  instagram: https://www.instagram.com/oui.cem/
+
+- nom: OUI Joliette
+  adresse: 20 Rue Saint-Charles-Borromée S, Joliette, QC J6E 4T1
+  instagram: https://www.instagram.com/oui_joliette/
+
+- nom: Oui Lévis
+  adresse: 205 Rue Monseigneur-Bourget, Lévis, QC G6V 6Z9
+  instagram: https://www.instagram.com/oui.levis/
+
+- nom: Oui Limoilou
+  adresse: 1300 8e Avenue, Québec, QC G1J 5L5
+  instagram: https://www.instagram.com/oui.limoilou/
+
+- nom: Oui Lionel Groulx
+  adresse: 100 Rue Duquet, Sainte-Thérèse, QC J7E 3G6
+  instagram: https://www.instagram.com/oui.lionelgroulx/
+
+- nom: OUI Maisonneuve
+  adresse: 3800 R. Sherbrooke E, Montréal, QC H1X 2A2
+  instagram: https://www.instagram.com/oui_cm9/
+
+- nom: Oui Polytechnique
+  adresse: 2500 Chem. de Polytechnique, Montréal, QC H3T 0A3
+  instagram: https://www.instagram.com/ouipoly/
+  actif: false
+
+- nom: Oui Saint-Hyacinte
+  adresse: 3000 Av. Boullé, Saint-Hyacinthe, QC J2S 1H9
+  instagram: https://www.instagram.com/oui.sth/
+  actif: false
+
+- nom: Oui Saint-Jean
+  adresse: 30 Bd du Séminaire N, Saint-Jean-sur-Richelieu, QC J3B 5J4
+  instagram: https://www.instagram.com/ouisaintjean/
+
+- nom: Oui Saint-Laurent
+  adresse: 625 Av. Sainte-Croix, Saint-Laurent, QC H4L 3X7
+  instagram: https://www.instagram.com/oui_st_lau/
+
+- nom: Oui Sherbrooke
+  adresse: 375 Rue du Cégep, Sherbrooke, QC J1E 3X7
+  instagram: https://www.instagram.com/oui.sherbrooke/

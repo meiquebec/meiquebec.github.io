@@ -1,37 +1,100 @@
-kirigami:
-  project: Mouvement Étudiant Indépendantiste
-  baseurl: https://mouvei.quebec
-  banner:  scripts/banner.txt
-  root:    src
-  
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/@kirigami/kirigami/kirigami.schema.json
 
-export:
-  path: dist
-  ignore:
-    - bt1oh97j7X.bin
+kirigami:
+  project:     Mouvement Étudiant Indépendantiste
+  baseurl:     https://mouvei.quebec
+  root:        src
+  banner:      banner.txt
+  author:      Maxime Larrivée-Roy
+  email:       mouvement.ei@gmail.com
+  repo:        https://github.com/meiquebec/meiquebec.github.io
+  description: >-
+    Le Mouvement Étudiant Indépendantiste (MÉI) est une organisation parapluie
+    regroupant plus d’une vingtaine de comités souverainistes dans les cégeps et
+    universités à travers tout le Québec.
+
+  # Réseaux sociaux : liens du menu et du pied de page, et « sameAs » du JSON-LD.
+  instagram:   https://www.instagram.com/mouv.ei/
+  youtube:     https://www.youtube.com/@mouv_ei/
+  facebook:    https://www.facebook.com/mouvei/
+
+  boutique:    https://50plus1.quebec/collections/collection-mei-mouvement-etudiant-independantiste
+  formulaire:  https://docs.google.com/forms/d/1lmEXvZz6tyVQA2FYvYILfyLLc0NhkWgiAepPkSg5w-U
+
+  # Carte des comités. « cle » est la clé NAVIGATEUR (Maps JavaScript API),
+  # publique par nature et restreinte par référent HTTP à mouvei.quebec et
+  # localhost dans la console Google Cloud. Vide : la carte n'est pas affichée.
+  carte:
+    cle:   ""
+    mapid: 7a4f282a9b2f394eb458f2ee
+
+
+seo:
+  lang:            fr-CA
+  titleFormat:     "{title} | {project}"
+  titleFormatHome: "{project}"
+  image:           images/ogimage.webp
+  logo:            images/ogimage.webp
+  address:
+    streetAddress:   82 Sherbrooke St W 2e étage
+    addressLocality: Montréal
+    addressRegion:   QC
+    postalCode:      H2X 1X3
+    addressCountry:  CA
 
 
 prepros:
-  before: _templates/header.php
-  after:  _templates/footer.php
-  # mountext: [.webp, .jpeg]
-  # network: true
-  # deep: true
-  format: true
+  before:   _templates/header.php
+  after:    _templates/footer.php
+  format:   true
+  network:  true   # requis par scripts/preparer-comites.php (géocodage, Instagram)
   includes:
     - _plugins/md.plugins.php
+    - _plugins/comites.php
+    - _plugins/fonctions.php
+
+
+image:
+  format: webp
+  source: assets/images
+  dest:   images
+
+
+export:
+  path: dist
+
+
+scripts:
+  - name:    preparer-comites
+    trigger: before-build
+    mount:   [secrets.local.yaml]
 
 
 tasks:
 
   - name:  js-core
-    type:  js
+    type:  esbuild
     entry: scripts/mei.core.js
 
   - name:  scss-core
-    type:  scss
+    type:  sass
     entry: styles/mei.core.scss
 
-  # - name:  conf-game
-  #   type:  conf
-  #   entry: game/config.yaml
+  # Outil interne de _mapstyle/ : jamais injecté dans les pages publiques.
+  - name:  js-mapstyle
+    type:  esbuild
+    entry: scripts/mei.mapstyle.js
+    head:  false
+
+
+# Ce que l'équipe du MÉI édite dans Kiri Studio : chaque fichier de _data/ que
+# les pages chargent. Les caches générés n'y apparaissent pas.
+studio:
+  images: assets/images
+  exclude:
+    - src/_data/comites/geocodage.json
+    - src/_data/comites/instagram.json
+  labels:
+    src/_data/equipe/equipe.yaml:   Équipe
+    src/_data/medias/articles.yaml: Articles
+    src/_data/comites/comites.yaml: Comités

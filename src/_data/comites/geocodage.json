@@ -1,0 +1,158 @@
+{
+    "100 rue duquet, sainte-thérèse, qc j7e 3g6": {
+        "adresse": "100 Rue Duquet, Sainte-Thérèse, QC J7E 3G6",
+        "lat": 45.64228749999999,
+        "lng": -73.84300929999999,
+        "date": "2026-10-02"
+    },
+    "1045 av. de la médecine, québec, qc g1v 0a6": {
+        "adresse": "1045 Av. de la Médecine, Québec, QC G1V 0A6",
+        "lat": 46.7831702,
+        "lng": -71.2746576,
+        "date": "2026-10-02"
+    },
+    "10555 ave de bois-de-boulogne, montreal, quebec h4n 1k7": {
+        "adresse": "10555 Ave de Bois-de-Boulogne, Montreal, Quebec H4N 1K7",
+        "lat": 45.5379225,
+        "lng": -73.6757837,
+        "date": "2026-10-02"
+    },
+    "1300 8e avenue, québec, qc g1j 5l5": {
+        "adresse": "1300 8e Avenue, Québec, QC G1J 5L5",
+        "lat": 46.8304125,
+        "lng": -71.2271312,
+        "date": "2026-10-02"
+    },
+    "20 rue saint-charles-borromée s, joliette, qc j6e 4t1": {
+        "adresse": "20 Rue Saint-Charles-Borromée S, Joliette, QC J6E 4T1",
+        "lat": 46.0275109,
+        "lng": -73.4353529,
+        "date": "2026-10-02"
+    },
+    "205 rue monseigneur-bourget, lévis, qc g6v 6z9": {
+        "adresse": "205 Rue Monseigneur-Bourget, Lévis, QC G6V 6Z9",
+        "lat": 46.8175422,
+        "lng": -71.150491,
+        "date": "2026-10-02"
+    },
+    "2410 ch ste-foy, québec, qc g1v 1t2": {
+        "adresse": "2410 Ch Ste-Foy, Québec, QC G1V 1T2",
+        "lat": 46.7865914,
+        "lng": -71.2869384,
+        "date": "2026-10-02"
+    },
+    "2500 bd de l'université, sherbrooke, qc j1k 1t3": {
+        "adresse": "2500 Bd de l'Université, Sherbrooke, QC J1K 1T3",
+        "lat": 45.3826185,
+        "lng": -71.9254407,
+        "date": "2026-10-02"
+    },
+    "2500 chem. de polytechnique, montréal, qc h3t 0a3": {
+        "adresse": "2500 Chem. de Polytechnique, Montréal, QC H3T 0A3",
+        "lat": 45.5045431,
+        "lng": -73.6133594,
+        "date": "2026-10-02"
+    },
+    "255 rue ontario e, montréal, qc h2x 1x6": {
+        "adresse": "255 Rue Ontario E, Montréal, QC H2X 1X6",
+        "lat": 45.514669,
+        "lng": -73.5663793,
+        "date": "2026-10-02"
+    },
+    "2700 ch de la tour, montréal, qc h3t 1j4": {
+        "adresse": "2700 Ch de la Tour, Montréal, QC H3T 1J4",
+        "lat": 45.5046271,
+        "lng": -73.61473240000001,
+        "date": "2026-10-02"
+    },
+    "30 bd du séminaire n, saint-jean-sur-richelieu, qc j3b 5j4": {
+        "adresse": "30 Bd du Séminaire N, Saint-Jean-sur-Richelieu, QC J3B 5J4",
+        "lat": 45.2978196,
+        "lng": -73.2695256,
+        "date": "2026-10-02"
+    },
+    "3000 av. boullé, saint-hyacinthe, qc j2s 1h9": {
+        "adresse": "3000 Av. Boullé, Saint-Hyacinthe, QC J2S 1H9",
+        "lat": 45.6177049,
+        "lng": -72.9752065,
+        "date": "2026-10-02"
+    },
+    "3200 chem. de la côte-sainte-catherine, montréal, qc h3t 1c9": {
+        "adresse": "3200 Chem. de la Côte-Sainte-Catherine, Montréal, QC H3T 1C9",
+        "lat": 45.5010482,
+        "lng": -73.623881,
+        "date": "2026-10-02"
+    },
+    "333 bd de la cité-des-jeunes, gatineau, qc j8y 6r4": {
+        "adresse": "333 Bd de la Cité-des-Jeunes, Gatineau, QC J8Y 6R4",
+        "lat": 45.45867699999999,
+        "lng": -75.7687849,
+        "date": "2026-10-02"
+    },
+    "3500 rue de courval, trois-rivières, qc g8z 1t2": {
+        "adresse": "3500 Rue de Courval, Trois-Rivières, QC G8Z 1T2",
+        "lat": 46.35467389999999,
+        "lng": -72.5724315,
+        "date": "2026-10-02"
+    },
+    "375 rue du cégep, sherbrooke, qc j1e 3x7": {
+        "adresse": "375 Rue du Cégep, Sherbrooke, QC J1E 3X7",
+        "lat": 45.4102578,
+        "lng": -71.8859464,
+        "date": "2026-10-02"
+    },
+    "3800 r. sherbrooke e, montréal, qc h1x 2a2": {
+        "adresse": "3800 R. Sherbrooke E, Montréal, QC H1X 2A2",
+        "lat": 45.551088,
+        "lng": -73.553539,
+        "date": "2026-10-02"
+    },
+    "405 rue sainte-catherine e, montréal, qc h2x 3s1": {
+        "adresse": "405 Rue Sainte-Catherine E, Montréal, QC H2X 3S1",
+        "lat": 45.5141875,
+        "lng": -73.56081189999999,
+        "date": "2026-10-02"
+    },
+    "475 bd de l'avenir, laval, qc h7n 5h9": {
+        "adresse": "475 Bd de l'Avenir, Laval, QC H7N 5H9",
+        "lat": 45.56001939,
+        "lng": -73.71880039,
+        "date": "2026-10-02"
+    },
+    "625 av. sainte-croix, saint-laurent, qc h4l 3x7": {
+        "adresse": "625 Av. Sainte-Croix, Saint-Laurent, QC H4L 3X7",
+        "lat": 45.5123442,
+        "lng": -73.6724294,
+        "date": "2026-10-02"
+    },
+    "7000 rue marie-victorin, montréal, qc h1g 2j6": {
+        "adresse": "7000 Rue Marie-Victorin, Montréal, QC H1G 2J6",
+        "lat": 45.6184246,
+        "lng": -73.60685749999999,
+        "date": "2026-10-02"
+    },
+    "7141 rue sherbrooke o, montréal, qc h4b 1r6": {
+        "adresse": "7141 Rue Sherbrooke O, Montréal, QC H4B 1R6",
+        "lat": 45.4579826,
+        "lng": -73.6397985,
+        "date": "2026-10-02"
+    },
+    "845 rue sherbrooke o, montréal, qc h3a 0g4": {
+        "adresse": "845 Rue Sherbrooke O, Montréal, QC H3A 0G4",
+        "lat": 45.5063178,
+        "lng": -73.5767035,
+        "date": "2026-10-02"
+    },
+    "9155 rue st-hubert, montréal, qc h2m 1y7": {
+        "adresse": "9155 Rue St-Hubert, Montréal, QC H2M 1Y7",
+        "lat": 45.5525074,
+        "lng": -73.6426427,
+        "date": "2026-10-02"
+    },
+    "945 ch. de chambly, longueuil, qc j4h 3m6": {
+        "adresse": "945 Ch. de Chambly, Longueuil, QC J4H 3M6",
+        "lat": 45.5358368,
+        "lng": -73.4937947,
+        "date": "2026-10-02"
+    }
+}

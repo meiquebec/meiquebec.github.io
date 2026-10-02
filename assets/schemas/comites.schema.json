@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "comites.schema.json",
+  "title": "Comités",
+  "description": "Liste des comités membres du MÉI. Les coordonnées de la carte et les logos sont trouvés automatiquement au déploiement : il n'y a rien d'autre à remplir.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Comité",
+    "description": "Un comité étudiant",
+    "properties": {
+      "nom": {
+        "type": "string",
+        "description": "Nom du comité, tel qu'affiché sur le site"
+      },
+      "adresse": {
+        "type": "string",
+        "description": "Adresse de l'établissement (sert à placer le comité sur la carte)",
+        "examples": [
+          "845 Rue Sherbrooke O, Montréal, QC H3A 0G4"
+        ]
+      },
+      "instagram": {
+        "type": "string",
+        "description": "Lien vers le compte Instagram du comité (sa photo de profil devient son logo)",
+        "format": "uri",
+        "pattern": "^https://(www\\.)?instagram\\.com/[A-Za-z0-9._]+/?$"
+      },
+      "actif": {
+        "type": "boolean",
+        "description": "Mettre false pour retirer le comité de la carte et de la liste sans le supprimer",
+        "default": true
+      },
+      "logo": {
+        "type": "string",
+        "description": "Facultatif : une image choisie dans le gestionnaire d'images, pour remplacer la photo Instagram",
+        "pattern": "\\.(jpe?g|png|gif|webp|avif|heic)$"
+      }
+    },
+    "required": ["nom", "adresse", "instagram"],
+    "additionalProperties": false
+  }
+}

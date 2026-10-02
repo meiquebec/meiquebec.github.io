@@ -1,0 +1,9 @@
+/* TEAM */
+
+    Maxime Larrivée-Roy
+    Contact: mouvement.ei@gmail.com
+
+/* SITE */
+
+    Last update: 2026-10-02
+    Software: Kirigami -- https://php-kirigami.github.io

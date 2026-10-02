@@ -1,6 +1,15 @@
 /node_modules/
 /dist/
 /src/test/
-bt1oh97j7X.bin
 Thumbs.db
+
+# Caches locaux de Kirigami
 .cache.db
+.node.db
+.cookie.txt
+
+# Clé de géocodage (voir docs/SCRIPTS.md) : jamais commitée
+secrets.local.yaml
+
+# Sourcemaps de développement
+*.map

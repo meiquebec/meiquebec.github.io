@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "articles.schema.json",
+  "title": "Articles",
+  "description": "Liste des articles de presse mentionnant le MÉI",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Article",
+    "description": "Un article de presse",
+    "properties": {
+      "titre": {
+        "type": "string",
+        "description": "Titre de l'article"
+      },
+      "lien": {
+        "type": "string",
+        "description": "URL vers l'article",
+        "format": "uri"
+      },
+      "image": {
+        "type": "string",
+        "description": "Vignette de l'article, choisie dans le gestionnaire d'images (chemin dans assets/images, ex. medias/le-devoir-oui-non.webp)",
+        "pattern": "\\.(jpe?g|png|gif|webp|avif|heic)$"
+      },
+      "media": {
+        "type": "string",
+        "description": "Nom du média ayant publié l'article",
+        "examples": [
+          "Le Devoir",
+          "Radio-Canada",
+          "CTV News",
+          "CBC",
+          "La Tribune",
+          "98,5 FM",
+          "FM 93",
+          "Noovo Info",
+          "The Gazette",
+          "Quartier libre",
+          "Generation OUI"
+        ]
+      },
+      "date": {
+        "type": "string",
+        "description": "Date de publication, au format AAAA-MM-JJ (affichée en français sur le site, ex. « 1er nov. 2025 »). Les articles sont triés du plus récent au plus ancien.",
+        "format": "date",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "examples": [
+          "2025-11-01",
+          "2026-03-29"
+        ]
+      }
+    },
+    "required": ["titre", "lien", "image", "media", "date"],
+    "additionalProperties": false
+  }
+}

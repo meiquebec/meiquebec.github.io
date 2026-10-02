@@ -3,12 +3,16 @@
             <div>
                 <h2>Réseaux sociaux</h2>
                 <p>Suivez-nous sur les différentes plateformes pour les dernières actualités, vidéos et annonces.</p>
-                <p class="reseaux-socaux-liens"><a class="facebook" target="_blank" href="https://www.facebook.com/mouvei"><a class="instagram" target="_blank" href="https://www.instagram.com/mouv.ei/"></a><a class="youtube" target="_blank" href="https://www.youtube.com/@mouv_ei/"></a></p>
+                <p class="reseaux-sociaux-liens">
+                    <?php foreach (['facebook' => $facebook, 'instagram' => $instagram, 'youtube' => $youtube] as $reseau => $lien): ?>
+                    <a class="<?= $reseau ?>" target="_blank" rel="noopener noreferrer" href="<?= $lien ?>" title="<?= ucfirst($reseau) ?>"></a>
+                    <?php endforeach; ?>
+                </p>
             </div>
         </section>
-	</main>
-    <footer title="Tous droits réservés © <?php echo $project; ?>, ###YEAR###">
-        © Tous droits réservés<br><?php echo $project; ?>, ###YEAR###
+    </main>
+    <footer title="Tous droits réservés © <?= $project ?>, ###YEAR###">
+        © Tous droits réservés<br><?= $project ?>, ###YEAR###
     </footer>
 </body>
 </html>

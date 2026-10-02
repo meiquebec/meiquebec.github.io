@@ -182,7 +182,7 @@ section {
         margin-top: 1rem;
         letter-spacing: var(--font-spacing);
 
-        &.reseaux-socaux-liens {
+        &.reseaux-sociaux-liens {
             margin-top: 1.5rem;
             display: flex;
             justify-content: center;
@@ -282,13 +282,13 @@ section.notre-equipe {
             padding-top: 2rem;
         }
 
-        &>div:nth-child(1) {
+        // Photo carrée générée par <img asset … cover>.
+        &>img:nth-child(1) {
             flex: 0 0 8rem;
+            width: 8rem;
+            height: 8rem;
             align-self: flex-start;
-            aspect-ratio: 1/1;
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
+            object-fit: cover;
             border-radius: 50%;
             // aspect-ratio: 272/239;
             // mask-image: var(--icon-explosion);
