@@ -10,17 +10,42 @@
  */
 
 
-// Clé navigateur de la carte : jamais commitée. Elle vient de secrets.local.yaml
-// (« carte: … », écrit par la CI à partir du secret GOOGLE_API_KEY, par Kiri
-// Studio à partir des « Clés du site », à la main chez un développeur), sinon
-// de kirigami.carte.cle. Chaîne vide : pas de carte.
+// Clés Google { carte, geocodage, obligatoire }, jamais commitées, rien à saisir :
+//  1. secrets.local.yaml s'il existe (la CI l'écrit à partir de ses secrets) ;
+//  2. sinon le bt1oh97j7X.bin que chaque déploiement publie sur le site
+//     (étape « Clés publiées » du workflow) — le mécanisme de l'ancien
+//     postinstall. C'est ce qui donne la carte et le géocodage à l'aperçu de
+//     Kiri Studio chez le client, et à un clone frais. Gardé un jour en cache.
+function comites_cles(): object
+{
+    static $cles = null;
+    if ($cles) return $cles;
+
+    foreach (PREPROS::mount('secrets.local.yaml') ?: [] as $fichier) {
+        if (is_file($fichier) && ($secrets = YAML::parseFile($fichier))) {
+            return $cles = (object) [
+                'carte'       => (string) ($secrets->carte ?? ''),
+                'geocodage'   => (string) ($secrets->geocodage ?? $secrets->carte ?? ''),
+                'obligatoire' => (bool) ($secrets->obligatoire ?? false),
+            ];
+        }
+    }
+
+    $cle = CACHE::get('mei_cle_deploiement');
+    if ($cle === null) {
+        $bin = CURL::getContents(rtrim(PREPROS::$config->data->baseurl, '/') . '/bt1oh97j7X.bin');
+        $publie = $bin ? OBF::decode($bin) : null;
+        $cle = (string) ($publie->GOOGLE_API_KEY ?? '');
+        // Un échec (site hors ligne, .bin pas encore publié) n'est pas gardé.
+        if ($cle !== '') CACHE::set('mei_cle_deploiement', $cle, 86400);
+    }
+    return $cles = (object) ['carte' => $cle, 'geocodage' => $cle, 'obligatoire' => false];
+}
+
+
 function comites_cle_carte(): string
 {
-    $montes = PREPROS::mount('secrets.local.yaml') ?: [];
-    foreach ($montes as $fichier) {
-        if (is_file($fichier) && ($secrets = YAML::parseFile($fichier)) && !empty($secrets->carte)) return (string) $secrets->carte;
-    }
-    return (string) (PREPROS::$config->data->carte->cle ?? '');
+    return comites_cles()->carte;
 }
 
 

@@ -60,6 +60,23 @@ jobs:
             echo "Nothing to commit."
           fi
 
+      # Clés publiées avec le site, comme avant la migration : l'aperçu de Kiri
+      # Studio et un clone frais les lisent ici (comites_cles() dans
+      # src/_plugins/comites.php), sans rien saisir. Format OBF (JSON → base64
+      # → ROT13 → gzip sans ses deux octets d'en-tête).
+      - name: Clés publiées
+        shell: bash
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          MAP_ID: ${{ secrets.MAP_ID }}
+        run: |
+          printf '{"GOOGLE_API_KEY":"%s","MAP_ID":"%s"}' "$GOOGLE_API_KEY" "$MAP_ID" > /tmp/cles.json
+          B64="$(base64 -w 0 /tmp/cles.json)"
+          ROT="$(printf '%s' "$B64" | tr 'A-Za-z' 'N-ZA-Mn-za-m')"
+          printf '%s' "$ROT" | gzip -9 -c > /tmp/cles.gz
+          dd if=/tmp/cles.gz of=dist/bt1oh97j7X.bin bs=1 skip=2 status=none
+          rm -f /tmp/cles.json /tmp/cles.gz
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

@@ -51,14 +51,15 @@ $cache = is_file(GEOCODAGE) ? (json_decode(file_get_contents(GEOCODAGE), true) ?
 $ajouts = 0;
 $erreur = null;
 
-// La clé n'existe qu'en CI (et chez un développeur). Sans elle — l'aperçu de
-// Kiri Studio sur le poste de l'équipe, par exemple — une nouvelle adresse
+// La clé vient de comites_cles() (src/_plugins/comites.php) : secrets.local.yaml
+// en CI, sinon le .bin publié par le déploiement (aperçu de Kiri Studio, clone
+// frais). Si elle manque quand même (site hors ligne), une nouvelle adresse
 // n'est pas géocodée : simple avertissement, le comité sera placé au
 // déploiement. La CI écrit « obligatoire: true » pour qu'un secret manquant
 // y fasse échouer le build au lieu de publier une carte incomplète.
-$secrets = is_file(SECRETS) ? YAML::parseFile(SECRETS) : null;
-$cle = $secrets->geocodage ?? '';
-$cleObligatoire = (bool) ($secrets->obligatoire ?? false);
+$cles = comites_cles();
+$cle = $cles->geocodage;
+$cleObligatoire = $cles->obligatoire;
 $enAttente = [];
 
 $geocoder = function (string $adresse) use ($cle): array {

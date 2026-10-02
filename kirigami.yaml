@@ -99,15 +99,10 @@ studio:
     src/_data/equipe/equipe.yaml:   Équipe
     src/_data/medias/articles.yaml: Articles
     src/_data/comites/comites.yaml: Comités
-  # Clé saisie une fois dans Studio (« Clés du site »), gardée sur le poste :
-  # l'aperçu géocode lui-même les nouveaux comités.
-  secrets:
-    file: secrets.local.yaml
-    keys:
-      geocodage: Clé de géocodage Google (Geocoding API)
-      carte:     Clé de la carte Google (Maps JavaScript API)
-  # Ce que l'aperçu a calculé part avec la publication : la CI n'a plus à le
-  # refaire (et la photo Instagram est prise depuis le poste de l'équipe).
+  # Rien à saisir dans Studio : l'aperçu prend les clés Google dans le .bin
+  # publié par le déploiement (voir docs/SCRIPTS.md §3), géocode et affiche
+  # la carte. Ce qu'il a calculé part avec la publication (coordonnées, photo
+  # Instagram prise depuis le poste du client, qu'Instagram ne bloque pas).
   publish:
     - src/_data/comites/geocodage.json
     - src/_data/comites/instagram.json
