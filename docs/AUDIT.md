@@ -74,7 +74,7 @@ importe `@kirigami/struct-walker`, qui n'est pas déclaré.
   va chercher `https://mouvei.quebec/bt1oh97j7X.bin` sans vérification
   d'intégrité ; chaque clone et chaque install en CI dépend du site en
   ligne. Disparaît avec la migration (voir
-  [SCRIPTS.md](SCRIPTS.md#3-clés-de-la-carte)).
+  [SCRIPTS.md](SCRIPTS.md#3-clés-google)).
 
 ### Rendu cassé ou incorrect
 

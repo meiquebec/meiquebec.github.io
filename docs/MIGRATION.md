@@ -20,7 +20,7 @@ par Kirigami (voir [SCRIPTS.md](SCRIPTS.md)), soit du rendu au build.
 | `src/_pxpros.json` | bloc `kirigami:` de `kirigami.yaml` (supprimer le fichier) |
 | `scripts/galleries.js` (sharp) | bloc `{% galerie %}` de codes `{% img-asset %}`, chaque image rendue au build par `IMG::asset()` (voir [SCRIPTS.md §2](SCRIPTS.md#2-galeries)) |
 | `scripts/comites.js` (en place, JSON) + logos de comités faits à la main | `scripts/preparer-comites.php`, `trigger: before-build` : caches de géocodage (une fois par adresse) et de photos Instagram (une fois par compte) ; le YAML ne contient que la saisie de l'équipe (voir [SCRIPTS.md §1](SCRIPTS.md#1-comités--géocodage-et-logos)) |
-| `scripts/install.js` + étape « Obfuscation » de la CI | supprimés — la clé navigateur est rendue dans la page (voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-de-la-carte)) |
+| `scripts/install.js` + étape « Obfuscation » de la CI | supprimés — la clé navigateur est rendue dans la page (voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-google)) |
 | Images converties à la main dans `src/images/` | sources dans `assets/images/`, sorties générées par `<img asset>` / `IMG::asset()` |
 | `<head>` écrit à la main (OG, JSON-LD, `<link>`, `<script>`) | bloc `seo:` (META + LD) + injection automatique des sorties de tâches |
 | `scripts/test.js`, `src/test/` | supprimés |
@@ -217,7 +217,7 @@ Notes :
     `gallery.js` ne fait plus que monter Swiper et la modale sur ce
     balisage.
   - Carte : `<carte-mei>` reçoit les comités actifs et la configuration de
-    la carte (voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-de-la-carte)) ;
+    la carte (voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-google)) ;
     `carte.js` lit ses attributs au lieu de `SECRETS` et du `fetch`.
   - Supprimer `secrets.js` et `loadJsonProperties()` s'il n'a plus
     d'usage.

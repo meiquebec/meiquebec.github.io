@@ -8,7 +8,7 @@ faite.
 
 La clé actuelle sert à la carte et au géocodage, sans être commitée : la
 CI la prend dans les secrets existants (`GOOGLE_API_KEY`), les postes dans
-`secrets.local.yaml` (voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-de-la-carte)).
+`secrets.local.yaml` (voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-google)).
 
 - [ ] Créer une clé **navigateur** (Maps JavaScript API seulement, référents `https://mouvei.quebec/*`, `http://127.0.0.1:*/*`, `http://localhost:*/*`) et la mettre dans le secret `GOOGLE_API_KEY`
 - [ ] Créer une clé **géocodage** (Geocoding API seulement) : nouveau secret `GEOCODING_API_KEY`
