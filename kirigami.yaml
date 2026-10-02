@@ -96,9 +96,16 @@ studio:
     - src/_data/comites/geocodage.json
     - src/_data/comites/instagram.json
   labels:
-    src/_data/equipe/equipe.yaml:   Équipe
-    src/_data/medias/articles.yaml: Articles
-    src/_data/comites/comites.yaml: Comités
+    src/_data/accueil/qui-sommes-nous.md:    Qui sommes-nous
+    src/_data/accueil/galerie-1.md:          Galerie 1
+    src/_data/accueil/nos-missions.md:       Nos missions
+    src/_data/accueil/galerie-2.md:          Galerie 2
+    src/_data/accueil/nos-collaborateurs.md: Nos collaborateurs
+    src/_data/accueil/galerie-3.md:          Galerie 3
+    src/_data/comites/nous-joindre.md:       Nous joindre
+    src/_data/equipe/equipe.yaml:            Équipe
+    src/_data/medias/articles.yaml:          Articles
+    src/_data/comites/comites.yaml:          Comités
   # Rien à saisir dans Studio : l'aperçu prend les clés Google dans le .bin
   # publié par le déploiement (voir docs/SCRIPTS.md §3), géocode et affiche
   # la carte. Ce qu'il a calculé part avec la publication (coordonnées, photo
