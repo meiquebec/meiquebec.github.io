@@ -70,6 +70,11 @@ importe `@kirigami/struct-walker`, qui n'est pas déclaré.
   géocodage** (Geocoding API seulement, jamais livrée, gardée dans un
   fichier local non suivi / un secret de CI). Faire une rotation de la clé
   actuelle.
+  **Décision du mainteneur (2026-10-02) : on garde le système de clés tel
+  quel, le plus simple possible.** Le mainteneur n'a pas accès à la console
+  Google et n'en aura pas avant des semaines. La clé reste la même, publiée
+  dans le `.bin` comme avant la migration ; rien dans le code ne dépend d'une
+  séparation en deux clés. Constat conservé pour mémoire.
 - **M2 — `npm install` télécharge depuis la production.** `postinstall`
   va chercher `https://mouvei.quebec/bt1oh97j7X.bin` sans vérification
   d'intégrité ; chaque clone et chaque install en CI dépend du site en

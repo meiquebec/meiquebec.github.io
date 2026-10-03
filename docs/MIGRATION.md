@@ -315,8 +315,8 @@ est contenu doit donc être éditable sans toucher au PHP. Conséquences :
 
 Chaque étape laisse le site déployable.
 
-1. **Sécurité d'abord (hors code)** — créer les deux clés Google (H1),
-   restreindre la clé navigateur, faire une rotation de l'ancienne.
+1. **Clés Google** — *abandonné* : le système de clés reste tel quel (voir
+   H1 dans [AUDIT.md](AUDIT.md)), faute d'accès à la console Google.
 2. **Bascule de l'outil** — `@kirigami/cli` en devDependency, corriger
    `kirigami.yaml` (M1), retirer `chokibasic` et les `scripts/*.js`
    build/watch/export, nouveau workflow CI, `.vscode/` (B13). Gabarits
