@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../../assets/schemas/comites.schema.json
-
 - nom: Collectif indépendantiste de Mcgill
   adresse: 845 Rue Sherbrooke O, Montréal, QC H3A 0G4
   instagram: https://www.instagram.com/cimcgill/
