@@ -28,7 +28,7 @@
     "swiper": "^12.2.0"
   },
   "devDependencies": {
-    "@kirigami/cli": "^0.1.16"
+    "@kirigami/cli": "^0.1.17"
   },
   "allowScripts": {
     "@parcel/watcher@2.5.6": true,
