@@ -70,6 +70,11 @@ scripts:
     # Relancé dès que la liste change (kiri serve, aperçu de Kiri Studio).
     watch:   [src/_data/comites/comites.yaml]
 
+  # Vignette (image de partage) de chaque nouvel article, cherchée une fois.
+  - name:    preparer-medias
+    trigger: before-build
+    watch:   [src/_data/medias/articles.yaml]
+
 
 tasks:
 
@@ -95,6 +100,7 @@ studio:
   exclude:
     - src/_data/comites/geocodage.json
     - src/_data/comites/instagram.json
+    - src/_data/medias/vignettes.json
   labels:
     src/_data/accueil/qui-sommes-nous.md:    Qui sommes-nous
     src/_data/accueil/galerie-1.md:          Galerie 1
@@ -114,3 +120,5 @@ studio:
     - src/_data/comites/geocodage.json
     - src/_data/comites/instagram.json
     - assets/images/comites/instagram/*.jpg
+    - src/_data/medias/vignettes.json
+    - assets/images/medias/*
