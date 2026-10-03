@@ -45,7 +45,6 @@ fusionne au rendu.
 ### Entrée — `src/_data/comites/comites.yaml` (éditée dans Kiri Studio)
 
 ```yaml
-# yaml-language-server: $schema=../../../assets/schemas/comites.schema.json
 - nom: Collectif indépendantiste de McGill
   adresse: 845 Rue Sherbrooke O, Montréal, QC H3A 0G4
   instagram: https://www.instagram.com/cimcgill/
@@ -70,8 +69,10 @@ que Studio ne montre pas.
 | `logo` | non | photo de profil Instagram du compte (§ « Logos ») | À remplir seulement pour imposer une autre image : chemin relatif à `assets/images/`, choisi dans le gestionnaire d'images de Kiri Studio |
 
 Le dossier `_data/` commence par `_` : il n'est jamais exporté. Un schéma
-`assets/schemas/comites.schema.json` (à créer, sur le modèle des deux
-existants) donne l'autocomplétion dans VS Code et dans Kiri Studio.
+`assets/schemas/comites.schema.json`, déclaré dans `.vscode/settings.json`
+(`yaml.schemas`) comme ceux de l'équipe et des articles, donne la validation
+et l'autocomplétion dans VS Code et dans Kiri Studio, sans ligne
+`yaml-language-server` dans le fichier.
 
 ### Cache — `src/_data/comites/geocodage.json` (généré, **commité**)
 
