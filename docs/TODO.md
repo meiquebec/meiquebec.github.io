@@ -3,12 +3,19 @@
 La migration est en ligne depuis le 2026-10-02. Ce qui reste. Retirer une
 ligne dès qu'elle est faite.
 
-## 1. Essai dans Kiri Studio (0.5.5)
+## 1. Publier core 3.2.10 (nécessaire aux galeries en direct dans Studio)
 
-- [ ] Ouvrir le site dans Studio, ajouter un comité et une photo de galerie : épingle, logo et photo visibles dans l'aperçu, sans rien saisir (clé lue dans le `.bin` publié, voir [SCRIPTS.md §3](SCRIPTS.md#3-clés-google))
-- [ ] Publier : vérifier que le commit contient aussi `geocodage.json` et la photo Instagram, et que la CI déploie sans refaire le géocodage
+- [ ] Publier core 3.2.10 (le watch suit `image.source` : une photo déposée dans un dossier de galerie re-rend les pages) et la cascade mcp / cli / vscode ; commité dans le monorepo (`dae009d`), pas encore publié. Sans lui, le site en ligne marche, mais l'aperçu de Studio ne voit une nouvelle photo qu'après un redémarrage de l'aperçu
+- [ ] Monter `@kirigami/cli` du site à la version qui embarque core 3.2.10
 
-## 2. Ménage
+## 2. Essai dans Kiri Studio (0.5.5)
+
+- [ ] Comités : ajouter un comité (vraie adresse, vrai compte Instagram) : épingle, logo et liste dans l'aperçu, sans rien saisir (clé lue dans le `.bin` publié, voir [SCRIPTS.md §4](SCRIPTS.md#4-clés-google))
+- [ ] Galeries : déposer une photo dans `galeries/<dossier>/` avec le gestionnaire d'images : elle apparaît dans le carrousel de l'aperçu (core 3.2.10)
+- [ ] Médias : ajouter un article avec son lien : sa vignette apparaît toute seule dans l'aperçu
+- [ ] Publier : le commit contient `geocodage.json`, la photo Instagram, `vignettes.json` et l'image de l'article ; la CI déploie sans refaire ces recherches
+
+## 3. Ménage
 
 - [ ] `CLAUDE.md` (en français) à partir de `docs/template-CLAUDE.md` du monorepo
 - [ ] Réécrire `README.md` (installation, `npm run serve`, scripts, clés, Kiri Studio)

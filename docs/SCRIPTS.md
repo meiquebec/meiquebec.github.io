@@ -157,7 +157,7 @@ comité »).
 
 | Où | Quand | Clé de géocodage | Résultat |
 |---|---|---|---|
-| **Aperçu de Kiri Studio** (poste du client) | Au démarrage de l'aperçu, puis **à chaque modification de `comites.yaml`** (`watch`) | Lue toute seule dans le `.bin` publié par le déploiement (§3) — rien à saisir | Épingle et logo visibles tout de suite dans l'aperçu ; à la publication, Studio envoie aussi les caches remplis (`studio.publish`) |
+| **Aperçu de Kiri Studio** (poste du client) | Au démarrage de l'aperçu, puis **à chaque modification de `comites.yaml`** (`watch`) | Lue toute seule dans le `.bin` publié par le déploiement (§4) — rien à saisir | Épingle et logo visibles tout de suite dans l'aperçu ; à la publication, Studio envoie aussi les caches remplis (`studio.publish`) |
 | **CI** (GitHub Actions) | À chaque déploiement | Secret `GOOGLE_API_KEY`, **obligatoire** | Filet de sécurité : ne fait que ce que l'aperçu n'a pas fait (aperçu jamais lancé, hors ligne), puis recommite les caches |
 | **Poste d'un développeur** | `npm run serve` / `npm run build` / `npm run comites` | `secrets.local.yaml` s'il existe, sinon le `.bin` publié | Comme l'aperçu |
 
@@ -311,91 +311,79 @@ compte, puis plus jamais).
 
 ## 2. Galeries
 
-**Plus de script.** Les galeries sont écrites dans le texte de la page
-avec les codes `{% img-asset %}` que Kiri Studio insère quand on choisit
-une image. Chaque image passe par `IMG::asset()`, pour la grande image
-comme pour la vignette. Ça supprime `sharp`, `scripts/galleries.js`,
-`src/data/galleries.json`, `src/images/galeries/` commité, et la liste de
-dossier (plus besoin de `PREPROS::mount()` sur les sources).
+**Une galerie = un dossier. Rien d'autre à faire pour le client.**
 
-### Ce que l'équipe écrit (dans Kiri Studio)
+Dans le Markdown, le titre et le nom du dossier :
 
 ```markdown
 ## Rêver le pays
 
-{% galerie
-{% img-asset "galeries/rever-le-pays/IMG_2738.JPG" 1280 %}
-{% img-asset "galeries/rever-le-pays/IMG_3958.JPG" 1280 %}
-{% img-asset "galeries/rever-le-pays/photo (1).jpeg" 1280 %}
-%}
+{% galerie rever-le-pays %}
 ```
 
-- Les sources sont dans `assets/images/` (= `image.source`), sous
-  `galeries/<nom>/` par convention ; l'équipe les dépose avec le
-  gestionnaire d'images de Studio. Le dossier n'a plus de rôle technique :
-  c'est la liste des codes qui fait la galerie, dans l'ordre écrit.
-- Ajouter une photo = la déposer, puis insérer son code dans le bloc.
-  Retirer une photo = supprimer sa ligne. Pas de développeur.
-- Le titre de la galerie est un titre Markdown normal au-dessus du bloc :
-  plus de `_galeries.yaml`.
+Les photos sont dans `assets/images/galeries/rever-le-pays/`. Pour ajouter
+ou retirer une photo, le client la dépose dans ce dossier avec le
+gestionnaire d'images de Kiri Studio : la galerie suit, dans l'aperçu comme
+après publication. Aucune liste à tenir, aucun code à insérer.
 
-### Ce que fait `{% galerie %}` (`src/_plugins/md.plugins.php`)
+- **Sur l'accueil**, trois fichiers `src/_data/accueil/galerie-1.md`,
+  `galerie-2.md`, `galerie-3.md`, affichés « Galerie 1 », « Galerie 2 »,
+  « Galerie 3 » dans Studio (`studio.labels`). Le titre **et** le dossier se
+  changent dans le Markdown : pour montrer un autre dossier, changer le nom
+  dans `{% galerie … %}`.
+- **Tout se fait quand la balise est analysée**
+  (`src/_plugins/md.plugins.php`, aucun script) : `PREPROS::mount()` donne
+  les fichiers réellement présents dans le dossier, et chaque photo passe par
+  `IMG::asset()` — une grande image (1280×960, *contain*) et une vignette
+  (240×320, *cover*), générées seulement si elles manquent ou sont périmées.
+  Un nom avec espaces ou parenthèses (photo de téléphone) donne une adresse
+  encodée.
+- **Aperçu en direct** : le watch de Kirigami suit `image.source`
+  (`assets/images/`) ; ajouter, remplacer ou retirer une image re-rend toutes
+  les pages. Demande **core 3.2.10** (voir ci-dessous).
+- Sans JavaScript, chaque vignette mène à sa grande image ; `gallery.js` en
+  fait un carrousel Swiper et la modale d'agrandissement.
+- Un dossier vide ou inexistant ne casse rien : la galerie est omise et un
+  avertissement le dit dans le journal.
+- Qualité : `IMG` encode en WebP à 82 par défaut (sharp : 85). Écart
+  négligeable ; voir K6 si la différence se voit.
 
-Le plugin reçoit le corps du bloc **brut** (vérifié : les codes
-`{% img-asset %}` qu'il contient ne sont pas encore rendus). Pour chaque
-ligne `{% img-asset <chemin> [largeur] … %}` :
-
-- grande image : `IMG::asset($chemin, 1280, 960)` — *contain*, comme
-  aujourd'hui ;
-- vignette : `IMG::asset($chemin, 240, 320, true)` — *cover*.
-
-La largeur écrite dans le code est ignorée : les deux formats de la galerie
-sont fixés par le plugin, pour que toutes les galeries se ressemblent quoi
-que Studio insère. `IMG::asset()` ne régénère que si la source est plus
-récente que la sortie. Une ligne invalide (chemin introuvable) devient un
-commentaire HTML et l'erreur est signalée au build avec le chemin fautif.
-
-Balisage produit (chemins relatifs fournis par `IMG::asset()`, encodés
-pour l'URL) :
-
-```html
-<div class="galerie">
-    <a class="galerie__carte" href="../images/galeries/rever-le-pays/IMG_2738-1280x960.webp">
-        <img src="../images/galeries/rever-le-pays/IMG_2738-240x320-cover.webp" alt="" loading="lazy">
-    </a>
-</div>
-```
-
-Sans JavaScript, chaque vignette mène quand même à la grande image.
-`gallery.js` monte Swiper et la modale sur ce balisage au lieu de
-construire les cartes à partir du JSON.
-
-### Correctifs Kirigami nécessaires (faits le 2026-10-02, pas encore publiés)
-
-Testés le 2026-10-02 sur le core 3.2.7, trois points empêchaient ce
-modèle. Ils sont corrigés dans les dépôts, mais il faut une publication
-avant de pouvoir les utiliser dans le site :
-
-1. **Bloc contenant des `{% … %}` (K8)** — `php-mdhtml` 0.1.6 : le bloc se
-   ferme sur le `%}` qui équilibre son propre `{%`, et le corps arrive brut
-   au plugin. Publication : tag `v0.1.6`, rebuild de `@kirigami/php-wasm`,
-   puis php-prepros / core / cli.
-2. **Chemins avec espaces (K9)** — Kiri Studio met maintenant le chemin
-   entre guillemets (`{% img-asset "galeries/photo (1).jpeg" 800 %}`).
-   Publication : prochaine version de Kiri Studio.
-3. **`src` non encodés (K7)** — `IMG::asset()` renvoie une URL encodée
-   segment par segment (`photo%20%281%29-240x320-cover.webp`) ; les noms
-   de fichiers sur disque ne changent pas. Couvre aussi `<img asset>` et
-   `{% img-asset %}`. Publication : prochaine version de php-prepros.
-
-Le plugin `{% galerie %}` n'a donc rien à encoder lui-même.
-
-Qualité : `IMG` encode en WebP à 82 par défaut (sharp : 85). Écart
-négligeable ; voir K6 si la différence se voit.
+> Les codes `{% img-asset %}` dans un bloc `{% galerie %}` (php-wasm
+> 8.5.11-4, Kiri Studio 0.5.4) ont été essayés puis abandonnés : trop
+> compliqués pour l'équipe, qui ne veut avoir que le nom du dossier à donner.
+> Ces correctifs restent utiles ailleurs (`{% img-asset %}` avec des noms de
+> fichiers à espaces).
 
 ---
 
-## 3. Clés Google
+## 3. Médias : la vignette de chaque article
+
+**Le client ne saisit que le titre, le lien, le média et la date.** La
+vignette (l'image de partage de l'article) est trouvée toute seule.
+
+`scripts/preparer-medias.php` (`trigger: before-build`, relancé dès que
+`articles.yaml` change) :
+
+- pour chaque lien **jamais vu**, lit sa page avec `SCRAPER::get()` (JSON-LD,
+  Open Graph, `<meta>`), télécharge l'image dans `assets/images/medias/` et la
+  note dans `src/_data/medias/vignettes.json` (`{ "<lien>": { image, date } }`) ;
+- **une seule fois par lien** : trouvée, elle n'est jamais redemandée ;
+- **les 14 vignettes actuelles sont conservées** (`vignettes.json` a été
+  rempli à partir de l'ancien champ `image`, puis ce champ a été retiré) ;
+- un lien sans image trouvée n'est pas une erreur : noté (`echec`, réessayé au
+  plus une fois par semaine, ou tout de suite avec
+  `npx kiri run preparer-medias reprendre`), et l'article s'affiche sans
+  vignette ;
+- `vignettes.json` et les images sont dans `studio.publish` : l'aperçu les
+  calcule sur le poste du client et elles partent avec la publication ; elles
+  sont exclues de Studio (`studio.exclude`).
+
+La page (`src/medias/_index.php`) charge `articles.yaml` et `vignettes.json`,
+et passe l'image par `<img asset>` (640 px de large, WebP).
+
+---
+
+## 4. Clés Google
 
 **Aucune clé dans le dépôt, rien à saisir nulle part.** On garde la clé
 actuelle (secret GitHub `GOOGLE_API_KEY`) ; elle n'est pas à changer.
@@ -436,7 +424,7 @@ carte et le script trouve la clé de géocodage.
 
 ---
 
-## 4. Ce qui reste manuel
+## 5. Ce qui reste manuel
 
 - **Vidéo d'introduction** (`assets/videos/` → `src/videos/intro.{webm,mp4}`) :
   encodages faits à la main, gardés tels quels. `@kirigami/plugin-clip`
