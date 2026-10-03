@@ -39,7 +39,7 @@ assets/
     equipe/  medias/  galeries/<nom>/  ogimage.png  intro.jpg
     comites/instagram/<compte>.jpg   GÉNÉRÉ une fois par compte par preparer-comites (commité)
   schemas/              (renommé depuis shemas/) articles, equipe, comites
-  fonts/  videos/  cartes/
+  fonts/  cartes/
 src/
   _templates/  _plugins/
   _data/                        TOUT le contenu éditable (modèle humainhumain), jamais exporté

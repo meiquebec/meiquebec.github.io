@@ -426,9 +426,12 @@ carte et le script trouve la clé de géocodage.
 
 ## 5. Ce qui reste manuel
 
-- **Vidéo d'introduction** (`assets/videos/` → `src/videos/intro.{webm,mp4}`) :
-  encodages faits à la main, gardés tels quels. `@kirigami/plugin-clip`
-  vise un lecteur vidéo, pas une boucle d'arrière-plan muette.
+- **Vidéo d'introduction** (`src/videos/intro.{webm,mp4}`, 10 Mo) : encodages
+  faits à la main, gardés tels quels. `@kirigami/plugin-clip` vise un lecteur
+  vidéo, pas une boucle d'arrière-plan muette. Les sources et les autres
+  encodages (58 Mo, ancien `assets/videos/`) ont été **sortis du dépôt** le
+  2026-10-02 : Kiri Studio télécharge le dépôt (97 → 39 Mo), et rien ne s'en
+  servait. Ils restent dans l'historique git (`git show e6aae70:assets/videos/…`).
 - **Style de la carte** : `_mapstyle/` génère `carte-style-mei.json`, qui
   est collé à la main dans la console Google Cloud (Map ID). Aucun
   changement.

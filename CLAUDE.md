@@ -63,7 +63,7 @@ Gardé court exprès : le détail vit dans `docs/`.
 │   │   ├── galeries/<dossier>/   # une galerie = un dossier
 │   │   ├── equipe/  medias/  comites/instagram/   # ces deux derniers : générés (commités)
 │   ├── schemas/             # JSON Schemas des YAML (Studio et VS Code)
-│   └── fonts/  videos/  cartes/
+│   └── fonts/  cartes/
 ├── scripts/
 │   ├── preparer-comites.php # géocodage + logos Instagram, avant le build
 │   └── preparer-medias.php  # vignette (og:image) de chaque nouvel article
